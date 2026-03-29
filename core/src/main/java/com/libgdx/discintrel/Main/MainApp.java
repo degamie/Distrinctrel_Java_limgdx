@@ -1,52 +1,35 @@
-//////WID(17/3/2026)(Sarthak Mittal)(DegamieSign)#1
-//package com.libgdx.discintrel.Main;
-////import Controller.DistrinctrelController;
-//import Service.DistrinctrelService;
-//import entity.DisitrinctEntity;
-//import javafx.application.Application;
-//import javafx.stage.Stage;
-//
-////import javafx.application.Application;
-////import Service.DisitrinctService;
-////import javafx.stage.Stage;
-//public class MainApp extends Application {
-//    public  static Stage stage;
-//    public static DisitrinctEntity entity=null;
-////     public static DistrinctrelController controller=null;
-//public DistrinctrelService distrinctrelService;
-//    @Override
-//    public void start(Stage stage) throws Exception {
-//
-//        distrinctrelService.start(stage);
-//    }
-//}
-////        DistrinctrelController.class(stage);
-//
-////public class MainApp extends Application {
-////    @Override
-////    public void start(Stage primaryStage) throws Exception {
-////        disitrinctService.start(primaryStage);
-////    }
-////
-////    public DisitrinctService disitrinctService;
-////    public static void main(Stage primaryStage,String[] args) {
-////        Application.launch(MainApp.class, args); // Explicitly tell it which class to run
-////    }
-//
-//////import javafx.animation.AnimationTimer;
-////
-//////import javafx.scene.Scene;
-//////import javafx.scene.input.KeyCode;
-//////import javafx.scene.layout.Pane;
-//////import javafx.scene.paint.Color;
-//////import javafx.scene.shape.Rectangle;
-//////import javafx.scene.text.Text;
-////
-//////
-//////import java.util.HashSet;
-//////import java.util.Set;
-//////
-//////import static javafx.application.Application.launch;
-////
-////
-////
+package com.libgdx.discintrel.Main;
+
+import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.utils.ScreenUtils;
+import com.libgdx.discintrel.Controller.DistrinctrelController;
+//import com.libgdx.discintrel.Controller.DistrinctrelController;
+
+/** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
+public class MainApp extends ApplicationAdapter {
+    public DistrinctrelController controller;
+    private SpriteBatch batch;
+    private Texture image;
+
+    @Override
+    public void create() {
+        batch = new SpriteBatch();
+        image = new Texture("libgdx.jpeg");
+    }
+
+    @Override
+    public void render() {
+        ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
+        batch.begin();
+        batch.draw(image, 140, 210);
+        batch.end();
+    }
+
+    @Override
+    public void dispose() {
+        batch.dispose();
+        image.dispose();
+    }
+}

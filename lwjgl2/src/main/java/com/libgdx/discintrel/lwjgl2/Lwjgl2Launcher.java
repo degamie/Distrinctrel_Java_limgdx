@@ -3,7 +3,7 @@ package com.libgdx.discintrel.lwjgl2;
 import com.badlogic.gdx.Files.FileType;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import com.libgdx.discintrel.MainApp;
+//import com.libgdx.discintrel.Main.MainApp;
 
 /** Launches the desktop (LWJGL2) application. */
 public class Lwjgl2Launcher {

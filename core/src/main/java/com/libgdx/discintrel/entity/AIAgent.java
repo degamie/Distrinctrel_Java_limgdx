@@ -1,7 +1,12 @@
-//Perceptron(AI(Agent)) entity Declare (21/03/2026)(GD)(Sarthak Mittal)#1.1.1,.1.1.1
+//Perceptron(AI(Agent)) entity Declare (28/03/2026)(GD)(Sarthak Mittal)#1.1.1,.1.1.1,1.1
 package com.libgdx.discintrel.entity;
 
+import com.libgdx.discintrel.Service.DescintrelService;
+
 public class AIAgent {
+    AIAgent aiAgent;
+    public DescintrelService service;
+    public void setAiAgent(AIAgent aiAgent){this.aiAgent=aiAgent;}//binding AiAgent in App
     public AIAgent getaiAgent(AIAgent aiAgent){return aiAgent;}//Fetching AiAgent in App
     public void setainame(String ainame){this.ainame=ainame;}
     public void setAiperceptron(String aiperceptron){this.aiperceptron=aiperceptron;}

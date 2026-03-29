@@ -1,9 +1,11 @@
+//WID(27/03/2026)(Sarthak Mittal)#1
 package com.libgdx.discintrel.gwt;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.backends.gwt.GwtApplication;
 import com.badlogic.gdx.backends.gwt.GwtApplicationConfiguration;
-import com.libgdx.discintrel.MainApp;
+import com.libgdx.discintrel.Controller.DistrinctrelController;
+import com.libgdx.discintrel.Main.MainApp;
 
 /** Launches the GWT application. */
 public class GwtLauncher extends GwtApplication {
@@ -20,6 +22,7 @@ public class GwtLauncher extends GwtApplication {
         }
         @Override
         public ApplicationListener createApplicationListener () {
+            DistrinctrelController distrinctrelController=new DistrinctrelController();
             return new MainApp();
         }
 }

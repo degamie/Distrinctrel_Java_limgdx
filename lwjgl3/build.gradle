@@ -54,14 +54,25 @@ dependencies {
 }
 
 def os = System.properties['os.name'].toLowerCase(Locale.ROOT)
-
 run {
   workingDir = rootProject.file('assets').path
-// You can uncomment the next line if your IDE claims a build failure even when the app closed properly.
-  //setIgnoreExitValue(true)
-  jvmArgs += "--enable-native-access=ALL-UNNAMED"
-  if (os.contains('mac')) jvmArgs += "-XstartOnFirstThread"
+  ignoreExitValue = true
+  standardInput = System.in
+//  workingDir = project.assets
+  // Add these lines below
+  jvmArgs = [
+    "-Dfile.encoding=UTF-8",
+    "--add-opens", "java.base/java.lang=ALL-UNNAMED",
+    "--add-opens", "java.base/java.nio=ALL-UNNAMED"
+  ]
 }
+//run {
+//  workingDir = rootProject.file('assets').path
+//// You can uncomment the next line if your IDE claims a build failure even when the app closed properly.
+//  //setIgnoreExitValue(true)
+//  jvmArgs += "--enable-native-access=ALL-UNNAMED"
+//  if (os.contains('mac')) jvmArgs += "-XstartOnFirstThread"
+//}
 
 jar {
 // sets the name of the .jar file this produces to the name of the game or app, with the version after.

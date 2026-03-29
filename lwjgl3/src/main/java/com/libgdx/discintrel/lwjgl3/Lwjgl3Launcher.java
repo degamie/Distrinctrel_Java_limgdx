@@ -1,18 +1,27 @@
+//WID(28/03/2026)Sarthak Mittal((DegamieSign))#1.1
 package com.libgdx.discintrel.lwjgl3;
 
+import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
-import com.libgdx.discintrel.MainApp;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.libgdx.discintrel.Controller.DistrinctrelController;
+import com.libgdx.discintrel.Main.MainApp;
 
 /** Launches the desktop (LWJGL3) application. */
-public class Lwjgl3Launcher {
+//public class Lwjgl3Launcher extends DistrinctrelController{
+public class Lwjgl3Launcher extends ApplicationAdapter{
+    public Stage stage;
+  public static DistrinctrelController controller;
     public static void main(String[] args) {
         if (StartupHelper.startNewJvmIfRequired()) return; // This handles macOS support and helps on Windows.
         createApplication();
     }
 
-    private static Lwjgl3Application createApplication() {
-        return new Lwjgl3Application(new MainApp(), getDefaultConfiguration());
+    public static Lwjgl3Application createApplication() {
+      controller.start(new Stage());
+        return new Lwjgl3Application((ApplicationListener) controller, getDefaultConfiguration());
     }
 
     private static Lwjgl3ApplicationConfiguration getDefaultConfiguration() {
@@ -30,8 +39,9 @@ public class Lwjgl3Launcher {
 
         configuration.setWindowedMode(640, 480);
         //// You can change these files; they are in lwjgl3/src/main/resources/ .
-        //// They can also be loaded from the root of assets/ .
-        configuration.setWindowIcon("libgdx128.png", "libgdx64.png", "libgdx32.png", "libgdx16.png");
+        //// They can also be loaded from the root of assets/
+        configuration.setWindowIcon("libgdx128.jpeg", "libgdx64.jpeg", "libgdx32.jpeg", "libgdx16.jpeg");
+        //configuration.setWindowIcon("libgdx128.jpeg", "libgdx64.jpeg", "libgdx32.jpeg", "libgdx16.jpeg");
 
         //// This could improve compatibility with Windows machines with buggy OpenGL drivers, Macs
         //// with Apple Silicon that have to emulate compatibility with OpenGL anyway, and more.

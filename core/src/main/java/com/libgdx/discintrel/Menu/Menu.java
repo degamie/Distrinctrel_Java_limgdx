@@ -1,6 +1,7 @@
-//WID(21/3/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1
+//WID(27/3/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1.1
 package com.libgdx.discintrel.Menu;
 public class Menu {
+   // public void updateByMainMenu(Menu mainMenu){getMainMenu(mainMenu)+setMainMenu(mainMenu)+1;}
     public Menu getMainMenu(Menu mainMenu){return  mainMenu;}//Fetching MainMenu in APp
     public void setMainMenu(Menu mainMenu){this.MainMenu=MainMenu;}
     public Menu MainMenu;

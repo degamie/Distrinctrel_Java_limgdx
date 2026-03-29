@@ -1,3 +1,163 @@
+package com.libgdx.discintrel.Service;
+
+import com.badlogic.gdx.Application;
+import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.ApplicationListener;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.PerspectiveCamera;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Vector3;
+
+// Ensure you have the gdx-gltf library in your build.gradle
+import net.mgsx.gltf.loaders.glb.GLBLoader;
+import net.mgsx.gltf.scene3d.scene.Scene;
+import net.mgsx.gltf.scene3d.scene.SceneAsset;
+import net.mgsx.gltf.scene3d.scene.SceneManager;
+import net.mgsx.gltf.scene3d.lights.DirectionalLightEx;
+import net.mgsx.gltf.scene3d.utils.IBLBuilder;
+
+public class DescintrelService implements ApplicationListener {
+    private SceneManager sceneManager;
+    private SceneAsset squirrelAsset, nutAsset;
+    private Scene squirrelScene, nutScene;
+    private PerspectiveCamera camera;
+
+    private float speed = 5.0f;
+    private int score = 0;
+    private int level = 1;
+    private boolean finishLineVisible = false;
+
+    private SpriteBatch uiBatch;
+    private BitmapFont font;
+
+    @Override
+    public void create() {
+        // Initialize SceneManager first!
+        sceneManager = new SceneManager();
+        uiBatch = new SpriteBatch();
+        font = new BitmapFont();
+        font.setColor(Color.WHITE);
+
+        // 1. Setup Camera
+        camera = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        camera.position.set(0, 10f, 20f);
+        camera.lookAt(0, 0, 0);
+        camera.near = 1f;
+        camera.far = 100f;
+        sceneManager.setCamera(camera);
+
+        // 2. Load mdl
+        squirrelAsset = new GLBLoader().load(Gdx.files.internal("mdl/Squirel.glb"));
+        squirrelScene = new Scene(squirrelAsset.scene);
+
+        nutAsset = new GLBLoader().load(Gdx.files.internal("mdl/nut.glb"));
+        nutScene = new Scene(nutAsset.scene);
+
+        sceneManager.addScene(squirrelScene);
+        sceneManager.addScene(nutScene);
+
+        // 3. Lighting (DirectionalLightEx requires normalization)
+        DirectionalLightEx light = new DirectionalLightEx();
+        light.direction.set(1, -3, 1).nor();
+        light.color.set(Color.WHITE);
+        sceneManager.environment.add(light);
+
+        // Optional: Add basic Image Based Lighting (IBL) so mdl aren't black
+        IBLBuilder iblBuilder = IBLBuilder.createOutdoor(light);
+        sceneManager.setAmbientLight(0.5f);
+
+        resetNut();
+    }
+
+    @Override
+    public void render() {
+        float delta = Gdx.graphics.getDeltaTime();
+        updateLogic(delta);
+
+        // Render 3D Scene
+        Gdx.gl.glClearColor(0.2f, 0.2f, 0.2f, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
+
+        sceneManager.update(delta);
+        sceneManager.render();
+
+        // Render 2D UI
+        uiBatch.begin();
+        font.draw(uiBatch, "Score: " + score + " | Speed: " + (int)speed + " | Level: " + level, 20, Gdx.graphics.getHeight() - 20);
+        if (finishLineVisible) font.draw(uiBatch, "GO TO FINISH LINE (X > 15)!", 300, 300);
+        uiBatch.end();
+    }
+
+    public void updateLogic(float delta) {
+        // Use modelInstance.transform.translate for world-space movement
+        if (Gdx.input.isKeyPressed(Keys.UP)) squirrelScene.modelInstance.transform.trn(0, 0, -speed * delta);
+        if (Gdx.input.isKeyPressed(Keys.DOWN)) squirrelScene.modelInstance.transform.trn(0, 0, speed * delta);
+        if (Gdx.input.isKeyPressed(Keys.LEFT)) squirrelScene.modelInstance.transform.trn(-speed * delta, 0, 0);
+        if (Gdx.input.isKeyPressed(Keys.RIGHT)) squirrelScene.modelInstance.transform.trn(speed * delta, 0, 0);
+
+        Vector3 squirrelPos = new Vector3();
+        Vector3 nutPos = new Vector3();
+        squirrelScene.modelInstance.transform.getTranslation(squirrelPos);
+        nutScene.modelInstance.transform.getTranslation(nutPos);
+
+        // Collision logic
+        if (!finishLineVisible && squirrelPos.dst(nutPos) < 1.5f) {
+            score++;
+            speed += 0.5f;
+            if (score >= 5) {
+                finishLineVisible = true;
+                nutScene.modelInstance.transform.setTranslation(-100, 0, 0);
+            } else {
+                resetNut();
+            }
+        }
+
+        if (finishLineVisible && squirrelPos.x > 15) {
+            nextLevel();
+        }
+    }
+
+    private void resetNut() {
+        nutScene.modelInstance.transform.setTranslation(
+            MathUtils.random(-10, 10), 0, MathUtils.random(-10, 10)
+        );
+    }
+
+    public void nextLevel() {
+        level++;
+        score = 0;
+        speed += 1.0f;
+        finishLineVisible = false;
+        squirrelScene.modelInstance.transform.setTranslation(0,0,0);
+        resetNut();
+    }
+
+    @Override
+    public void dispose() {
+        sceneManager.dispose();
+        squirrelAsset.dispose();
+        nutAsset.dispose();
+        uiBatch.dispose();
+        font.dispose();
+    }
+
+    @Override
+    public void resize(int width, int height) {
+    }
+
+    @Override
+    public void pause() {
+    }
+
+    @Override
+    public void resume() {
+    }
+}
 //package com.libgdx.discintrel.Service;
 //
 //import com.badlogic.gdx.ApplicationAdapter;
@@ -10,13 +170,7 @@
 //import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 //import com.badlogic.gdx.math.MathUtils;
 //import com.badlogic.gdx.math.Vector3;
-////import net.mgsx.gltf.loaders.glb.GLBLoader;
-////import net.mgsx.gltf.scene3d.scene.Scene;
-////import net.mgsx.gltf.scene3d.scene.SceneAsset;
-////import net.mgsx.gltf.scene3d.scene.SceneManager;
-////import net.mgsx.gltf.scene3d.lights.DirectionalLightEx;
-//
-//public class SquirrelGame extends ApplicationAdapter {
+//public class DescintrelService extends ApplicationAdapter {
 //    private SceneManager sceneManager;
 //    private SceneAsset squirrelAsset, nutAsset;
 //    private Scene squirrelScene, nutScene;
@@ -34,7 +188,7 @@
 //
 //    @Override
 //    public void create() {
-//        sceneManager = new SceneManager();
+////        sceneManager = new SceneManager();
 //        uiBatch = new SpriteBatch();
 //        font = new BitmapFont();
 //        font.setColor(Color.WHITE);
@@ -46,11 +200,11 @@
 //        camera.near = 1f;
 //        camera.far = 100f;
 //
-//        // 2. Load Models (Using GLB for 2026 standards)
-//        squirrelAsset = new GLBLoader().load(Gdx.files.internal("models/Squirel.glb"));
+//        // 2. Load mdl (Using GLB for 2026 standards)
+//        squirrelAsset = new GLBLoader().load(Gdx.files.internal("mdl/Squirel.glb"));
 //        squirrelScene = new Scene(squirrelAsset.scene);
 //
-//        nutAsset = new GLBLoader().load(Gdx.files.internal("models/nut.glb"));
+//        nutAsset = new GLBLoader().load(Gdx.files.internal("mdl/nut.glb"));
 //        nutScene = new Scene(nutAsset.scene);
 //
 //        sceneManager.addScene(squirrelScene);
