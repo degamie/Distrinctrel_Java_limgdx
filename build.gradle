@@ -62,6 +62,8 @@ allprojects {
       maven { url = 'https://central.sonatype.com/repository/maven-snapshots/' }
       maven { url = 'https://jitpack.io' }
       maven { url = 'https://teavm.org/maven/repository/' }
+      maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+      maven { url "https://oss.sonatype.org/content/repositories/releases/" }
     }
   }
 
@@ -72,6 +74,8 @@ allprojects {
       api "com.badlogicgames.gdx:gdx:$gdxVersion"
       // gdx-gltf library for 3D GLB support
       api "com.github.mgsx-dev.gdx-gltf:gltf:$gltfVersion"
+//      classpath "com.badlogicgames.gdx:gdx-ai:1.8.1"
+//      compile "com.badlogicgames.gdx:gdx-ai:1.8.1"
 //    api "com.github.mgsx-dev.gdx-gltf:gltf:$gltfVersion"
     }
   }

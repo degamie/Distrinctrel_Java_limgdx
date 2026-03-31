@@ -1,3 +1,4 @@
+//WID(31/03/2026)(Sarthak Mittal)#1
 package com.libgdx.discintrel.Main;
 import com.badlogic.gdx.ApplicationAdapter;
 
@@ -21,6 +22,7 @@ import net.mgsx.gltf.scene3d.scene.SceneManager;
 import net.mgsx.gltf.scene3d.utils.IBLBuilder;
 //
 public class MainApp extends ApplicationAdapter {// 2D Core
+    public Texture backgroundTexture;
     public SpriteBatch batch;
     public OrthographicCamera camera;
 
@@ -35,9 +37,14 @@ public class MainApp extends ApplicationAdapter {// 2D Core
     public boolean finishLineVisible = false;
 
     public BitmapFont font;
+//    public SpriteBatch batch;
+
 
     @Override
     public void create() {
+        batch = new SpriteBatch();
+        // Ensure your image is in the 'assets' folder
+        backgroundTexture = new Texture("2d_img/distrinctrel_background.jpeg");
         batch = new SpriteBatch();
         font = new BitmapFont();
         font.setColor(Color.WHITE);
@@ -66,7 +73,14 @@ public class MainApp extends ApplicationAdapter {// 2D Core
     public void render() {
         float delta = Gdx.graphics.getDeltaTime();
         updateLogic(delta);
+        Gdx.gl.glClearColor(0, 0, 0, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
+        // 2. Draw the background
+        batch.begin();
+        // Drawing from (0,0) and stretching to fill the screen width/height
+        batch.draw(backgroundTexture, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        batch.end();
         // Clean background (No depth buffer needed for 2D, but it doesn't hurt)
         Gdx.gl.glClearColor(0.15f, 0.15f, 0.2f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);

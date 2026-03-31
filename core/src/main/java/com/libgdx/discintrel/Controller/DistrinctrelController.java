@@ -14,7 +14,8 @@ import com.libgdx.discintrel.Service.DescintrelService;
 //import javafx.application.Application;
 //import javafx.stage.Stage;
 //
-public class DistrinctrelController  extends ApplicationAdapter {
+//public class DistrinctrelController  extends ApplicationAdapter {
+public class DistrinctrelController  extends DescintrelService {
     public float delta=0;
     public Stage stage = null;
     public DescintrelService distrinctrelService;

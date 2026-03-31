@@ -14,9 +14,10 @@ public class Lwjgl2Launcher {
         createApplication();
     }
     public static LwjglApplication createApplication() {
-//        return new LwjglApplication(new DistrinctrelController(), getDefaultConfiguration());
-          return new LwjglApplication(new MainApp(), getDefaultConfiguration());
+        return new LwjglApplication(new DistrinctrelController(), getDefaultConfiguration());
     }
+//          return new LwjglApplication(new MainApp(), getDefaultConfiguration());
+
 
 //    private static LwjglApplication createApplication() {
 //        return new LwjglApplication(new MainApp(), getDefaultConfiguration());
