@@ -5,6 +5,7 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
+import com.badlogic.gdx.graphics.glutils.HdpiMode;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.libgdx.discintrel.Controller.DistrinctrelController;
 import com.libgdx.discintrel.Main.MainApp;
@@ -27,6 +28,8 @@ public class Lwjgl3Launcher extends ApplicationAdapter{
     private static Lwjgl3ApplicationConfiguration getDefaultConfiguration() {
         Lwjgl3ApplicationConfiguration configuration = new Lwjgl3ApplicationConfiguration();
         configuration.setTitle("Discintrel");
+        configuration.setHdpiMode(HdpiMode.Pixels);
+//        configuration.setFromDisplayMode(HpiMode.Active);
         //// Vsync limits the frames per second to what your hardware can display, and helps eliminate
         //// screen tearing. This setting doesn't always work on Linux, so the line after is a safeguard.
         configuration.useVsync(true);

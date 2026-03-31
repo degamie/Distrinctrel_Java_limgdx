@@ -2,6 +2,7 @@
 package com.libgdx.discintrel.Controller;
 
 import com.badlogic.gdx.Application;
+import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.libgdx.discintrel.Service.DescintrelService;
 //import com.libgdx.discintrel.Service.DescintrelService;
@@ -13,7 +14,7 @@ import com.libgdx.discintrel.Service.DescintrelService;
 //import javafx.application.Application;
 //import javafx.stage.Stage;
 //
-public class DistrinctrelController {
+public class DistrinctrelController  extends ApplicationAdapter {
     public float delta=0;
     public Stage stage = null;
     public DescintrelService distrinctrelService;

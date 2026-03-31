@@ -7,6 +7,7 @@ buildscript {
   dependencies {
     classpath "org.docstr.gwt:org.docstr.gwt.gradle.plugin:$gwtPluginVersion"
 
+
   }
 }
 apply plugin: "org.docstr.gwt"
@@ -50,102 +51,107 @@ gwt {
     modules = ["com.libgdx.discintrel.GdxDefinitionSuperdev"]
   }
 }
-
-dependencies {
-  implementation "com.badlogicgames.ashley:ashley:$ashleyVersion:sources"
-  implementation "com.badlogicgames.box2dlights:box2dlights:$box2dlightsVersion:sources"
-  implementation "com.badlogicgames.gdx-controllers:gdx-controllers-core:$gdxControllersVersion:sources"
-  implementation "com.badlogicgames.gdx:gdx-ai:$aiVersion:sources"
-  implementation "com.badlogicgames.gdx:gdx-backend-gwt:$gdxVersion"
-  implementation "com.badlogicgames.gdx:gdx-backend-gwt:$gdxVersion:sources"
-  implementation "com.badlogicgames.gdx:gdx-box2d:$gdxVersion:sources"
-  implementation "com.badlogicgames.gdx:gdx:$gdxVersion:sources"
-  implementation "com.google.jsinterop:jsinterop-annotations:2.1.0:sources"
-  implementation project(':core')
-  implementation("com.badlogicgames.gdx-controllers:gdx-controllers-gwt:$gdxControllersVersion:sources"){exclude group: "com.badlogicgames.gdx", module: "gdx-backend-gwt"}
-  implementation("com.badlogicgames.gdx:gdx-box2d-gwt:$gdxVersion:sources") {exclude group: "com.google.gwt", module: "gwt-user"}
-
-  constraints {
-    implementation "jakarta.servlet:jakarta.servlet-api:6.1.0"
+project(":html") {
+//  apply plugin: "gwt"
+  apply plugin: "war"
+  dependencies {
+    implementation "com.badlogicgames.ashley:ashley:$ashleyVersion:sources"
+    implementation "com.badlogicgames.box2dlights:box2dlights:$box2dlightsVersion:sources"
+    implementation "com.badlogicgames.gdx-controllers:gdx-controllers-core:$gdxControllersVersion:sources"
+    implementation "com.badlogicgames.gdx:gdx-ai:$aiVersion:sources"
+    implementation "com.badlogicgames.gdx:gdx-backend-gwt:$gdxVersion"
+    implementation "com.badlogicgames.gdx:gdx-backend-gwt:$gdxVersion:sources"
+    implementation "com.badlogicgames.gdx:gdx-box2d:$gdxVersion:sources"
+    implementation "com.badlogicgames.gdx:gdx:$gdxVersion:sources"
+    implementation "com.google.jsinterop:jsinterop-annotations:2.1.0:sources"
+    implementation project(':core')
+    implementation("com.badlogicgames.gdx-controllers:gdx-controllers-gwt:$gdxControllersVersion:sources") { exclude group: "com.badlogicgames.gdx", module: "gdx-backend-gwt" }
+    implementation("com.badlogicgames.gdx:gdx-box2d-gwt:$gdxVersion:sources") { exclude group: "com.google.gwt", module: "gwt-user" }
+// FIX: Use implementation for the sources
+    implementation "com.github.mgsx-dev.gdx-gltf:gltf:$gltfVersion:sources"
+//    api "com.github.mgsx-dev.gdx-gltf:gltf:$gltfVersion:sources"
+    constraints {
+      implementation "jakarta.servlet:jakarta.servlet-api:6.1.0"
+    }
   }
-}
 
 //// We delete the (temporary) war/ folder because if any extra files get into it, problems occur.
 //// The war/ folder shouldn't be committed to version control.
-clean.delete += [file("war")]
+  clean.delete += [file("war")]
 
 //// The compileJava task is run at the start of any GWT build; we need to clean the output directory BEFORE
 //// anything can be built into that output directory, so the rest of the build can use it.
-tasks.named("compileJava").get().dependsOn("clean")
+  tasks.named("compileJava").get().dependsOn("clean")
 
 //// You should always use the dist task (which could be folded into the "other" group), not the build task.
-tasks.register('dist') {
-  //// This can't depend on the "clean" task because that would remove things it needs.
-  //// You may want to run "gradlew html:clean" before builds if you encounter leftovers from previous runs.
-  dependsOn(["build"])
-  doLast {
-    // Uncomment the next line if you have changed outputPath and know that its contents
-    // should be replaced by a new dist build. Some large JS files are not cleaned up by
-    // default unless the outputPath is inside build/ (then the clean task removes them).
-    // Do not uncomment the next line if you changed outputPath to a folder that has
-    // any files that you want to keep!
-    //delete(file(outputPath))
+  tasks.register('dist') {
+    //// This can't depend on the "clean" task because that would remove things it needs.
+    //// You may want to run "gradlew html:clean" before builds if you encounter leftovers from previous runs.
+    dependsOn(["build"])
+    doLast {
+      // Uncomment the next line if you have changed outputPath and know that its contents
+      // should be replaced by a new dist build. Some large JS files are not cleaned up by
+      // default unless the outputPath is inside build/ (then the clean task removes them).
+      // Do not uncomment the next line if you changed outputPath to a folder that has
+      // any files that you want to keep!
+      //delete(file(outputPath))
 
-    file(outputPath).mkdirs()
-    copy {
-      from("build/gwt/out") {
-        exclude '**/*.symbolMap' // Not used by a dist, and these can be large.
+      file(outputPath).mkdirs()
+      copy {
+        from("build/gwt/out") {
+          exclude '**/*.symbolMap' // Not used by a dist, and these can be large.
+        }
+        into outputPath
       }
-      into outputPath
-    }
-    copy {
-      from("webapp") {
-        exclude 'index.html' // We edit this HTML file later.
-        exclude 'refresh.png' // We don't need this button; this saves some bytes.
+      copy {
+        from("webapp") {
+          exclude 'index.html' // We edit this HTML file later.
+          exclude 'refresh.png' // We don't need this button; this saves some bytes.
+        }
+        into outputPath
       }
-      into outputPath
-    }
-    copy {
-      from("webapp") {
-        // These next two lines take the index.html page and remove the superdev refresh button.
-        include 'index.html'
-        filter { String line -> line.replaceAll('<a class="superdev" .+', '') }
-        // This does not modify the original index.html, only the copy in the dist.
-        // If you decide to manually remove or comment out the superdev button from index.html, you should also
-        // either remove or comment out only the "filter" line above this.
+      copy {
+        from("webapp") {
+          // These next two lines take the index.html page and remove the superdev refresh button.
+          include 'index.html'
+          filter { String line -> line.replaceAll('<a class="superdev" .+', '') }
+          // This does not modify the original index.html, only the copy in the dist.
+          // If you decide to manually remove or comment out the superdev button from index.html, you should also
+          // either remove or comment out only the "filter" line above this.
+        }
+        into outputPath
       }
-      into outputPath
-    }
-    copy {
-      from "war"
-      into outputPath
+      copy {
+        from "war"
+        into outputPath
+      }
     }
   }
-}
 
-tasks.register("distZip", Zip) {
-  dependsOn("dist")
-  //// This uses the output of the dist task, which removes the superdev button from index.html .
-  from(outputPath)
-  archiveVersion = projectVersion
-  archiveBaseName.set("${appName}-dist")
-  //// The result will be in html/build/ with a name containing "-dist".
-  destinationDirectory.set(file("build"))
-}
+  tasks.register("distZip", Zip) {
+    dependsOn("dist")
+    //// This uses the output of the dist task, which removes the superdev button from index.html .
+    from(outputPath)
+    archiveVersion = projectVersion
+    archiveBaseName.set("${appName}-dist")
+    //// The result will be in html/build/ with a name containing "-dist".
+    destinationDirectory.set(file("build"))
+  }
 
 //// The superDev task, which may be grouped under "gwt", allows updating your sources in your editor and
 //// seeing your changes as soon as you refresh in the browser. In the current form of development mode,
 //// this depends on dist, which may change in the future, and also pops up a Swing form (by GWT itself)
 //// to handle serving the local files and updating when you save changes in your editor.
-tasks.register('superDev') {
-  dependsOn("dist", "gwtDevMode")
-  group("gwt")
+  tasks.register('superDev') {
+    dependsOn("dist", "gwtDevMode")
+    group("gwt")
+  }
+
+  tasks.compileJava.dependsOn("processResources")
+
+  java.sourceCompatibility = JavaVersion.VERSION_11
+  java.targetCompatibility = JavaVersion.VERSION_11
+  sourceSets.main.java.srcDirs = ["src/main/java/"]
+
+  eclipse.project.name = appName + "-html"
 }
-
-tasks.compileJava.dependsOn("processResources")
-
-java.sourceCompatibility = JavaVersion.VERSION_11
-java.targetCompatibility = JavaVersion.VERSION_11
-sourceSets.main.java.srcDirs = [ "src/main/java/" ]
-
-eclipse.project.name = appName + "-html"

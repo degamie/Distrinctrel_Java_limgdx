@@ -1,75 +1,57 @@
 package com.libgdx.discintrel.Service;
 
-import com.badlogic.gdx.Application;
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.PerspectiveCamera;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Vector3;
-
-// Ensure you have the gdx-gltf library in your build.gradle
-import net.mgsx.gltf.loaders.glb.GLBLoader;
-import net.mgsx.gltf.scene3d.scene.Scene;
-import net.mgsx.gltf.scene3d.scene.SceneAsset;
-import net.mgsx.gltf.scene3d.scene.SceneManager;
-import net.mgsx.gltf.scene3d.lights.DirectionalLightEx;
-import net.mgsx.gltf.scene3d.utils.IBLBuilder;
+import com.badlogic.gdx.math.Vector2;
 
 public class DescintrelService implements ApplicationListener {
-    private SceneManager sceneManager;
-    private SceneAsset squirrelAsset, nutAsset;
-    private Scene squirrelScene, nutScene;
-    private PerspectiveCamera camera;
+    // 2D Core
+    public SpriteBatch batch;
+    public OrthographicCamera camera;
 
-    private float speed = 5.0f;
-    private int score = 0;
-    private int level = 1;
-    private boolean finishLineVisible = false;
+    // Sprites & Textures
+    public Texture squirrelTexture, nutTexture;
+    public Sprite squirrelSprite, nutSprite;
 
-    private SpriteBatch uiBatch;
-    private BitmapFont font;
+    // Game Logic
+    public float speed = 300.0f; // Pixels per second
+    public int score = 0;
+    public int level = 1;
+    public boolean finishLineVisible = false;
+
+    public BitmapFont font;
 
     @Override
     public void create() {
-        // Initialize SceneManager first!
-        sceneManager = new SceneManager();
-        uiBatch = new SpriteBatch();
+        batch = new SpriteBatch();
         font = new BitmapFont();
         font.setColor(Color.WHITE);
 
-        // 1. Setup Camera
-        camera = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        camera.position.set(0, 10f, 20f);
-        camera.lookAt(0, 0, 0);
-        camera.near = 1f;
-        camera.far = 100f;
-        sceneManager.setCamera(camera);
+        // 1. Setup 2D Orthographic Camera
+        float w = Gdx.graphics.getWidth();
+        float h = Gdx.graphics.getHeight();
+        camera = new OrthographicCamera();
+        camera.setToOrtho(false, w, h); // false = y-up (0,0 is bottom left)
 
-        // 2. Load mdl
-        squirrelAsset = new GLBLoader().load(Gdx.files.internal("mdl/Squirel.glb"));
-        squirrelScene = new Scene(squirrelAsset.scene);
+        // 2. Load 2D Assets (Ensure these exist in your assets folder)
+        squirrelTexture = new Texture(Gdx.files.internal("sprites/squirrel.png"));
+        nutTexture = new Texture(Gdx.files.internal("sprites/nut.png"));
 
-        nutAsset = new GLBLoader().load(Gdx.files.internal("mdl/nut.glb"));
-        nutScene = new Scene(nutAsset.scene);
+        squirrelSprite = new Sprite(squirrelTexture);
+        nutSprite = new Sprite(nutTexture);
 
-        sceneManager.addScene(squirrelScene);
-        sceneManager.addScene(nutScene);
-
-        // 3. Lighting (DirectionalLightEx requires normalization)
-        DirectionalLightEx light = new DirectionalLightEx();
-        light.direction.set(1, -3, 1).nor();
-        light.color.set(Color.WHITE);
-        sceneManager.environment.add(light);
-
-        // Optional: Add basic Image Based Lighting (IBL) so mdl aren't black
-        IBLBuilder iblBuilder = IBLBuilder.createOutdoor(light);
-        sceneManager.setAmbientLight(0.5f);
+        // Scale sprites if they are too large/small
+        squirrelSprite.setSize(64, 64);
+        nutSprite.setSize(32, 32);
 
         resetNut();
     }
@@ -79,88 +61,95 @@ public class DescintrelService implements ApplicationListener {
         float delta = Gdx.graphics.getDeltaTime();
         updateLogic(delta);
 
-        // Render 3D Scene
-        Gdx.gl.glClearColor(0.2f, 0.2f, 0.2f, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
+        // Clean background (No depth buffer needed for 2D, but it doesn't hurt)
+        Gdx.gl.glClearColor(0.15f, 0.15f, 0.2f, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        sceneManager.update(delta);
-        sceneManager.render();
+        camera.update();
+        batch.setProjectionMatrix(camera.combined);
 
-        // Render 2D UI
-        uiBatch.begin();
-        font.draw(uiBatch, "Score: " + score + " | Speed: " + (int)speed + " | Level: " + level, 20, Gdx.graphics.getHeight() - 20);
-        if (finishLineVisible) font.draw(uiBatch, "GO TO FINISH LINE (X > 15)!", 300, 300);
-        uiBatch.end();
+        batch.begin();
+
+        // Draw Sprites
+        nutSprite.draw(batch);
+        squirrelSprite.draw(batch);
+
+        // Draw UI
+        font.draw(batch, "Score: " + score + " | Level: " + level, 20, Gdx.graphics.getHeight() - 20);
+        if (finishLineVisible) font.draw(batch, "RUN TO THE RIGHT EDGE!", 200, Gdx.graphics.getHeight() / 2);
+
+        batch.end();
     }
 
     public void updateLogic(float delta) {
-        // Use modelInstance.transform.translate for world-space movement
-        if (Gdx.input.isKeyPressed(Keys.UP)) squirrelScene.modelInstance.transform.trn(0, 0, -speed * delta);
-        if (Gdx.input.isKeyPressed(Keys.DOWN)) squirrelScene.modelInstance.transform.trn(0, 0, speed * delta);
-        if (Gdx.input.isKeyPressed(Keys.LEFT)) squirrelScene.modelInstance.transform.trn(-speed * delta, 0, 0);
-        if (Gdx.input.isKeyPressed(Keys.RIGHT)) squirrelScene.modelInstance.transform.trn(speed * delta, 0, 0);
+        // 2D Movement (X and Y instead of X and Z)
+        if (Gdx.input.isKeyPressed(Keys.UP)) squirrelSprite.translateY(speed * delta);
+        if (Gdx.input.isKeyPressed(Keys.DOWN)) squirrelSprite.translateY(-speed * delta);
+        if (Gdx.input.isKeyPressed(Keys.LEFT)) squirrelSprite.translateX(-speed * delta);
+        if (Gdx.input.isKeyPressed(Keys.RIGHT)) squirrelSprite.translateX(speed * delta);
 
-        Vector3 squirrelPos = new Vector3();
-        Vector3 nutPos = new Vector3();
-        squirrelScene.modelInstance.transform.getTranslation(squirrelPos);
-        nutScene.modelInstance.transform.getTranslation(nutPos);
+        // Simple Circle-based Collision using Centers
+        Vector2 squirrelCenter = new Vector2(
+            squirrelSprite.getX() + squirrelSprite.getWidth()/2,
+            squirrelSprite.getY() + squirrelSprite.getHeight()/2
+        );
+        Vector2 nutCenter = new Vector2(
+            nutSprite.getX() + nutSprite.getWidth()/2,
+            nutSprite.getY() + nutSprite.getHeight()/2
+        );
 
-        // Collision logic
-        if (!finishLineVisible && squirrelPos.dst(nutPos) < 1.5f) {
+        if (!finishLineVisible && squirrelCenter.dst(nutCenter) < 40f) {
             score++;
-            speed += 0.5f;
+            speed += 20f;
             if (score >= 5) {
                 finishLineVisible = true;
-                nutScene.modelInstance.transform.setTranslation(-100, 0, 0);
+                nutSprite.setPosition(-1000, -1000); // Move nut off-screen
             } else {
                 resetNut();
             }
         }
 
-        if (finishLineVisible && squirrelPos.x > 15) {
+        // Finish line logic: Check if squirrel hit the right edge of screen
+        if (finishLineVisible && squirrelSprite.getX() > Gdx.graphics.getWidth() - squirrelSprite.getWidth()) {
             nextLevel();
         }
     }
 
     private void resetNut() {
-        nutScene.modelInstance.transform.setTranslation(
-            MathUtils.random(-10, 10), 0, MathUtils.random(-10, 10)
-        );
+        // Randomly place nut within screen bounds
+        float x = MathUtils.random(0, Gdx.graphics.getWidth() - nutSprite.getWidth());
+        float y = MathUtils.random(0, Gdx.graphics.getHeight() - nutSprite.getHeight());
+        nutSprite.setPosition(x, y);
     }
 
     public void nextLevel() {
         level++;
         score = 0;
-        speed += 1.0f;
+        speed += 50.0f;
         finishLineVisible = false;
-        squirrelScene.modelInstance.transform.setTranslation(0,0,0);
+        squirrelSprite.setPosition(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2);
         resetNut();
     }
 
     @Override
     public void dispose() {
-        sceneManager.dispose();
-        squirrelAsset.dispose();
-        nutAsset.dispose();
-        uiBatch.dispose();
+        batch.dispose();
+        squirrelTexture.dispose();
+        nutTexture.dispose();
         font.dispose();
     }
 
     @Override
     public void resize(int width, int height) {
+        camera.setToOrtho(false, width, height);
     }
 
-    @Override
-    public void pause() {
-    }
-
-    @Override
-    public void resume() {
-    }
+    @Override public void pause() {}
+    @Override public void resume() {}
 }
 //package com.libgdx.discintrel.Service;
 //
-//import com.badlogic.gdx.ApplicationAdapter;
+//import com.badlogic.gdx.ApplicationListener;
 //import com.badlogic.gdx.Gdx;
 //import com.badlogic.gdx.Input.Keys;
 //import com.badlogic.gdx.graphics.Color;
@@ -168,27 +157,35 @@ public class DescintrelService implements ApplicationListener {
 //import com.badlogic.gdx.graphics.PerspectiveCamera;
 //import com.badlogic.gdx.graphics.g2d.BitmapFont;
 //import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+//import com.badlogic.gdx.graphics.g3d.Attribute;
 //import com.badlogic.gdx.math.MathUtils;
 //import com.badlogic.gdx.math.Vector3;
-//public class DescintrelService extends ApplicationAdapter {
-//    private SceneManager sceneManager;
-//    private SceneAsset squirrelAsset, nutAsset;
-//    private Scene squirrelScene, nutScene;
-//    private PerspectiveCamera camera;
+//import net.mgsx.gltf.loaders.glb.GLBLoader;
+//import net.mgsx.gltf.scene3d.lights.DirectionalLightEx;
+//import net.mgsx.gltf.scene3d.scene.Scene;
+//import net.mgsx.gltf.scene3d.scene.SceneAsset;
+//import net.mgsx.gltf.scene3d.scene.SceneManager;
+//import net.mgsx.gltf.scene3d.scene.SceneSkybox;
+//import net.mgsx.gltf.scene3d.utils.IBLBuilder;
 //
-//    // Game Logic Variables
-//    private float speed = 3.0f;
-//    private int score = 0;
-//    private int level = 1;
-//    private boolean finishLineVisible = false;
+//public class DescintrelService implements ApplicationListener {
+//    public SceneManager sceneManager;
+//    public SceneAsset squirrelAsset, nutAsset;
+//    public Scene squirrelScene, nutScene;
+//    public PerspectiveCamera camera;
+//    public SceneSkybox skybox; // Added Skybox reference
 //
-//    // UI
-//    private SpriteBatch uiBatch;
-//    private BitmapFont font;
+//    public float speed = 5.0f;
+//    public int score = 0;
+//    public int level = 1;
+//    public boolean finishLineVisible = false;
+//
+//    public SpriteBatch uiBatch;
+//    public BitmapFont font;
 //
 //    @Override
 //    public void create() {
-////        sceneManager = new SceneManager();
+//        sceneManager = new SceneManager();
 //        uiBatch = new SpriteBatch();
 //        font = new BitmapFont();
 //        font.setColor(Color.WHITE);
@@ -198,93 +195,112 @@ public class DescintrelService implements ApplicationListener {
 //        camera.position.set(0, 10f, 20f);
 //        camera.lookAt(0, 0, 0);
 //        camera.near = 1f;
-//        camera.far = 100f;
+//        camera.far = 500f; // Increased far plane for skybox visibility
+//        sceneManager.setCamera(camera);
 //
-//        // 2. Load mdl (Using GLB for 2026 standards)
+//        // 2. Load Models
 //        squirrelAsset = new GLBLoader().load(Gdx.files.internal("mdl/Squirel.glb"));
 //        squirrelScene = new Scene(squirrelAsset.scene);
-//
 //        nutAsset = new GLBLoader().load(Gdx.files.internal("mdl/nut.glb"));
 //        nutScene = new Scene(nutAsset.scene);
 //
 //        sceneManager.addScene(squirrelScene);
 //        sceneManager.addScene(nutScene);
 //
-//        // 3. Lighting
+//        // 3. Lighting & Skybox
 //        DirectionalLightEx light = new DirectionalLightEx();
 //        light.direction.set(1, -3, 1).nor();
+//        light.color.set(Color.WHITE);
 //        sceneManager.environment.add(light);
+//
+//        // --- NEW: Ambient Lighting & Skybox Setup ---
+//        IBLBuilder iblBuilder = IBLBuilder.createOutdoor(light);
+//        sceneManager.render(); // Quality settings
+////        sceneManager.setPlaceholderConfig(20, 1024); // Quality settings
+//
+//        // Generate environmental maps (Ambient Light)
+//        sceneManager.setAmbientLight(0.8f); // Base brightness for shadows
+//        sceneManager.environment.set((Iterable<Attribute>) iblBuilder.buildEnvMap(1024));
+//        sceneManager.environment.set((Iterable<Attribute>) iblBuilder.buildIrradianceMap(256));
+//
+//        // Create and set the Skybox
+//
+////        skybox = new SceneSkybox(iblBuilder.buildCubemap(1024));
+//        sceneManager.setSkyBox(skybox);
+//        // --------------------------------------------
 //
 //        resetNut();
 //    }
 //
 //    @Override
 //    public void render() {
-//        updateLogic(Gdx.graphics.getDeltaTime());
+//        float delta = Gdx.graphics.getDeltaTime();
+//        updateLogic(delta);
 //
-//        // Render 3D Scene
+//        // Render 3D Scene (Ensure Depth Buffer is cleared!)
+//        Gdx.gl.glClearColor(0, 0, 0, 1);
 //        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
-//        sceneManager.setCamera(camera);
-//        sceneManager.update(Gdx.graphics.getDeltaTime());
+//
+//        sceneManager.update(delta);
 //        sceneManager.render();
 //
-//        // Render 2D UI (Scoreboard)
+//        // Render 2D UI
 //        uiBatch.begin();
-//        font.draw(uiBatch, "Score: " + score + " | Speed: " + speed + " | Level: " + level, 20, Gdx.graphics.getHeight() - 20);
-//        if (finishLineVisible) font.draw(uiBatch, "GO TO FINISH LINE!", 350, 300);
+//        font.draw(uiBatch, "Score: " + score + " | Speed: " + (int)speed + " | Level: " + level, 20, Gdx.graphics.getHeight() - 20);
+//        if (finishLineVisible) font.draw(uiBatch, "GO TO FINISH LINE (X > 15)!", 300, 300);
 //        uiBatch.end();
 //    }
 //
-//    private void updateLogic(float delta) {
-//        // Movement Logic
+//    // ... (rest of your logic methods remain the same) ...
+//
+//    @Override
+//    public void dispose() {
+//        sceneManager.dispose();
+//        if (skybox != null) skybox.dispose(); // Dispose skybox textures
+//        squirrelAsset.dispose();
+//        nutAsset.dispose();
+//        uiBatch.dispose();
+//        font.dispose();
+//    }
+//
+//    @Override public void resize(int width, int height) { sceneManager.updateViewport(width, height); }
+//    @Override public void pause() {}
+//    @Override public void resume() {}
+//
+//    public void updateLogic(float delta) {
 //        if (Gdx.input.isKeyPressed(Keys.UP)) squirrelScene.modelInstance.transform.trn(0, 0, -speed * delta);
 //        if (Gdx.input.isKeyPressed(Keys.DOWN)) squirrelScene.modelInstance.transform.trn(0, 0, speed * delta);
 //        if (Gdx.input.isKeyPressed(Keys.LEFT)) squirrelScene.modelInstance.transform.trn(-speed * delta, 0, 0);
 //        if (Gdx.input.isKeyPressed(Keys.RIGHT)) squirrelScene.modelInstance.transform.trn(speed * delta, 0, 0);
 //
-//        // Collision Detection (Simplified for 3D)
 //        Vector3 squirrelPos = new Vector3();
 //        Vector3 nutPos = new Vector3();
 //        squirrelScene.modelInstance.transform.getTranslation(squirrelPos);
 //        nutScene.modelInstance.transform.getTranslation(nutPos);
 //
-//        if (squirrelPos.dst(nutPos) < 1.5f) { // Distance-based collision
+//        if (!finishLineVisible && squirrelPos.dst(nutPos) < 1.5f) {
 //            score++;
 //            speed += 0.5f;
 //            if (score >= 5) {
 //                finishLineVisible = true;
-//                nutScene.modelInstance.transform.setTranslation(-100, 0, 0); // Hide nut
+//                nutScene.modelInstance.transform.setTranslation(-100, 0, 0);
 //            } else {
 //                resetNut();
 //            }
 //        }
-//
-//        // Level progression
-//        if (finishLineVisible && squirrelPos.x > 15) { // Assuming finish line is at x > 15
-//            nextLevel();
-//        }
+//        if (finishLineVisible && squirrelPos.x > 15) nextLevel();
 //    }
 //
 //    private void resetNut() {
-//        nutScene.modelInstance.transform.setTranslation(
-//            MathUtils.random(-10, 10), 0, MathUtils.random(-10, 10)
-//        );
+//        nutScene.modelInstance.transform.setTranslation(MathUtils.random(-10, 10), 0, MathUtils.random(-10, 10));
 //    }
 //
-//    private void nextLevel() {
+//    public void nextLevel() {
 //        level++;
 //        score = 0;
 //        speed += 1.0f;
 //        finishLineVisible = false;
+//        squirrelScene.modelInstance.transform.setTranslation(0,0,0);
 //        resetNut();
-//    }
-//
-//    @Override
-//    public void dispose() {
-//        sceneManager.dispose();
-//        squirrelAsset.dispose();
-//        nutAsset.dispose();
-//        uiBatch.dispose();
-//        font.dispose();
 //    }
 //}

@@ -11,61 +11,70 @@ buildscript {
 allprojects {
   apply plugin: 'eclipse'
   apply plugin: 'idea'
-
-  // This allows you to "Build and run using IntelliJ IDEA"
-  idea {
-    module {
-      outputDir = file('build/classes/java/main')
-      testOutputDir = file('build/classes/java/test')
-    }
-  }
-}
-
-configure(subprojects) {
-  apply plugin: 'java-library'
-  java.sourceCompatibility = 11
-
-  // Asset list generation logic [cite: 3]
-  tasks.register('generateAssetList') {
-    inputs.dir("${project.rootDir}/assets/")
-    File assetsFolder = new File("${project.rootDir}/assets/")
-    File assetsFile = new File(assetsFolder, "assets.txt")
-
-    doLast {
-      assetsFile.delete()
-      fileTree(assetsFolder).collect { assetsFolder.relativePath(it) }.sort().each {
-        assetsFile.append(it + "\n")
+  ext {
+    appName = "Districtrel"
+    gdxVersion = '1.12.1' // or your current version
+    // ADD THIS LINE BELOW:
+    gltfVersion = '1.0.8'
+//  gltfVersion = '-SNAPSHOT'
+    // This allows you to "Build and run using IntelliJ IDEA"
+    idea {
+      module {
+        outputDir = file('build/classes/java/main')
+        testOutputDir = file('build/classes/java/test')
       }
     }
   }
-  processResources.dependsOn 'generateAssetList'
 
-  compileJava {
-    options.incremental = true
+  configure(subprojects) {
+    apply plugin: 'java-library'
+    java.sourceCompatibility = 11
+
+    // Asset list generation logic [cite: 3]
+    tasks.register('generateAssetList') {
+      inputs.dir("${project.rootDir}/assets/")
+      File assetsFolder = new File("${project.rootDir}/assets/")
+      File assetsFile = new File(assetsFolder, "assets.txt")
+
+      doLast {
+        assetsFile.delete()
+        fileTree(assetsFolder).collect { assetsFolder.relativePath(it) }.sort().each {
+          assetsFile.append(it + "\n")
+        }
+      }
+    }
+    processResources.dependsOn 'generateAssetList'
+
+    compileJava {
+      options.incremental = true
+    }
   }
-}
 
-subprojects {
-  version = "$projectVersion"
-  ext.appName = 'Discintrel'
-  ext.gltfVersion = '2.2.1'
+  subprojects {
+    version = "$projectVersion"
+    ext.appName = 'Discintrel'
+    ext.gltfVersion = '2.2.1'
 
-  repositories {
-    mavenCentral()
-    mavenLocal()
-    maven { url = 'https://central.sonatype.com/repository/maven-snapshots/' }
-    maven { url = 'https://jitpack.io' }
-    maven { url = 'https://teavm.org/maven/repository/' }
+    repositories {
+      mavenCentral()
+      maven { url 'https://jitpack.io' }
+      mavenLocal()
+      maven { url = 'https://central.sonatype.com/repository/maven-snapshots/' }
+      maven { url = 'https://jitpack.io' }
+      maven { url = 'https://teavm.org/maven/repository/' }
+    }
   }
-}
 
 // Core Project Dependencies
-project(":core") {
-  dependencies {
-    api "com.badlogicgames.gdx:gdx:$gdxVersion"
-    // gdx-gltf library for 3D GLB support
-    api "com.github.mgsx-dev.gdx-gltf:gltf:$gltfVersion"
+  project(":core") {
+    dependencies {
+      implementation("com.github.mgsx-dev.gdx-gltf:gltf:2.3.0")
+      api "com.badlogicgames.gdx:gdx:$gdxVersion"
+      // gdx-gltf library for 3D GLB support
+      api "com.github.mgsx-dev.gdx-gltf:gltf:$gltfVersion"
+//    api "com.github.mgsx-dev.gdx-gltf:gltf:$gltfVersion"
+    }
   }
-}
 
-eclipse.project.name = 'Discintrel-parent'
+  eclipse.project.name = 'Discintrel-parent'
+}

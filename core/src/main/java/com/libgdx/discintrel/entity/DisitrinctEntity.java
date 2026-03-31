@@ -5,11 +5,13 @@ package com.libgdx.discintrel.entity;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import net.mgsx.gltf.scene3d.scene.SceneAsset;
 import org.w3c.dom.Text;
 
 import javax.swing.plaf.nimbus.State;
 
 public class DisitrinctEntity{
+    public SceneAsset asset;
     public State goalstate;
     public Rectangle finishLine;
     public Text statsDisplay;
