@@ -1,17 +1,18 @@
-//Perceptron(AI(Agent)) entity Declare (31/03/2026)(GD)(Sarthak Mittal)#1.1.1,.1.1.1,1.1.1.1.1.1.1.1.1
+//Perceptron(AI(Agent)) entity Declare (01/04/2026)(GD)(Sarthak Mittal)#1.1.1,.1.1.1,1.1.1.1.1.1.1.1.1.1
 package com.libgdx.discintrel.entity;
 
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Group;
-import com.libgdx.discintrel.Service.DescintrelService;
+//import com.libgdx.discintrel.Service.DescintrelService_old;
 import org.w3c.dom.Text;
 
 public class AIAgent extends DisitrinctEntity{
     public String aiId;
+    public String getAiId(String aiId){return aiId;}
     public Text statsDisplay(Text statsDisplay){return statsDisplay;}
     public int getHeight(int height){return height;}
     public int getWidth(int width){return width;}//Fethcing Width in App
-    public DescintrelService service;
+//    public DescintrelService_old service;
     int width;int height;
 //    service.resize(width,height);
     AIAgent aiAgent;

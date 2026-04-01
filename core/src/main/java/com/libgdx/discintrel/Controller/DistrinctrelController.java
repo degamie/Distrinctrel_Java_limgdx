@@ -1,10 +1,10 @@
 //WID(29/03/2026)(Sarthak Mittal)(DegamieSign)#1
 package com.libgdx.discintrel.Controller;
-
-import com.badlogic.gdx.Application;
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.libgdx.discintrel.Service.DescintrelService;
+//import com.badlogic.gdx.Application;
+//import com.badlogic.gdx.ApplicationAdapter;
+
 //import com.libgdx.discintrel.Service.DescintrelService;
 
 ////WID(12/3/2026)(Sarthak Mittal)(DegamieSign)(#TBI)#1.1.1(Service (T
@@ -27,6 +27,8 @@ public class DistrinctrelController  extends DescintrelService {
         distrinctrelService.render();
         distrinctrelService.updateLogic(delta);
         distrinctrelService.nextLevel();
+//        distrinctrelService.nextlevel();
+        distrinctrelService.dispose();
 //        distrinctrelService.updateLogic();
     }
 
