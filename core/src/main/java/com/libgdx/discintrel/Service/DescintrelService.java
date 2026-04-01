@@ -34,7 +34,8 @@ public class DescintrelService implements ApplicationListener {
     public void create() {
         batch = new SpriteBatch();
         font = new BitmapFont();
-        font.setColor(Color.WHITE);
+        font.setColor(Color.BLUE);
+//        font.setColor(Color.WHITE);
 
         // 1. Setup 2D Orthographic Camera
         float w = Gdx.graphics.getWidth();
