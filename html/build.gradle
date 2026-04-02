@@ -52,6 +52,7 @@ gwt {
   }
 }
 project(":html") {
+//  id 'war'
 //  apply plugin: "gwt"
   apply plugin: "war"
   dependencies {

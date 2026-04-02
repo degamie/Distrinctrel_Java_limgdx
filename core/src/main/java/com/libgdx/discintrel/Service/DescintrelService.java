@@ -1,4 +1,4 @@
-//WID(2/4/2026)(Sarthak Mittal)(Degamiesign)
+//WID(2/4/2026)(Sarthak Mittal)(Degamiesign)#1
 package com.libgdx.discintrel.Service;
 
 import com.badlogic.gdx.ApplicationListener;
@@ -17,6 +17,7 @@ import com.badlogic.gdx.math.Vector2;
 public class DescintrelService implements ApplicationListener {
     // 2D Core
     public SpriteBatch batch;
+    public SpriteBatch getBatch(SpriteBatch batch){return batch;}//Fetching batch in App
     public OrthographicCamera camera;
     public OrthographicCamera getCamera(OrthographicCamera camera){return camera;}//Fetching Camera in App
 
