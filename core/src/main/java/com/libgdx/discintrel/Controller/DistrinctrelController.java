@@ -14,7 +14,7 @@ import com.libgdx.discintrel.Service.DescintrelService;
 //import Service.DistrinctrelService;
 //import javafx.application.Application;
 //import javafx.stage.Stage;
-import com.libgdx.discintrel.*;
+//import com.libgdx.discintrel.*;
 //public class DistrinctrelController  extends ApplicationAdapter {
 public class DistrinctrelController  extends DescintrelService {
     public Menu menu;

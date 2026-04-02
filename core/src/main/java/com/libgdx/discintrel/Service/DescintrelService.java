@@ -19,8 +19,8 @@ public class DescintrelService implements ApplicationListener {
     public OrthographicCamera camera;
 
     // Sprites & Textures
-    public Texture squirrelTexture, nutTexture;
-    public Sprite squirrelSprite, nutSprite;
+    public Texture squirrelTexture, nutTexture,bckg;
+    public Sprite squirrelSprite, nutSprite,bckgSprite;
 
     // Game Logic
     public float speed = 300.0f; // Pixels per second
@@ -41,7 +41,10 @@ public class DescintrelService implements ApplicationListener {
         float w = Gdx.graphics.getWidth();
         float h = Gdx.graphics.getHeight();
         camera = new OrthographicCamera();
-        camera.setToOrtho(false, w, h); // false = y-up (0,0 is bottom left)
+        camera.setToOrtho(false, w, h); // false = y-up (0,0 is bottom left
+//Background Texture and Sprite Impl
+        bckg = new Texture(Gdx.files.internal("distrinctrel_background.jpeg"));
+        bckgSprite=new Sprite(bckg);
 
         // 2. Load 2D Assets (Ensure these exist in your assets folder)
         squirrelTexture = new Texture(Gdx.files.internal("mdl/sprites/Squirel_img.png"));
@@ -50,12 +53,14 @@ public class DescintrelService implements ApplicationListener {
         squirrelSprite = new Sprite(squirrelTexture);
         nutSprite = new Sprite(nutTexture);
 
-        // Scale sprites if they are too large/small
+        // Scale sprites (to Both Sprites and Background)
         squirrelSprite.setSize(300, 300);
         nutSprite.setSize(32, 32);
+        bckgSprite.setSize(2480,1290);
 
         resetNut();
     }
+
 
     @Override
     public void render() {
@@ -72,6 +77,7 @@ public class DescintrelService implements ApplicationListener {
         batch.begin();
 
         // Draw Sprites
+        bckgSprite.draw(batch);
         nutSprite.draw(batch);
         squirrelSprite.draw(batch);
 
