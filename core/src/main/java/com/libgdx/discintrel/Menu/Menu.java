@@ -1,7 +1,19 @@
-//WID(27/3/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1.1
+//WID(02/04/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1.1.1
 package com.libgdx.discintrel.Menu;
-public class Menu {
-   // public void updateByMainMenu(Menu mainMenu){getMainMenu(mainMenu)+setMainMenu(mainMenu)+1;}
+
+import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.libgdx.discintrel.Service.DescintrelService;
+
+public class Menu implements Screen {
+    public DescintrelService service;
+    public final Stage stage;
+public Skin skin;
+public Menu(Stage stage) {
+    this.stage = stage;
+}
+    // public void updateByMainMenu(Menu mainMenu){getMainMenu(mainMenu)+setMainMenu(mainMenu)+1;}
     public Menu getMainMenu(Menu mainMenu){return  mainMenu;}//Fetching MainMenu in APp
     public void setMainMenu(Menu mainMenu){this.MainMenu=MainMenu;}
     public Menu MainMenu;
@@ -9,6 +21,41 @@ public class Menu {
     public Menu getMenu(Menu menu){return menu;}
     public Menu menu;
     public void setMenu(Menu menu){this.menu=menu;}
+
+    @Override
+    public void show() {
+
+    }
+
+    @Override
+    public void render(float delta) {
+
+    }
+
+    @Override
+    public void resize(int width, int height) {
+
+    }
+
+    @Override
+    public void pause() {
+
+    }
+
+    @Override
+    public void resume() {
+
+    }
+
+    @Override
+    public void hide() {
+
+    }
+
+    @Override
+    public void dispose() {
+
+    }
 }
 //    public   Menu fileMenu=new Menu("fileMenu");
 //    fileMenu.getItems().addAll(openItem, saveItem);
