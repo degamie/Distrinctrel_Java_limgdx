@@ -1,3 +1,4 @@
+//WID(2/4/2026)(Sarthak Mittal)(Degamiesign)#1
 package com.libgdx.discintrel.util;
 
 import com.badlogic.gdx.Gdx;
@@ -15,12 +16,12 @@ public class Attributes {
     // Sprites & Textures
     public Texture squirrelTexture, nutTexture;
     public Sprite squirrelSprite, nutSprite;
-
     // Game Logic
     public float speed = 300.0f; // Pixels per second
     public int score = 0;
     public int level = 1;
     public boolean finishLineVisible = false;
+    public float getSpeed(float speed){return speed;}
 
     public BitmapFont font;
 }
