@@ -1,3 +1,4 @@
+//WID(2/4/2026)(Sarthak Mittal)(Degamiesign)
 package com.libgdx.discintrel.Service;
 
 import com.badlogic.gdx.ApplicationListener;
@@ -17,6 +18,7 @@ public class DescintrelService implements ApplicationListener {
     // 2D Core
     public SpriteBatch batch;
     public OrthographicCamera camera;
+    public OrthographicCamera getCamera(OrthographicCamera camera){return camera;}//Fetching Camera in App
 
     // Sprites & Textures
     public Texture squirrelTexture, nutTexture,bckg;
