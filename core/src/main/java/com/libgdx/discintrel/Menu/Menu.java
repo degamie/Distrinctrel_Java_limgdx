@@ -1,17 +1,19 @@
-//WID(02/04/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1.1.1
+//WID(02/04/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1.1.1.1
 package com.libgdx.discintrel.Menu;
 
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.libgdx.discintrel.Service.DescintrelService;
 
 public class Menu implements Screen {
     public DescintrelService service;
-    public final Stage stage;
+    public final Stage stage=null;
 public Skin skin;
 public Menu(Stage stage) {
-    this.stage = stage;
+    this.service=service;
+    stage=new Stage(new ScreenViewport());
 }
     // public void updateByMainMenu(Menu mainMenu){getMainMenu(mainMenu)+setMainMenu(mainMenu)+1;}
     public Menu getMainMenu(Menu mainMenu){return  mainMenu;}//Fetching MainMenu in APp
