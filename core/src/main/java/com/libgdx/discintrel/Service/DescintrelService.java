@@ -14,7 +14,11 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 
+import java.awt.*;
+
 public class DescintrelService implements ApplicationListener {
+//    public Label getLabel(Label label){}
+    public Label label;
     // 2D Core
     public SpriteBatch batch;
     public SpriteBatch getBatch(SpriteBatch batch){return batch;}//Fetching batch in App
@@ -85,10 +89,13 @@ public class DescintrelService implements ApplicationListener {
         squirrelSprite.draw(batch);
 
         // Draw UI
-        font.draw(batch, "Score: " + score + " | Level: " + level, 80, Gdx.graphics.getHeight() - 80);
+        font.draw(batch, "Score: " + score + " | Level: " + level, 80, Gdx.graphics.getHeight() - 40);
         if (finishLineVisible) font.draw(batch, "RUN TO THE RIGHT EDGE!", 500, Gdx.graphics.getHeight() / 4);
-
         batch.end();
+
+        font.getData().setScale(2.0f);
+//        label.setFontScale(2.0f);
+
     }
 
     public void updateLogic(float delta) {
@@ -104,8 +111,8 @@ public class DescintrelService implements ApplicationListener {
             squirrelSprite.getY() + squirrelSprite.getHeight()/2
         );
         Vector2 nutCenter = new Vector2(
-            nutSprite.getX() + nutSprite.getWidth()/2,
-            nutSprite.getY() + nutSprite.getHeight()/2
+            nutSprite.getX() + nutSprite.getWidth()/4,
+            nutSprite.getY() + nutSprite.getHeight()/4
         );
 
         if (!finishLineVisible && squirrelCenter.dst(nutCenter) < 40f) {

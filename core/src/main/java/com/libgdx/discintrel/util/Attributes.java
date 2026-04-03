@@ -1,4 +1,4 @@
-//WID(2/4/2026)(Sarthak Mittal)(Degamiesign)#1
+//WID(3/4/2026)(Sarthak Mittal)(Degamiesign)#1.1
 package com.libgdx.discintrel.util;
 
 import com.badlogic.gdx.Gdx;
@@ -24,4 +24,5 @@ public class Attributes {
     public float getSpeed(float speed){return speed;}
 
     public BitmapFont font;
+    public SpriteBatch getBatch(SpriteBatch batch){return batch;}
 }
