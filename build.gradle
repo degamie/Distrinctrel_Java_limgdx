@@ -1,0 +1,84 @@
+buildscript {
+  repositories {
+    mavenCentral()
+    gradlePluginPortal()
+    mavenLocal()
+    google()
+    maven { url = 'https://central.sonatype.com/repository/maven-snapshots/' }
+  }
+}
+
+allprojects {
+  apply plugin: 'eclipse'
+  apply plugin: 'idea'
+  ext {
+    appName = "Districtrel"
+    gdxVersion = '1.12.1' // or your current version
+    // ADD THIS LINE BELOW:
+    gltfVersion = '1.0.8'
+//  gltfVersion = '-SNAPSHOT'
+    // This allows you to "Build and run using IntelliJ IDEA"
+    idea {
+      module {
+        outputDir = file('build/classes/java/main')
+        testOutputDir = file('build/classes/java/test')
+      }
+    }
+  }
+
+  configure(subprojects) {
+    apply plugin: 'java-library'
+    java.sourceCompatibility = 11
+
+    // Asset list generation logic [cite: 3]
+    tasks.register('generateAssetList') {
+      inputs.dir("${project.rootDir}/assets/")
+      File assetsFolder = new File("${project.rootDir}/assets/")
+      File assetsFile = new File(assetsFolder, "assets.txt")
+
+      doLast {
+        assetsFile.delete()
+        fileTree(assetsFolder).collect { assetsFolder.relativePath(it) }.sort().each {
+          assetsFile.append(it + "\n")
+        }
+      }
+    }
+    processResources.dependsOn 'generateAssetList'
+
+    compileJava {
+      options.incremental = true
+    }
+  }
+
+  subprojects {
+    version = "$projectVersion"
+    ext.appName = 'Discintrel'
+    ext.gltfVersion = '2.2.1'
+
+    repositories {
+      mavenCentral()
+      maven { url 'https://jitpack.io' }
+      mavenLocal()
+      maven { url = 'https://central.sonatype.com/repository/maven-snapshots/' }
+      maven { url = 'https://jitpack.io' }
+      maven { url = 'https://teavm.org/maven/repository/' }
+      maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+      maven { url "https://oss.sonatype.org/content/repositories/releases/" }
+    }
+  }
+
+// Core Project Dependencies
+  project(":core") {
+    dependencies {
+      implementation("com.github.mgsx-dev.gdx-gltf:gltf:2.3.0")
+      api "com.badlogicgames.gdx:gdx:$gdxVersion"
+      // gdx-gltf library for 3D GLB support
+      api "com.github.mgsx-dev.gdx-gltf:gltf:$gltfVersion"
+//      classpath "com.badlogicgames.gdx:gdx-ai:1.8.1"
+//      compile "com.badlogicgames.gdx:gdx-ai:1.8.1"
+//    api "com.github.mgsx-dev.gdx-gltf:gltf:$gltfVersion"
+    }
+  }
+
+  eclipse.project.name = 'Discintrel-parent'
+}
