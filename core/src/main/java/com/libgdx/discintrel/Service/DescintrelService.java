@@ -1,4 +1,4 @@
-//WID(3/4/2026)(Sarthak Mittal)(Degamiesign)#1.1s
+//WID(13/4/2026)(Sarthak Mittal)(Degamiesign)#1.1s.1
 package com.libgdx.discintrel.Service;
 
 import com.badlogic.gdx.ApplicationListener;
@@ -20,6 +20,7 @@ import com.libgdx.discintrel.util.SfxManager;
 
 public class DescintrelService extends SfxManager implements ApplicationListener {
     public SfxManager sfxManager=new SfxManager();
+    public SfxManager getSfxManager(SfxManager sfxManager){return sfxManager;}
 
     @Override
     public void setSfxManager(SfxManager sfxManager) {
