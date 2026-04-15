@@ -1,4 +1,4 @@
-////WID(14/04/2026)(Sarthak Mittal)#1.1.1.1.1.1.1,1.1/1,1.1C
+////WID(15/04/2026)(Sarthak Mittal)#1.1.1.1.1.1.1,1.1/1,1.1C.1
 package com.libgdx.discintrel.Repository;
 
 import com.badlogic.gdx.math.Rectangle;
@@ -29,6 +29,7 @@ import javax.swing.plaf.nimbus.State;
 //import java.util.HashSet;
 //import java.util.Set;
 public interface DisitrinctrelRepository  {
+    public DisitrinctEntity getEntity(DisitrinctEntity entity);
     public State existsByState(State state);
     public DisitrinctEntity entity = null;
     public void redner();
