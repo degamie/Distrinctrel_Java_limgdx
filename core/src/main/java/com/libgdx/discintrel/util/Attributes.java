@@ -1,4 +1,4 @@
-//WID(3/4/2026)(Sarthak Mittal)(Degamiesign)#1.1
+//WID(17/4/2026)(Sarthak Mittal)(Degamiesign)#1.1.1
 package com.libgdx.discintrel.util;
 
 import com.badlogic.gdx.Gdx;
@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Attributes {
+    public Texture getBackgroundTexture(Texture texture){return texture;}
     public Texture backgroundTexture = new Texture(Gdx.files.internal("distrinctrel_background.jpeg"));;
     public SpriteBatch batch;
     public OrthographicCamera camera;
