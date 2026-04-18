@@ -1,4 +1,4 @@
-//WIP(27/3/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1
+//WIP(18/04/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1.1
 package com.libgdx.discintrel.util;
 
 //import javafx.scene.media.AudioClip;
@@ -8,6 +8,7 @@ import com.badlogic.gdx.audio.Music;
 import org.w3c.dom.Node;
 
 public class SfxManager {
+    public void setAmbience(Music ambience){this.ambience=ambience;}//Binding ambience in App
     public Music ambience;
 //    @Override
     public void create(){
