@@ -1,4 +1,4 @@
-//WID(03/04/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1.1.1.1.1
+//WID(19/04/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1.1.1.1.1.1
 package com.libgdx.discintrel.Menu;
 
 import com.badlogic.gdx.Gdx;
@@ -14,7 +14,8 @@ import com.libgdx.discintrel.Service.DescintrelService;
 
 public class Menu implements Screen {
     public DescintrelService service;
-    public final Stage stage=null;
+    public Stage stage=null;
+    public void setStage(Stage stage){this.stage=stage;}//binding stage in App
 public Skin skin;
 public Menu(Stage stage) {
     this.service=service;
