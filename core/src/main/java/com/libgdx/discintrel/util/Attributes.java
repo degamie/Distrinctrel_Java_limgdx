@@ -1,4 +1,4 @@
-//WID(18/4/2026)(Sarthak Mittal)(Degamiesign)#1.1.1.1
+//WID(20/4/2026)(Sarthak Mittal)(Degamiesign)#1.1.1.1.1
 package com.libgdx.discintrel.util;
 
 import com.badlogic.gdx.Gdx;
@@ -15,6 +15,7 @@ public class Attributes {
     public OrthographicCamera camera;
 
     // Sprites & Textures
+    public Texture getSquirrelTexture(Texture squirrelTexture){return squirrelTexture;}//Fetching SquirelTexture in  App
     public void setSquirrelTexture(Texture squirrelTexture){this.squirrelTexture=squirrelTexture;}
     public Texture squirrelTexture, nutTexture;
     public Sprite squirrelSprite, nutSprite;
