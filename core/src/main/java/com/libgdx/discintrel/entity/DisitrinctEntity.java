@@ -1,4 +1,4 @@
-//WID(3/4/2026)(Sarthak Mittal)(DegamieISign)#1.1.1,1.1.1.1
+//WID(20/4/2026)(Sarthak Mittal)(DegamieISign)#1.1.1,1.1.1.1.1
 package com.libgdx.discintrel.entity;
 
 
@@ -18,6 +18,7 @@ import java.awt.*;
 public class DisitrinctEntity{
     //2D Core Assets(Version 1.0)#1
     public Label label;
+    public void setsquirrelTexture(Texture squirrelTexture){this.squirrelTexture=squirrelTexture;}//binding Squireltexture in App
 
     public SpriteBatch batch;
     public SpriteBatch getBatch(SpriteBatch batch){return batch;}//Fetching batch in App
