@@ -1,4 +1,4 @@
-////WID(24/04/2026)(Sarthak Mittal)#1.1.1.1.1.1.1,1.1/1,1.1C.1.1.2.1
+////WID(25/04/2026)(Sarthak Mittal)#1.1.1.1.1.1.1,1.1/1,1.1C.1.1.2.1/1
 package com.libgdx.discintrel.Repository;
 
 import com.badlogic.gdx.math.Rectangle;
@@ -29,6 +29,7 @@ import javax.swing.plaf.nimbus.State;
 //import java.util.HashSet;
 //import java.util.Set;
 public interface DisitrinctrelRepository  {
+    public void updateByloadModel(String resourcePath);
     public void setloadModel(String resourcePath);
     public GroupLayout.Group getloadModel(String resourcePath);
     public void setEntity(DisitrinctEntity entity);
