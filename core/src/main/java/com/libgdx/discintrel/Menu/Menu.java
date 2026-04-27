@@ -1,4 +1,4 @@
-//WID(27/04/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1
+//WID(27/04/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1/1
 package com.libgdx.discintrel.Menu;
 
 import com.badlogic.gdx.Gdx;
@@ -9,7 +9,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import com.google.android.gms.games.Player;
 import com.libgdx.discintrel.Service.DescintrelService;
 
 public class Menu implements Screen {
@@ -52,6 +54,10 @@ public Menu(Stage stage) {
 
     @Override
     public void render(float delta) {
+         delta=Gdx.graphics.getDeltaTime();
+        ScreenUtils.clear(0,0,.2f,1);
+        Player player=new Player();
+        player.update(delta);
 
     }
 
