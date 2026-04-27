@@ -1,4 +1,4 @@
-//WID(27/04/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1.1.1.1.1.1.1
+//WID(27/04/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1
 package com.libgdx.discintrel.Menu;
 
 import com.badlogic.gdx.Gdx;
@@ -13,6 +13,8 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.libgdx.discintrel.Service.DescintrelService;
 
 public class Menu implements Screen {
+    public TextButton playbtn=    new TextButton("PLAY!",skin);
+    public void setplaybtn(TextButton playbtn){this.playbtn=playbtn;}//binding playBtn in App
     public DescintrelService service;
     public Stage stage=null;
     public void setStage(Stage stage){this.stage=stage;}//binding stage in App
@@ -23,7 +25,7 @@ public Menu(Stage stage) {
     stage=new Stage(new ScreenViewport());
     // Layout the UI
     Table table=new Table();
-    TextButton playbtn=new TextButton("PLAY!",skin);
+
     TextButton exitbtn=new TextButton("EXIT!",skin);
     table.add(playbtn).fillX().uniformX().pad(10);
     table.row();
