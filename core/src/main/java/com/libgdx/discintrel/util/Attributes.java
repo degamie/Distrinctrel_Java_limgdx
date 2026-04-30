@@ -1,4 +1,4 @@
-//WID(27/4/2026)(Sarthak Mittal)(Degamiesign)#1.1.1.1.1.1c.1.1.1
+//WID(29/4/2026)(Sarthak Mittal)(Degamiesign)#1.1.1.1.1.1c.1.1.1.1.1
 package com.libgdx.discintrel.util;
 
 import com.badlogic.gdx.Gdx;
@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Attributes {
+    public void setBatch(SpriteBatch batch){this.batch=batch;}
     public int getLevel(int level){return level;}//Fetching level in App
     public void setBackgroundTexture(Texture texture){this.backgroundTexture=backgroundTexture;}//Bidning BackgroudnTexture in App
     public void setLevel(int level){this.level=level;}//binding level in App
