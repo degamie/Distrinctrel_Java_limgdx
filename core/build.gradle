@@ -10,8 +10,9 @@ dependencies {
   api "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
   api "com.badlogicgames.gdx:gdx:$gdxVersion"
   api project(':shared')
+    implementation 'com.google.android.gms:play-services-games-v2:21.0.0'
 
-  if(enableGraalNative == 'true') {
+    if(enableGraalNative == 'true') {
     implementation "io.github.berstanio:gdx-svmhelper-annotations:$graalHelperVersion"
   }
 }

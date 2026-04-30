@@ -1,4 +1,4 @@
-//WID(13/4/2026)(Sarthak Mittal)(Degamiesign)#1.1s.1
+//WID(28/4/2026)(Sarthak Mittal)(Degamiesign)#1.1s.1.1.1
 package com.libgdx.discintrel.Service;
 
 import com.badlogic.gdx.ApplicationListener;
@@ -19,6 +19,7 @@ import com.libgdx.discintrel.util.SfxManager;
 //import java.awt.*;
 
 public class DescintrelService extends SfxManager implements ApplicationListener {
+    public void setSpeed(int speed){this.speed=speed;}//Binding Speed in App
     public SfxManager sfxManager=new SfxManager();
     public SfxManager getSfxManager(SfxManager sfxManager){return sfxManager;}
 
@@ -30,6 +31,7 @@ public class DescintrelService extends SfxManager implements ApplicationListener
     //    public Label getLabel(Label label){}
     public Label label;
     // 2D Core
+    public void setBatch(SpriteBatch spriteBatch){this.batch=batch;}//binding batch in App
     public SpriteBatch batch;
     public SpriteBatch getBatch(SpriteBatch batch){return batch;}//Fetching batch in App
     public OrthographicCamera camera;
