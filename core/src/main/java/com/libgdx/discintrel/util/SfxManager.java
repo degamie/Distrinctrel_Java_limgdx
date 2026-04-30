@@ -1,4 +1,4 @@
-//WIP(23/04/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1.1.1s.1./1    
+//WIP(30/04/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1.1.1s.1./1/1
 package com.libgdx.discintrel.util;
 
 //import javafx.scene.media.AudioClip;
@@ -8,6 +8,10 @@ import com.badlogic.gdx.audio.Music;
 import org.w3c.dom.Node;
 
 public class SfxManager {
+    public void existsByambience(Music ambience){
+        if(!ambience.isPlaying())getAmbience(ambience);
+        else getAmbience(null);
+    }
     public void updateByambience(Music ambience){getAmbience(ambience)+setAmbience(ambience)+1;}//Updating ambience in App
     public Music getAmbience(Music ambience){return ambience;}//Fetching Ambience in App
     public void setAmbience(Music ambience){this.ambience=ambience;}//Binding ambience in App
