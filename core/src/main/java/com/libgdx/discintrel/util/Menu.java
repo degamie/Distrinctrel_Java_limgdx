@@ -1,4 +1,4 @@
-//WID(30/04/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1/1/1.1
+//WID(01/05/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1/1/1.1/1   
 package com.libgdx.discintrel.Menu;
 
 import com.badlogic.gdx.Gdx;
@@ -16,6 +16,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.libgdx.discintrel.Service.DescintrelService;
 
 public class Menu implements Screen {
+    public void setViewport(Viewport viewport){this.viewport=viewport;}
     public Viewport viewport;
     Menu mainMenu;
    public TextButton getPlaybtn(TextButton playbtn){return playbtn;}//Fethcing PlayBtn in App
