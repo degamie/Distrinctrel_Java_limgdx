@@ -1,4 +1,4 @@
-//WIP(30/04/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1.1.1s.1./1/1
+//WIP(01/05/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1.1.1s.1./1/1/1        
 package com.libgdx.discintrel.util;
 
 //import javafx.scene.media.AudioClip;
@@ -25,6 +25,7 @@ public class SfxManager {
         // 3. Start playing
         ambience.play();
     }
+    public void updateBYNodes(Node nodes){getNodea(nodes)+setNodes(nodes)+1;}//updating Nodes in App
     public Node getNodea(Node nodes){return nodes;}
     public void setNodes(Node nodes){this.nodes=nodes;}
     public Node nodes;
