@@ -1,8 +1,4 @@
-# Discintrel
-
-A [libGDX](https://libgdx.com/) project generated with [gdx-liftoff](https://github.com/libgdx/gdx-liftoff).
-
-This project was generated with a template including simple application launchers and an `ApplicationAdapter` extension that draws libGDX logo.
+# Discintrel is free and Open Source Game in Java(libgdx) provides player Interaction as Squirrel to collect Nuts in a Sunlight forest .As Much Player collects it ,The score gets incremented ,navigate iteratively to next level..It follows Springboot Infrastructure provides easy and Better Managable Code Scalability and Maintainability.Also,it has been Executed Successfully on Itch.io Website globally. 
 
 ## Platforms
 
