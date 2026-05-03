@@ -1,4 +1,4 @@
-//WID(01/5/2026)(Sarthak Mittal)(Degamiesign)#1.1.1.1.1.1c.1.1.1.1.1,1.1s
+//WID(03/5/2026)(Sarthak Mittal)(Degamiesign)#1.1.1.1.1.1c.1.1.1.1.1,1.1s.1
 package com.libgdx.discintrel.util;
 
 import com.badlogic.gdx.Gdx;
@@ -18,6 +18,8 @@ public class Attributes {
     public Texture getBackgroundTexture(Texture texture){return texture;}
     public Texture backgroundTexture = new Texture(Gdx.files.internal("distrinctrel_background.jpeg"));;
     public SpriteBatch batch;
+    public void setbatch(SpriteBatch batch){this.batch=batch;}//bidning Batch in App
+//    public SpriteBatch getBatch(SpriteBatch batch){return batch;}
     public OrthographicCamera camera;
 
     // Sprites & Textures
