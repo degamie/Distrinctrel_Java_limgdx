@@ -1,4 +1,4 @@
-//WID(01/05/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1/1/1.1/1
+//WID(03/05/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1/1/1.1/1.11.1.1.1
 package com.libgdx.discintrel.Menu;
 
 import com.badlogic.gdx.Gdx;
@@ -16,6 +16,12 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.libgdx.discintrel.Service.DescintrelService;
 
 public class Menu implements Screen {
+    public void updateByMenu(Menu submenu){
+        getMenu(submenu)+setSubmenu(submenu)+1;
+    }
+    public  Menu getSubmenu(Menu submenu){return submenu;}//Fetching SubMenu In App
+    public void setSubmenu(Menu submenu){this.submenu=submenu;}//binding SubMenu in App
+    public Viewport getVieport(Viewport viewport){return viewport;}//Fethcing ViewPort in App
     public void setViewport(Viewport viewport){this.viewport=viewport;}
     public Viewport viewport;
     Menu mainMenu;
