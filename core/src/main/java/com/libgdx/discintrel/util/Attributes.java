@@ -18,6 +18,7 @@ public class Attributes {
     public Texture getBackgroundTexture(Texture texture){return texture;}
     public Texture backgroundTexture = new Texture(Gdx.files.internal("distrinctrel_background.jpeg"));;
     public SpriteBatch batch;
+    public void
     public void setbatch(SpriteBatch batch){this.batch=batch;}//bidning Batch in App
 //    public SpriteBatch getBatch(SpriteBatch batch){return batch;}
     public OrthographicCamera camera;
