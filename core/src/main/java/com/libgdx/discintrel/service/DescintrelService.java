@@ -1,4 +1,4 @@
-//WID(28/4/2026)(Sarthak Mittal)(Degamiesign)#1.1s.1.1.1    
+//WID(28/4/2026)(Sarthak Mittal)(Degamiesign)#1.1s.1.1.1
 package com.libgdx.discintrel.Service;
 
 import com.badlogic.gdx.ApplicationListener;
