@@ -1,4 +1,4 @@
-//WID(05/5/2026)(Sarthak Mittal)(Degamiesign)#1.1.1.1.1.1c.1.1.1.1.1,1.1s.1.1
+//WID(05/5/2026)(Sarthak Mittal)(Degamiesign)#1.1.1.1.1.1c.1.1.1.1.1,1.1s.1.1.1
 package com.libgdx.discintrel.util;
 
 import com.badlogic.gdx.Gdx;
@@ -9,6 +9,10 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Attributes {
+    public void existsByspeed(int speed){
+        if(speed!=0)getSpeed(speed);
+        else getSpeed(0);
+    }
     public void updateBySpeed(int speed){getSpeed(speed)+setSpeed(speed)+1;}//Updating Speed in App
     public void setSpeed(int speed){this.speed=speed;}//binding Speed in App
     public void setScore(int score){this.score=score;}//Binding Score in App
