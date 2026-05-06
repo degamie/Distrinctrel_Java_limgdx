@@ -1,4 +1,4 @@
-//WID(28/4/2026)(Sarthak Mittal)(Degamiesign)#1.1s.1.1.1
+//WID(06/05/2026)(Sarthak Mittal)(Degamiesign)#1.1s.1.1.1.1 
 package com.libgdx.discintrel.Service;
 
 import com.badlogic.gdx.ApplicationListener;
@@ -19,6 +19,13 @@ import com.libgdx.discintrel.util.SfxManager;
 //import java.awt.*;
 
 public class DescintrelService extends SfxManager implements ApplicationListener {
+    public void updateBySpeed(int speed){getspeed(speed)+setSpeed(speed)+1;}//updating Speed in App
+
+    public int  getspeed(int speed) {
+        return speed;
+    }
+
+
     public void setSpeed(int speed){this.speed=speed;}//Binding Speed in App
     public SfxManager sfxManager=new SfxManager();
     public SfxManager getSfxManager(SfxManager sfxManager){return sfxManager;}
