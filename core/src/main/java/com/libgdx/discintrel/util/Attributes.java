@@ -1,4 +1,4 @@
-//WID(06/5/2026)(Sarthak Mittal)(Degamiesign)#1.1.1.1.1.1c.1.1.1.1.1,1.1s.1.1.1.1.1.1
+//WID(08/5/2026)(Sarthak Mittal)(Degamiesign)#1.1.1.1.1.1c.1.1.1.1.1,1.1s.1.1.1.1.1.1.1
 package com.libgdx.discintrel.util;
 
 import com.badlogic.gdx.Gdx;
@@ -9,6 +9,10 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Attributes {
+    public void existsByAttribtutes(Attributes attributes){
+        if(attributes!=null)getByAttributes(attributes);
+        else getByAttributes(null);
+    }
     public  Attributes getByAttributes(Attributes attributes) {
         return attributes;
     }
