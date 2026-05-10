@@ -1,4 +1,4 @@
-//WID(09/5/2026)(Sarthak Mittal)(Degamiesign)#1.1.1.1.1.1c.1.1.1.1.1,1.1s.1.1.1.1.1.1.1.1/1
+//WID(10/5/2026)(Sarthak Mittal)(Degamiesign)#1.1.1.1.1.1c.1.1.1.1.1,1.1s.1.1.1.1.1.1.1.1/1/1
 package com.libgdx.discintrel.util;
 
 import com.badlogic.gdx.Gdx;
@@ -9,6 +9,8 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Attributes {
+    public void updateByBatch(SpriteBatch batch){getBatch(batch)+setbatch(batch)+1;}//Updating SpriteBatch in App
+    public void setScore(int score){this.score=score;}
     public void existsByScore(int score){
         if(score!=0)getscore(score);else getscore(0);
     }
@@ -37,7 +39,7 @@ public class Attributes {
     }
     public void updateBySpeed(int speed){getSpeed(speed)+setSpeed(speed)+1;}//Updating Speed in App
     public void setSpeed(int speed){this.speed=speed;}//binding Speed in App
-    public void setScore(int score){this.score=score;}//Binding Score in App
+//    public void setScore(int score){this.score=score;}//Binding Score in App
     public void setBatch(SpriteBatch batch){this.batch=batch;}
     public int getLevel(int level){return level;}//Fetching level in App
     public void setBackgroundTexture(Texture texture){this.backgroundTexture=backgroundTexture;}//Bidning BackgroudnTexture in App
