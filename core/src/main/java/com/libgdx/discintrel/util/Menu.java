@@ -1,4 +1,4 @@
-//WID(10/05/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1/1/1.1/1.11.1.1.1.1/1.1/1/1.1/1
+//WID(12/05/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1/1/1.1/1.11.1.1.1.1/1.1/1/1.1/1/1.1
 package com.libgdx.discintrel.Menu;
 
 import com.badlogic.gdx.Gdx;
@@ -18,6 +18,11 @@ import com.libgdx.discintrel.Service.DescintrelService;
 import static com.badlogic.gdx.scenes.scene2d.utils.ScissorStack.getViewport;
 
 public class Menu implements Screen {
+    public void setPlaybtn(TextButton playbtn){this.playbtn=playbtn;}//binding playbtn in App
+    public void existsByScreen (Screen screen){
+        if(screen!=null)getScreen(screen);
+        else getScreen(null);
+    }
     public void updateByScreen(Screen screen){getScreen(screen)+setScreen(screen)+1;}//Updating Screen in  App
     public void setScreen(Screen screen){this.screen=screen;}
     public Screen getScreen(Screen screen){return screen;}//Fetchign Screen in App
@@ -44,6 +49,14 @@ public class Menu implements Screen {
     public TextButton playbtn=    new TextButton("PLAY!",skin);
     public void setplaybtn(TextButton playbtn){this.playbtn=playbtn;}//binding playBtn in App
     public DescintrelService service;
+    public void updateByStage(Stage stage){
+        getStage(stage)+setStage(stage);
+    }
+
+    public Stage getStage(Stage stage) {
+        return stage;
+    }
+
     public Stage stage=null;
     public void setStage(Stage stage){this.stage=stage;}//binding stage in App
 public Skin skin;
