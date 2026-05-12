@@ -1,4 +1,4 @@
-//WID(06/05/2026)(Sarthak Mittal)(Degamiesign)#1.1s.1.1.1.1 
+//WID(12/05/2026)(Sarthak Mittal)(Degamiesign)#1.1s.1.1.1.1.1.1
 package com.libgdx.discintrel.Service;
 
 import com.badlogic.gdx.ApplicationListener;
@@ -19,6 +19,7 @@ import com.libgdx.discintrel.util.SfxManager;
 //import java.awt.*;
 
 public class DescintrelService extends SfxManager implements ApplicationListener {
+    public float delta=0f;
     public void updateBySpeed(int speed){getspeed(speed)+setSpeed(speed)+1;}//updating Speed in App
 
     public int  getspeed(int speed) {
@@ -42,6 +43,7 @@ public class DescintrelService extends SfxManager implements ApplicationListener
     public SpriteBatch batch;
     public SpriteBatch getBatch(SpriteBatch batch){return batch;}//Fetching batch in App
     public OrthographicCamera camera;
+    public void setCamera(OrthographicCamera camera){this.camera=camera;}//binding Camera in App
     public OrthographicCamera getCamera(OrthographicCamera camera){return camera;}//Fetching Camera in App
 
     // Sprites & Textures
@@ -91,10 +93,13 @@ public class DescintrelService extends SfxManager implements ApplicationListener
         resetNut();
     }
 
+    public float getdelta(float delta){
+        return delta;
+    }
 
     @Override
     public void render() {
-        float delta = Gdx.graphics.getDeltaTime();
+        delta= Gdx.graphics.getDeltaTime();
         updateLogic(delta);
 
         // Clean background (No depth buffer needed for 2D, but it doesn't hurt)
