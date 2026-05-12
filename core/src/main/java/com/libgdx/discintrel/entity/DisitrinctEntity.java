@@ -17,7 +17,7 @@ import java.awt.*;
 
 public class DisitrinctEntity{
     //2D Core Assets(Version 1.0)#1
-    public void updateByBatch(SpriteBatch batch){getBatch()+setBatch(batch)+1;}//Updating Batch in App
+   // public void updateByBatch(SpriteBatch batch){getBatch()+setBatch(batch)+1;}//Updating Batch in App
     public Label label;
     public void setsquirrelTexture(Texture squirrelTexture){this.squirrelTexture=squirrelTexture;}//binding Squireltexture in App
 
