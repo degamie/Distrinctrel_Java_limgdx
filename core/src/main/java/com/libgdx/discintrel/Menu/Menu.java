@@ -1,4 +1,4 @@
-//WID(12/05/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1/1/1.1/1.11.1.1.1.1/1.1/1/1.1/1/1.1.1
+//WID(14/05/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1/1/1.1/1.11.1.1.1.1/1.1/1/1.1/1/1.1.1.1
 package com.libgdx.discintrel.Menu;
 
 import com.badlogic.gdx.Gdx;
@@ -18,6 +18,10 @@ import com.libgdx.discintrel.Service.DescintrelService;
 import static com.badlogic.gdx.scenes.scene2d.utils.ScissorStack.getViewport;
 
 public class Menu implements Screen {
+    public void existsByplayBtn(TextButton playbtn){
+        if(playbtn.isChecked())getPlaybtn(playbtn);
+        else getPlaybtn(null);
+    }
     public void updaatebyPlayBtn(TextButton playbtn){getPlaybtn(playbtn)+setPlaybtn(playbtn)+1;}//Updating playBtn in App
     public void setPlaybtn(TextButton playbtn){this.playbtn=playbtn;}//binding playbtn in App
     public void existsByScreen (Screen screen){
