@@ -1,4 +1,4 @@
-//WID(12/5/2026)(Sarthak Mittal)(Degamiesign)#1.1.1.1.1.1c.1.1.1.1.1,1.1s.1.1.1.1.1.1.1.1/1/1.1
+//WID(14/5/2026)(Sarthak Mittal)(Degamiesign)#1.1.1.1.1.1c.1.1.1.1.1,1.1s.1.1.1.1.1.1.1.1/1/1.1.1/1
 package com.libgdx.discintrel.util;
 
 import com.badlogic.gdx.Gdx;
@@ -7,8 +7,27 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class Attributes {
+    public void existsByStage(Stage stage){
+        if(stage!=null)getstage(stage);
+        else getstage(null);
+    }
+    private Stage stage;
+
+    public void updateBystage(Stage stage){
+        getstage(stage)+setstage(stage)+1
+    }
+    public void  setstage(Stage stage) {
+        this.stage=stage;
+    }
+
+
+    public Stage getstage(Stage stage) {
+        return stage;
+    }
+
     public void existsByBatch(SpriteBatch batch){
         if(!batch.begin())getBatch( batch );
         else getBatch( null);
