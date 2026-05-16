@@ -1,4 +1,4 @@
-//WID(15/05/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1/1/1.1/1.11.1.1.1.1/1.1/1/1.1/1/1.1.1.1.1
+//WID(16/05/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1/1/1.1/1.11.1.1.1.1/1.1/1/1.1/1/1.1.1.1.1/1
 package com.libgdx.discintrel.Menu;
 
 import com.badlogic.gdx.Gdx;
@@ -40,6 +40,10 @@ public class Menu implements Screen {
     public Screen screen;
     public void setscreen(Screen screen){this.screen=screen;}//binding Screen in App
 //    public void setMenu(Menu menu){this.menu=menu;}//Binding
+    public void existsByViewPort(Viewport viewport){
+        if(viewport.project(stage)!=null)getVieport(viewport);
+        else getVieport(null);
+    }
     public void updateByViewPoet(Viewport viewport){
         getViewport(viewport)+setViewport(viewport)+1;
     }
