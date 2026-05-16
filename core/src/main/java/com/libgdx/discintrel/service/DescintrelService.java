@@ -1,4 +1,4 @@
-//WID(14/05/2026)(Sarthak Mittal)(Degamiesign)#1.1s.1.1.1.1.1.1/.1
+//WID(16/05/2026)(Sarthak Mittal)(Degamiesign)#1.1s.1.1.1.1.1.1/.1/1.1
 package com.libgdx.discintrel.Service;
 
 import com.badlogic.gdx.ApplicationListener;
@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.GridPoint2;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -19,6 +20,16 @@ import com.libgdx.discintrel.util.SfxManager;
 //import java.awt.*;
 
 public class DescintrelService extends SfxManager implements ApplicationListener {
+    //GrassHoper's Axial 2d Grid's Coordinates Declare
+     public final GridPoint2[] DIRECTIONS={//2d Grid's Directions Declare
+        new GridPoint2(-1,0),//Top-Left  cooroinates Declare
+        new GridPoint2(0,-1),//bottom Left   cooroinates declare
+        new GridPoint2(+1,0),//Top Right cooroinates Declare
+        new GridPoint2(0,+1),//bottom Right cooroinates declare
+        new GridPoint2(-1,-1),//bottom cooroinates declare
+        new GridPoint2(1,1)//Top cooroinates declare
+
+    };
     public void setDelta(float delta){this.delta=delta;}//binidng Delta
     public float delta=0f;
     public void updateBySpeed(int speed){getspeed(speed)+setSpeed(speed)+1;}//updating Speed in App
