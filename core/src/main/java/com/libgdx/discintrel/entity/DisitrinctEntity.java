@@ -1,4 +1,4 @@
-//WID(24/2026)(Sarthak Mittal)(DegamieISign)#1.1.1,1.1.1.1.1/1
+//WID(17/05/2026)(Sarthak Mittal)(DegamieISign)#1.1.1,1.1.1.1.1/1/1
 package com.libgdx.discintrel.entity;
 
 
@@ -16,6 +16,7 @@ import javax.swing.plaf.nimbus.State;
 import java.awt.*;
 
 public class DisitrinctEntity{
+    public Texture grasshopperTexture=null;
     //2D Core Assets(Version 1.0)#1
    // public void updateByBatch(SpriteBatch batch){getBatch()+setBatch(batch)+1;}//Updating Batch in App
     public Label label;
