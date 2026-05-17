@@ -1,4 +1,4 @@
-//WID(28/4/2026)(Sarthak Mittal)(Degamiesign)#1.1s.1.1.1
+//WID(17/05/2026)(Sarthak Mittal)(Degamiesign)#1.1s.1.1.1.1.1.1/.1/1.1.1/1
 package com.libgdx.discintrel.Service;
 
 import com.badlogic.gdx.ApplicationListener;
@@ -11,14 +11,42 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.GridPoint2;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.utils.Array;
 import com.libgdx.discintrel.util.SfxManager;
+
+import java.util.Arrays;
 
 //import java.awt.*;
 
 public class DescintrelService extends SfxManager implements ApplicationListener {
+    public Array<GridPoint2> getValidMoves(BoardState boardState,GridPoint2 start){
+        Array<GridPoint2> moves=new Array<>();
+        int jumpedPieces=0;
+        return moves;//To be Changed(impl)
+    }
+    //GrassHoper's Axial 2d Grid's Coordinates Declare
+     public final GridPoint2[] DIRECTIONS={//2d Grid's Directions Declare
+        new GridPoint2(-1,0),//Top-Left  cooroinates Declare
+        new GridPoint2(0,-1),//bottom Left   cooroinates declare
+        new GridPoint2(+1,0),//Top Right cooroinates Declare
+        new GridPoint2(0,+1),//bottom Right cooroinates declare
+        new GridPoint2(-1,-1),//bottom cooroinates declare
+        new GridPoint2(1,1)//Top cooroinates declare
+
+    };
+    public void setDelta(float delta){this.delta=delta;}//binidng Delta
+    public float delta=0f;
+    public void updateBySpeed(int speed){getspeed(speed)+setSpeed(speed)+1;}//updating Speed in App
+
+    public int  getspeed(int speed) {
+        return speed;
+    }
+
+
     public void setSpeed(int speed){this.speed=speed;}//Binding Speed in App
     public SfxManager sfxManager=new SfxManager();
     public SfxManager getSfxManager(SfxManager sfxManager){return sfxManager;}
@@ -35,8 +63,12 @@ public class DescintrelService extends SfxManager implements ApplicationListener
     public SpriteBatch batch;
     public SpriteBatch getBatch(SpriteBatch batch){return batch;}//Fetching batch in App
     public OrthographicCamera camera;
+    public void setCamera(OrthographicCamera camera){this.camera=camera;}//binding Camera in App
     public OrthographicCamera getCamera(OrthographicCamera camera){return camera;}//Fetching Camera in App
-
+    public Texture grasshopperTexture;
+    public Sprite grasshopperSprite;
+    // Tracks current grid location instead of purely visual pixel transforms
+    public GridPoint2 grasshopperGridPosition = new GridPoint2(0, 0);
     // Sprites & Textures
     public Texture squirrelTexture, nutTexture,bckg;
     public Sprite squirrelSprite, nutSprite,bckgSprite;
@@ -70,6 +102,7 @@ public class DescintrelService extends SfxManager implements ApplicationListener
         bckgSprite=new Sprite(bckg);
 
         // 2. Load 2D Assets (Ensure these exist in your assets folder)
+        grasshopperTexture=new Texture(Gdx.files.internal("mdl/sprites/grasshopper_img.png"));
         squirrelTexture = new Texture(Gdx.files.internal("mdl/sprites/Squirel_img.png"));
         nutTexture = new Texture(Gdx.files.internal("mdl/sprites/nuts.jpg"));
 
@@ -84,10 +117,13 @@ public class DescintrelService extends SfxManager implements ApplicationListener
         resetNut();
     }
 
+    public float getdelta(float delta){
+        return delta;
+    }
 
     @Override
     public void render() {
-        float delta = Gdx.graphics.getDeltaTime();
+        delta= Gdx.graphics.getDeltaTime();
         updateLogic(delta);
 
         // Clean background (No depth buffer needed for 2D, but it doesn't hurt)

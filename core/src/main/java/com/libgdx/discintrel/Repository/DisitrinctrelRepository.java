@@ -1,8 +1,9 @@
-////WID(03/05/2026)(Sarthak Mittal)#1.1.1.1.1.1.1,1.1/1,1.1C.1.1.2.1/1.1.1/1.1.1
+////WID(13/05/2026)(Sarthak Mittal)#1.1.1.1.1.1.1,1.1/1,1.1C.1.1.2.1/1.1.1/1.1.1.1/1.1.1
 package com.libgdx.discintrel.Repository;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g3d.Material;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.libgdx.discintrel.entity.DisitrinctEntity;
@@ -31,6 +32,11 @@ import javax.swing.plaf.nimbus.State;
 //import java.util.HashSet;
 //import java.util.Set;
 public interface DisitrinctrelRepository  {
+    public void exisysBySquirelMaterial(Material squirelMaterial);
+    public void setSquirelmaterial(Material squirelmaterial);
+    public void existsByanimateSquirel(SpriteBatch squirel);
+    public void updateByanimateSquirel(SpriteBatch squirel);
+    public void setanimateSquirel(SpriteBatch squirel);
     public Animation animateSquirel(SpriteBatch squirel);
     public void existsByEntity(DisitrinctEntity entity);
     public void updateByEntity(DisitrinctEntity entity);//Entity's Update in App
