@@ -1,4 +1,4 @@
-//WID(03/04/2026)(Sarthak Mittal)(DegamieSign)#1.1.1
+//WID(17/05/2026)(Sarthak Mittal)(DegamieSign)#1.1.1,1
 package com.libgdx.discintrel.Controller;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.libgdx.discintrel.Menu.Menu;
@@ -29,6 +29,7 @@ public class DistrinctrelController  extends DescintrelService {
         distrinctrelService.render();
         distrinctrelService.updateLogic(delta);
         distrinctrelService.nextLevel();
+        distrinctrelService.handleGrasshopperInput(delta);
 //        distrinctrelService.nextlevel();
         distrinctrelService.dispose();
 //        distrinctrelService.updateLogic();

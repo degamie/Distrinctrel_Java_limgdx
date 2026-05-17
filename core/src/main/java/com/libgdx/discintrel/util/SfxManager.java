@@ -16,7 +16,7 @@ public class SfxManager {
         if(!ambience.isPlaying())getAmbience(ambience);
         else getAmbience(null);
     }
-    public void updateByambience(Music ambience){getAmbience(ambience)+setAmbience(ambience)+1;}//Updating ambience in App
+    //public void updateByambience(Music ambience){getAmbience(ambience)+setAmbience(ambience)+1;}//Updating ambience in App
     public Music getAmbience(Music ambience){return ambience;}//Fetching Ambience in App
     public void setAmbience(Music ambience){this.ambience=ambience;}//Binding ambience in App
     public Music ambience;
@@ -29,7 +29,7 @@ public class SfxManager {
         // 3. Start playing
         ambience.play();
     }
-    public void updateBYNodes(Node nodes){getNodea(nodes)+setNodes(nodes)+1;}//updating Nodes in App
+   // public void updateBYNodes(Node nodes){getNodea(nodes)+setNodes(nodes)+1;}//updating Nodes in App
     public Node getNodea(Node nodes){return nodes;}
     public void setNodes(Node nodes){this.nodes=nodes;}
     public Node nodes;
