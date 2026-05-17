@@ -1,7 +1,8 @@
-//WID(16/5/2026)(Sarthak Mittal)(Degamiesign)#1.1.1.1.1.1c.1.1.1.1.1,1.1s.1.1.1.1.1.1.1.1/1/1.1.1/1,1.1
+//WID(17/5/2026)(Sarthak Mittal)(Degamiesign)#1.1.1.1.1.1c.1.1.1.1.1,1.1s.1.1.1.1.1.1.1.1/1/1.1.1/1,1.1.1
 package com.libgdx.discintrel.util;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -10,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class Attributes {
+    public void existsByCamera(OrthographicCamera camera){if(camera!=null)getcamera(camera);else getcamera(null);}//Checking Camera In App
     public void updateBycamera(OrthographicCamera camera){getCamera(camera)+setCamera(camera)+1;}//Updating Cemera in App
     public void setCamera(OrthographicCamera camera){this.camera=camera;}//binding Camera in App
     public void existsByStage(Stage stage){
