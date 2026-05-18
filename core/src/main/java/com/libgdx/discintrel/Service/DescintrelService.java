@@ -187,7 +187,7 @@ public class DescintrelService extends SfxManager implements ApplicationListener
 
         // Draw UI
         font.draw(batch, "Score: " + score + " | Level: " + level, 80, Gdx.graphics.getHeight() - 40);
-        font.draw(batch, "Grasshopper Hex Pos: (" + grasshopperGridPosition.x + "," + grasshopperGridPosition.y + ")", 80, Gdx.graphics.getHeight() - 80);
+        font.draw(batch, "Grasshopper Pos's coordinates: (" + grasshopperGridPosition.x + "," + grasshopperGridPosition.y + ")", 80, Gdx.graphics.getHeight() - 80);
         if (finishLineVisible) font.draw(batch, "RUN TO THE RIGHT EDGE!", 500, Gdx.graphics.getHeight() / 4);
         batch.end();
 

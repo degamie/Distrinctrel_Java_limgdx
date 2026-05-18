@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g3d.Material;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.libgdx.discintrel.entity.DisitrinctEntity;
+//import com.libgdx.discintrel.entity.DisitrinctEntity;
 //import com.libgdx.discintrel.entity.DisitrinctEntity;
 
 //import javafx.scene.Group;
@@ -32,6 +32,7 @@ import javax.swing.plaf.nimbus.State;
 //import java.util.HashSet;
 //import java.util.Set;
 public interface DisitrinctrelRepository  {
+    public DisitrinctrelEntity destrinctrelentity;
     public void handleGrasshopperInput(float delta);
     public void exisysBySquirelMaterial(Material squirelMaterial);
     public void setSquirelmaterial(Material squirelmaterial);
