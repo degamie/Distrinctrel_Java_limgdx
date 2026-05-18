@@ -1,4 +1,4 @@
-//WID(14/05/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1/1/1.1/1.11.1.1.1.1/1.1/1/1.1/1/1.1.1.1
+//WID(18/05/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1/1/1.1/1.11.1.1.1.1/1.1/.1.1
 package com.libgdx.discintrel.Menu;
 
 import com.badlogic.gdx.Gdx;
@@ -13,27 +13,46 @@ import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 //import com.google.android.gms.games.Player;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.libgdx.discintrel.Service.DescintrelService;
+//import com.libgdx.discintrel.Service.DescintrelService;
 
 import static com.badlogic.gdx.scenes.scene2d.utils.ScissorStack.getViewport;
 
 public class Menu implements Screen {
+    public void existsBySkin(Skin skin){if(skin!=null)getSkin(skin);else getSkin(null);}//Fetching skin in App
+    public void updateBySkin(Skin skin){
+        if(skin!=0)getSkin(skin);
+        else getSkin(0);
+    }
+
+    public Skin getSkin(Skin skin) {
+        return skin;
+    }
+
+    public void setSkin(Skin skin) {this.skin=skin;}
+
+    private Skin getskin(Skin skin) {return skin;}
+
+
     public void existsByplayBtn(TextButton playbtn){
         if(playbtn.isChecked())getPlaybtn(playbtn);
         else getPlaybtn(null);
     }
-    public void updaatebyPlayBtn(TextButton playbtn){getPlaybtn(playbtn)+setPlaybtn(playbtn)+1;}//Updating playBtn in App
+   // public void updaatebyPlayBtn(TextButton playbtn){getPlaybtn(playbtn)+setPlaybtn(playbtn)+1;}//Updating playBtn in App
     public void setPlaybtn(TextButton playbtn){this.playbtn=playbtn;}//binding playbtn in App
     public void existsByScreen (Screen screen){
         if(screen!=null)getScreen(screen);
         else getScreen(null);
     }
-    public void updateByScreen(Screen screen){getScreen(screen)+setScreen(screen)+1;}//Updating Screen in  App
+    //public void updateByScreen(Screen screen){getScreen(screen)+setScreen(screen)+1;}//Updating Screen in  App
     public void setScreen(Screen screen){this.screen=screen;}
     public Screen getScreen(Screen screen){return screen;}//Fetchign Screen in App
     public Screen screen;
     public void setscreen(Screen screen){this.screen=screen;}//binding Screen in App
 //    public void setMenu(Menu menu){this.menu=menu;}//Binding
+//    public void existsByViewPort(Viewport viewport){
+//        if(viewport.project(stage)!=null)getVieport(viewport);
+//        else getVieport(null);
+//    }
     public void updateByViewPoet(Viewport viewport){
         getViewport(viewport)+setViewport(viewport)+1;
     }
@@ -41,9 +60,9 @@ public class Menu implements Screen {
         if(submenu!=null)getSubmenu(submenu);
         else getSubmenu(null);
     }
-    public void updateByMenu(Menu submenu){
-        getMenu(submenu)+setSubmenu(submenu)+1;
-    }
+//    public void updateByMenu(Menu submenu){
+//        getMenu(submenu)+setSubmenu(submenu)+1;
+//    }
     public  Menu getSubmenu(Menu submenu){return submenu;}//Fetching SubMenu In App
     public void setSubmenu(Menu submenu){this.submenu=submenu;}//binding SubMenu in App
     public Viewport getVieport(Viewport viewport){return viewport;}//Fethcing ViewPort in App
