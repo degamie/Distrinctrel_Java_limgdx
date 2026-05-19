@@ -1,4 +1,4 @@
-//WID(17/05/2026)(Sarthak Mittal)(DegamieISign)#1.1.1,1.1.1.1.1/1/1
+//WID(19/05/2026)(Sarthak Mittal)(DegamieISign)#1.1.1,1.1.1.1.1/1/1.1
 package com.libgdx.discintrel.entity;
 
 
@@ -80,6 +80,11 @@ public class DisitrinctEntity{
     public boolean finishLineVisible = false;
     //3d Mdl(Assets)(TBC)(Beta-Stage)
     public SceneAsset asset;
+
+    public SceneAsset getAsset() {
+        return asset;
+    }
+
     public State goalstate;
     public Rectangle finishLine;
     public Text statsDisplay;

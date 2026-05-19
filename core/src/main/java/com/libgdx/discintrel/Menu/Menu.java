@@ -1,6 +1,6 @@
-//WID(18/05/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1/1/1.1/1.11.1.1.1.1/1.1/.1
+//WID(18/05/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1/1/1.1/1.11.1.1.1.1/1.1/.1.1
 package com.libgdx.discintrel.Menu;
-
+import com.libgdx.discintrel.Menu.Menu;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -18,7 +18,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import static com.badlogic.gdx.scenes.scene2d.utils.ScissorStack.getViewport;
 
 public class Menu implements Screen {
-    //public void updateBySkin(Skin skin){getskin(skin)+setSkin(skin)+1;}//Updating
+    public void existsBySkin(Skin skin){if(skin!=null)getSkin(skin);else getSkin(null);}//Fetching skin in App
     public void updateBySkin(Skin skin){
         if(skin!=0)getSkin(skin);
         else getSkin(0);
@@ -101,7 +101,12 @@ public Menu(Stage stage) {
         }
     });
 }
-    // public void updateByMainMenu(Menu mainMenu){getMainMenu(mainMenu)+setMainMenu(mainMenu)+1;}
+ public void updateByMainMenu(Menu mainMenu){getMainMenu(mainMenu)+setMainMenu(mainMenu)+1;}
+
+    private void setMainMenu( mainMenu) {
+         this.menu=menu;
+    }
+
     public Menu getMainMenu(Menu mainMenu){return  mainMenu;}//Fetching MainMenu in APp
 //    public void setMainMenu(Menu mainMenu){this.MainMenu=MainMenu;}
     public Menu MainMenu;
