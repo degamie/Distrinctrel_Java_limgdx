@@ -42,4 +42,4 @@ Note that most tasks that are not specific to a single project can be run with `
 For example, `core:clean` removes `build` folder only from the `core` project.
 
 Game Preview(Early):
-https://drive.google.com/file/d/1JO7F_0u9cThEqkW4w1NC7xa_qeeHZjB1/view?usp=sharing
+https://drive.google.com/file/d/1l9g4-1KZoaPj1hBt-8xX-Y956Bgz1ruY/view?usp=sharing
