@@ -1,4 +1,4 @@
-//WIP(10/05/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1.1.1s.1./1/1/1        .1
+//WIP(19/05/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1.1.1s.1./1/1/1    /1    .1
 package com.libgdx.discintrel.util;
 
 //import javafx.scene.media.AudioClip;
@@ -8,6 +8,7 @@ import com.badlogic.gdx.audio.Music;
 import org.w3c.dom.Node;
 
 public class SfxManager {
+    public SfxManager sfxManager;
     public void existsByNodes(Node nodes){
         if(nodes!=null)getNodea(nodes);
         else getNodea(null);
