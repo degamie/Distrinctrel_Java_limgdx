@@ -1,4 +1,4 @@
-//WID(20/5/2026)(Sarthak Mittal)(Degamiesign)#1.1.1.1.1.1c.1.1.1.1.1,1.1s.1.1.1.1.1.1.1.1/1/1.1.1/1,1.1.1.1.1
+//WID(21/5/2026)(Sarthak Mittal)(Degamiesign)#1.1.1.1.1.1c.1.1.1.1.1,1.1s.1.1.1.1.1.1.1.1/1/1.1.1/1,1.1.1.1.1/1
 package com.libgdx.discintrel.util;
 
 import com.badlogic.gdx.Gdx;
@@ -12,6 +12,11 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class Attributes {
     public GridPoint2[] grid;
+
+    public GridPoint2[] getGrid() {
+        return grid;
+    }
+
     public void setGrid(GridPoint2[] grid){this.grid=grid;}//binding Grid in App
 //    private int getLevel(int level){return level;}//Fetching vba
     public void existsByCamera(OrthographicCamera camera){if(camera!=null)getcamera(camera);else getcamera(null);}//Checking Camera In App
