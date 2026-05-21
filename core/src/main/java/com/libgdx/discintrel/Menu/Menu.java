@@ -1,6 +1,5 @@
-//WID(18/05/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1/1/1.1/1.11.1.1.1.1/1.1/.1.1
+//WID(21/05/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1/1/1.1/1.11.1.1.1.1/1.1/.1.1.1
 package com.libgdx.discintrel.Menu;
-import com.libgdx.discintrel.Menu.Menu;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -13,11 +12,17 @@ import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 //import com.google.android.gms.games.Player;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.libgdx.discintrel.Service.DescintrelService;
 //import com.libgdx.discintrel.Service.DescintrelService;
 
 import static com.badlogic.gdx.scenes.scene2d.utils.ScissorStack.getViewport;
 
 public class Menu implements Screen {
+    public void setMenuScreen(Menu menu, Screen screen, DescintrelService service){
+        this.menu=menu;
+        this.screen=screen;
+        this.service=service;
+    }
     public void existsBySkin(Skin skin){if(skin!=null)getSkin(skin);else getSkin(null);}//Fetching skin in App
     public void updateBySkin(Skin skin){
         if(skin!=0)getSkin(skin);
