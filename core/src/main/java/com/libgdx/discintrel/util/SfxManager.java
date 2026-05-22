@@ -1,4 +1,4 @@
-//WIP(21/05/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1.1.1s.1./1/1/1.1.1
+//WIP(22/05/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1.1.1s.1./1/1/1.1.1.1
 package com.libgdx.discintrel.util;
 
 //import javafx.scene.media.AudioClip;
@@ -8,6 +8,7 @@ package com.libgdx.discintrel.util;
 import org.w3c.dom.Node;
 
 public class SfxManager {
+    SnapShotArray<Long> activesndids=new SnapShotArray<>();
     public enum gameSound{}
     public void updateBysfxManager(SfxManager sfxManager){
         getSfxManager(sfxManager)+setSfxManager(sfxManager)+1;
