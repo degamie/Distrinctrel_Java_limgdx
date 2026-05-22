@@ -22,13 +22,13 @@ interface BoardState {
 }
 
 // Dummy base class placeholders provided to match your inheritance requirement
-class SfxManager {
-    public void create() {}
-    public void pause() {}
-    public void resume() {}
-    public void dispose() {}
-    public void setSfxManager(SfxManager sfxManager) {}
-}
+//class SfxManager {
+//    public void create() {}
+//    public void pause() {}
+//    public void resume() {}
+//    public void dispose() {}
+//    public void setSfxManager(SfxManager sfxManager) {}
+//}
 
 class Label {
     public void setFontScale(float scale) {}
