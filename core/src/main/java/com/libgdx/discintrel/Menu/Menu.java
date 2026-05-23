@@ -1,6 +1,5 @@
-//WID(18/05/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1/1/1.1/1.11.1.1.1.1/1.1/.1.1
+//WID(23/05/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1/1/1.1/1.11.1.1.1.1/1.1/.1.1.1.11.1
 package com.libgdx.discintrel.Menu;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -13,11 +12,27 @@ import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 //import com.google.android.gms.games.Player;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.libgdx.discintrel.Service.DescintrelService;
 //import com.libgdx.discintrel.Service.DescintrelService;
+
+import java.util.Scanner;
 
 import static com.badlogic.gdx.scenes.scene2d.utils.ScissorStack.getViewport;
 
 public class Menu implements Screen {
+    public String menuId;
+    public void  existsByMenuScreen(Menu menu,Screen screen){
+        if(menu!==null)getMenu( menu );
+        else getMenu( null);
+    }
+    public void updateByMenuScreen(Menu menu,Screen screen){
+        getMenu(menu)+setMenu(menu)+1;
+    }
+    public void setMenuScreen(Menu menu, Screen screen, DescintrelService service){
+        this.menu=menu;
+        this.screen=screen;
+        this.service=service;
+    }
     public void existsBySkin(Skin skin){if(skin!=null)getSkin(skin);else getSkin(null);}//Fetching skin in App
     public void updateBySkin(Skin skin){
         if(skin!=0)getSkin(skin);
@@ -101,7 +116,12 @@ public Menu(Stage stage) {
         }
     });
 }
-    // public void updateByMainMenu(Menu mainMenu){getMainMenu(mainMenu)+setMainMenu(mainMenu)+1;}
+ public void updateByMainMenu(Menu mainMenu){getMainMenu(mainMenu)+setMainMenu(mainMenu)+1;}
+
+    private void setMainMenu( mainMenu) {
+         this.menu=menu;
+    }
+
     public Menu getMainMenu(Menu mainMenu){return  mainMenu;}//Fetching MainMenu in APp
 //    public void setMainMenu(Menu mainMenu){this.MainMenu=MainMenu;}
     public Menu MainMenu;
