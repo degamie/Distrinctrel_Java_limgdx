@@ -1,8 +1,8 @@
 //WID(17/05/2026)(Sarthak Mittal)#1.1s
 package com.libgdx.discintrel.teavm;
 
-import com.github.xpenatan.gdx.teavm.backends.web.WebApplicationConfiguration;
-import com.github.xpenatan.gdx.teavm.backends.web.WebApplication;
+//import com.github.xpenatan.gdx.teavm.backends.web.WebApplicationConfiguration;
+//import com.github.xpenatan.gdx.teavm.backends.web.WebApplication;
 import com.libgdx.discintrel.Controller.DistrinctrelController;
 //import com.libgdx.discintrel.Main.MainApp;
 

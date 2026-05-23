@@ -1,4 +1,4 @@
-//WID(17/05/2026)(Sarthak Mittal)(Degamiesign)#1.1s.1.1.1.1.1.1/.1/1.1.1/1
+//WID(22/05/2026)(Sarthak Mittal)(Degamiesign)#1.1s.1.1.1.1.1.1/.1/1.1.1/1/1
 package com.libgdx.discintrel.Service;
 
 import com.badlogic.gdx.ApplicationListener;
@@ -15,9 +15,11 @@ import com.badlogic.gdx.math.GridPoint2;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
+import com.libgdx.discintrel.util.SfxManager;
 
 // Placeholder interface to represent your structural layout/hex board mapping
 interface BoardState {
+    boolean isChangedpos(int q,int r);C
     boolean isOccupied(int q, int r);
 }
 
@@ -35,6 +37,7 @@ class Label {
 }
 
 public class DescintrelService extends SfxManager implements ApplicationListener {
+    public <GridPoint2> void setDIRECTIONS(final GridPoint2[] DIRECTIONS ){this.DIRECTIONS=DIRECTIONS;}//binding 2d Grid's Directiosn in App
 
     // Grasshopper's Axial 2d Grid's Coordinates Declare
     public final GridPoint2[] DIRECTIONS = { // 2d Grid's Directions Declare

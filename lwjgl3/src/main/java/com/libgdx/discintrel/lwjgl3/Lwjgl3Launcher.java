@@ -1,12 +1,12 @@
 //WID(28/03/2026)Sarthak Mittal((DegamieSign))#1.1
 package com.libgdx.discintrel.lwjgl3;
-
-import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.ApplicationListener;
-import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
-import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
-import com.badlogic.gdx.graphics.glutils.HdpiMode;
-import com.badlogic.gdx.scenes.scene2d.Stage;
+//
+//import com.badlogic.gdx.ApplicationAdapter;
+//import com.badlogic.gdx.ApplicationListener;
+//import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
+//import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
+//import com.badlogic.gdx.graphics.glutils.HdpiMode;
+//import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.libgdx.discintrel.Controller.DistrinctrelController;
 //import com.libgdx.discintrel.Main.MainApp;
 
