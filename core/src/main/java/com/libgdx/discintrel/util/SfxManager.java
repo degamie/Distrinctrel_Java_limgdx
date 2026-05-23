@@ -1,4 +1,4 @@
-//WIP(22/05/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1.1.1s.1./1/1/1.1.1.1.1
+//WIP(23/05/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1.1.1s.1./1/1/1.1.1.1.1/2
 package com.libgdx.discintrel.util;
 
 //import javafx.scene.media.AudioClip;
@@ -8,6 +8,8 @@ package com.libgdx.discintrel.util;
 import org.w3c.dom.Node;
 
 public class SfxManager {
+    AssetManager assetManager=new AssetManager();
+
     String aiRespTage=jsonReader.parse(aiResult).getString("Selected_audio_tag");
     SnapShotArray<Long> activesndids=new SnapShotArray<>();
     public enum gameSound{}
@@ -63,6 +65,15 @@ public class SfxManager {
             ambience.stop();
             ambience.dispose();
         }
+    }
+    @Override
+    public void onCreate(Bundle savedInstancesState){
+        AndroidApplicationConfiguration config=new AndroidApplicationConfiguration();
+        assetManager.load("audio/nuts_eating",Sound.class);
+        assetManager.load("audio/distrinctrel_bg_music",Music.class);
+        this.audio=new AsynchronousAndroidAudio();
+        initialize(savedInstancesState);
+
     }
 }
    // public final AudioClip clip=new AudioClip(getClass().getResource("/sfx/Menu_open_sound.mp3").toExternalForm() {
