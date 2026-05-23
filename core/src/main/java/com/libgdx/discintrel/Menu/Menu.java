@@ -1,4 +1,4 @@
-//WID(23/05/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1/1/1.1/1.11.1.1.1.1/1.1/.1.1.1.11.1
+//WID(23/05/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1/1/1.1/1.11.1.1.1.1/1.1/.1.1.1.11.1.1
 package com.libgdx.discintrel.Menu;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -20,6 +20,7 @@ import java.util.Scanner;
 import static com.badlogic.gdx.scenes.scene2d.utils.ScissorStack.getViewport;
 
 public class Menu implements Screen {
+    public void setMenuId(String menuId){this.menuId=menuId;}
     public String menuId;
     public void  existsByMenuScreen(Menu menu,Screen screen){
         if(menu!==null)getMenu( menu );
