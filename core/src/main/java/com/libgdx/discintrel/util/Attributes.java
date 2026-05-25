@@ -1,4 +1,4 @@
-//WID(21/5/2026)(Sarthak Mittal)(Degamiesign)#1.1.1.1.1.1c.1.1.1.1.1,1.1s.1.1.1.1.1.1.1.1/1/1.1.1/1,1.1.1.1.1/1
+//WID(25/5/2026)(Sarthak Mittal)(Degamiesign)#1.1.1.1.1.1c.1.1.1.1.1,1.1s.1.1.1.1.1.1.1.1/1/1.1.1/1,1.1.1.1.1/1.1
 package com.libgdx.discintrel.util;
 
 import com.badlogic.gdx.Gdx;
@@ -11,9 +11,10 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class Attributes {
+    public void updateBygrid(GridPoint2[] grid){getGrid(grid)+setGrid(grid);}//Updating grid in App
     public GridPoint2[] grid;
 
-    public GridPoint2[] getGrid() {
+    public GridPoint2[] getGrid(GridPoint2[] grid)) {
         return grid;
     }
 
