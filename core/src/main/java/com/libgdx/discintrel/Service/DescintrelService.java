@@ -1,4 +1,4 @@
-//WID(22/05/2026)(Sarthak Mittal)(Degamiesign)#1.1s.1.1.1.1.1.1/.1/1.1.1/1/1
+//WID(26/05/2026)(Sarthak Mittal)(Degamiesign)#1.1s.1.1.1.1.1.1/.1/1.1.1/1/1,1
 package com.libgdx.discintrel.Service;
 
 import com.badlogic.gdx.ApplicationListener;
@@ -37,6 +37,10 @@ class Label {
 }
 
 public class DescintrelService extends SfxManager implements ApplicationListener {
+    public GridPoint2[] getDIRECTIONS() {
+        return DIRECTIONS;
+    }
+
     public <GridPoint2> void setDIRECTIONS(final GridPoint2[] DIRECTIONS ){this.DIRECTIONS=DIRECTIONS;}//binding 2d Grid's Directiosn in App
 
     // Grasshopper's Axial 2d Grid's Coordinates Declare
