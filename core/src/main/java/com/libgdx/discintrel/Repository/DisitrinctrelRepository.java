@@ -1,4 +1,4 @@
-////WID(26/05/2026)(Sarthak Mittal)#1.1.1.1.1.1.1,1.1/1,1.1C.1.1.2.1/1.1.1/1.1.1.1/1.1.1./.11.1.1
+////WID(28/05/2026)(Sarthak Mittal)#1.1.1.1.1.1.1,1.1/1,1.1C.1.1.2.1/1.1.1/1.1.1.1/1.1.1./.11.1.1.1
 package com.libgdx.discintrel.Repository;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -32,6 +32,7 @@ import javax.swing.plaf.nimbus.State;
 //import java.util.HashSet;
 //import java.util.Set;
 public interface DisitrinctrelRepository  {
+    public void updateBydelta(int delta);
     public void setdelta(float delta);
     public float getdelta(float delta );
     public DisitrinctrelEntity destrinctrelentity;
