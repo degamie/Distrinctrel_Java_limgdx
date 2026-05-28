@@ -1,4 +1,4 @@
-//WIP(26/05/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1.1.1s.1./1/1/1.1.1.1.1/2.1
+//WIP(28/05/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1.1.1s.1./1/1/1.1.1.1.1/2.1/1
 package com.libgdx.discintrel.util;
 
 //import javafx.scene.media.AudioClip;
@@ -10,6 +10,10 @@ import org.w3c.dom.Node;
 public class SfxManager {
     public void setAiRespTage(String aiRespTage){this.aiRespTage=aiRespTage;}//bidnding AiResponsTage in app
     AssetManager assetManager=new AssetManager();
+
+    public void setAssetManager(AssetManager assetManager) {
+        this.assetManager = assetManager;
+    }
 
     String aiRespTage=jsonReader.parse(aiResult).getString("Selected_audio_tag");
     SnapShotArray<Long> activesndids=new SnapShotArray<>();
