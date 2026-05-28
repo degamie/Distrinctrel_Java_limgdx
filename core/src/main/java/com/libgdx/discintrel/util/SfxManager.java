@@ -8,6 +8,7 @@ package com.libgdx.discintrel.util;
 import org.w3c.dom.Node;
 
 public class SfxManager {
+    public Sound clicksnd=new Sound();
     public void setAiRespTage(String aiRespTage){this.aiRespTage=aiRespTage;}//bidnding AiResponsTage in app
     AssetManager assetManager=new AssetManager();
 
