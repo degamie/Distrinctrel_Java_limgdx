@@ -1,4 +1,4 @@
-//WID(17/05/2026)(Sarthak Mittal)#1.1s
+//WID(28/05/2026)(Sarthak Mittal)#1.1sl1
 package com.libgdx.discintrel.teavm;
 
 //import com.github.xpenatan.gdx.teavm.backends.web.WebApplicationConfiguration;
@@ -23,4 +23,5 @@ public class TeaVMLauncher {
         config.height = 100;
         new WebApplication(new DistrinctrelController(), config);
     }
+    public void setconfigwidth(config.width){this.config.width=config.width;}//binding Config Width in App
 }
