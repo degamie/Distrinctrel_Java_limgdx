@@ -1,4 +1,4 @@
-////WID(28/05/2026)(Sarthak Mittal)#1.1.1.1.1.1.1,1.1/1,1.1C.1.1.2.1/1.1.1/1.1.1.1/1.1.1./.11.1.1.1
+////WID(29/05/2026)(Sarthak Mittal)#1.1.1.1.1.1.1,1.1/1,1.1C.1.1.2.1/1.1.1/1.1.1.1/1.1.1./.11.1.1.1.1
 package com.libgdx.discintrel.Repository;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -17,21 +17,8 @@ import javax.swing.*;
 import javax.swing.plaf.nimbus.State;
 
 //import static com.libgdx.discintrel.Main.MainApp.entity;
-
-
-//package Repository;
-//
-//
-//import entity.DisitrinctEntity;
-//import javafx.scene.input.KeyCode;
-//import javafx.scene.shape.Rectangle;
-//import javafx.scene.text.Text;
-//import javafx.stage.Stage;
-//
-//import java.net.URL;
-//import java.util.HashSet;
-//import java.util.Set;
 public interface DisitrinctrelRepository  {
+    public void existsBydelta(int delta);
     public void updateBydelta(int delta);
     public void setdelta(float delta);
     public float getdelta(float delta );
