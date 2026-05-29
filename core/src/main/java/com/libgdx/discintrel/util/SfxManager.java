@@ -1,13 +1,28 @@
-//WIP(10/05/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1.1.1s.1./1/1/1        .1
+//WIP(28/05/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1.1.1s.1./1/1/1.1.1.1.1/2.1/1
 package com.libgdx.discintrel.util;
 
 //import javafx.scene.media.AudioClip;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.audio.Music;
+//import com.badlogic.gdx.Gdx;
+//import com.badlogic.gdx.audio.Music;
 import org.w3c.dom.Node;
 
 public class SfxManager {
+    public Sound clicksnd=new Sound();
+    public void setAiRespTage(String aiRespTage){this.aiRespTage=aiRespTage;}//bidnding AiResponsTage in app
+    AssetManager assetManager=new AssetManager();
+
+    public void setAssetManager(AssetManager assetManager) {
+        this.assetManager = assetManager;
+    }
+
+    String aiRespTage=jsonReader.parse(aiResult).getString("Selected_audio_tag");
+    SnapShotArray<Long> activesndids=new SnapShotArray<>();
+    public enum gameSound{}
+    public void updateBysfxManager(SfxManager sfxManager){
+        getSfxManager(sfxManager)+setSfxManager(sfxManager)+1;
+    }
+    public SfxManager sfxManager;
     public void existsByNodes(Node nodes){
         if(nodes!=null)getNodea(nodes);
         else getNodea(null);
@@ -16,7 +31,7 @@ public class SfxManager {
         if(!ambience.isPlaying())getAmbience(ambience);
         else getAmbience(null);
     }
-    public void updateByambience(Music ambience){getAmbience(ambience)+setAmbience(ambience)+1;}//Updating ambience in App
+    //public void updateByambience(Music ambience){getAmbience(ambience)+setAmbience(ambience)+1;}//Updating ambience in App
     public Music getAmbience(Music ambience){return ambience;}//Fetching Ambience in App
     public void setAmbience(Music ambience){this.ambience=ambience;}//Binding ambience in App
     public Music ambience;
@@ -29,7 +44,7 @@ public class SfxManager {
         // 3. Start playing
         ambience.play();
     }
-    public void updateBYNodes(Node nodes){getNodea(nodes)+setNodes(nodes)+1;}//updating Nodes in App
+   // public void updateBYNodes(Node nodes){getNodea(nodes)+setNodes(nodes)+1;}//updating Nodes in App
     public Node getNodea(Node nodes){return nodes;}
     public void setNodes(Node nodes){this.nodes=nodes;}
     public Node nodes;
@@ -56,6 +71,15 @@ public class SfxManager {
             ambience.stop();
             ambience.dispose();
         }
+    }
+    @Override
+    public void onCreate(Bundle savedInstancesState){
+        AndroidApplicationConfiguration config=new AndroidApplicationConfiguration();
+        assetManager.load("audio/nuts_eating",Sound.class);
+        assetManager.load("audio/distrinctrel_bg_music",Music.class);
+        this.audio=new AsynchronousAndroidAudio();
+        initialize(savedInstancesState);
+
     }
 }
    // public final AudioClip clip=new AudioClip(getClass().getResource("/sfx/Menu_open_sound.mp3").toExternalForm() {
