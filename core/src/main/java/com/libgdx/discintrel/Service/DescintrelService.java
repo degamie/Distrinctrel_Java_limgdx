@@ -1,4 +1,4 @@
-//WID(26/05/2026)(Sarthak Mittal)(Degamiesign)#1.1s.1.1.1.1.1.1/.1/1.1.1/1/1,1
+//WID(30/05/2026)(Sarthak Mittal)(Degamiesign)#1.1s.1.1.1.1.1.1/.1/1.1.1/1/1,1.1
 package com.libgdx.discintrel.Service;
 
 import com.badlogic.gdx.ApplicationListener;
@@ -52,6 +52,12 @@ public class DescintrelService extends SfxManager implements ApplicationListener
         new GridPoint2(-1, -1), // bottom coordinates declare
         new GridPoint2(1, 1)    // Top coordinates declare
     };
+    TreeSetM<Sprite> treeSet=new TreeeSet<>();
+    treeSet.add(grasshopperSprite);
+    treeSet.add(squirrelSprite);
+    treeSet.add(nutSprite);
+    treeSet.add(bckgSprite);
+    System.out.println(treeSet);
 
     public Array<GridPoint2> getValidMoves(BoardState boardState, GridPoint2 start) {
         Array<GridPoint2> moves = new Array<>();
