@@ -1,4 +1,4 @@
-//WIP(29/05/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1.1.1s.1./1/1/1.1.1.1.1/2.1/1.1
+//WIP(30/05/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1.1.1s.1./1/1/1.1.1.1.1/2.1/1.1.1
 package com.libgdx.discintrel.util;
 
 //import javafx.scene.media.AudioClip;
@@ -16,7 +16,7 @@ public class SfxManager {
     public void setAssetManager(AssetManager assetManager) {
         this.assetManager = assetManager;
     }
-
+public void triggerClick(){}
     String aiRespTage=jsonReader.parse(aiResult).getString("Selected_audio_tag");
     SnapShotArray<Long> activesndids=new SnapShotArray<>();
     public enum gameSound{}
