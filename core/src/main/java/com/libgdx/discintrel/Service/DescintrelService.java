@@ -1,4 +1,4 @@
-//WID(30/05/2026)(Sarthak Mittal)(Degamiesign)#1.1s.1.1.1.1.1.1/.1/1.1.1/1/1,1.1
+//WID(31/05/2026)(Sarthak Mittal)(Degamiesign)#1.1s.1.1.1.1.1.1/.1/1.1.1/1/1,1.1.1
 package com.libgdx.discintrel.Service;
 
 import com.badlogic.gdx.ApplicationListener;
@@ -121,6 +121,7 @@ public class DescintrelService extends SfxManager implements ApplicationListener
     // Tracks current grid location instead of purely visual pixel transforms
     public GridPoint2 grasshopperGridPosition = new GridPoint2(0, 0);
     private float keyInputTimer = 0f;
+    public float getKeyInputTimer(float keyInputTimer){return keyInputTimer;}//Fetching keyInput Timer in App .
     private final float KEY_DELAY = 0.22f; // Prevents hyper-rapid grid hopping loops
 
     // Game Logic
