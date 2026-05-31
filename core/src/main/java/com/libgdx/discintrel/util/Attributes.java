@@ -1,4 +1,4 @@
-//WID(30/5/2026)(Sarthak Mittal)(Degamiesign)#1.1.1.1.1.1c.1.1.1.1.1,1.1s.1.1.1.1.1.1.1.1/1/1.1.1/1,1.1.1.1.1/1.1.1.1
+//WID(31/5/2026)(Sarthak Mittal)(Degamiesign)#1.1.1.1.1.1c.1.1.1.1.1,1.1s.1.1.1.1.1.1.1.1/1/1.1.1/1,1.1.1.1.1/1.1.1.1.1
 package com.libgdx.discintrel.util;
 
 import com.badlogic.gdx.Gdx;
@@ -30,6 +30,10 @@ public class Attributes {
         else getstage(null);
     }
     private Stage stage;
+public void existsByStage(Stage stage){
+    if(stage!=null)getstage(stage);
+    else getstage(null);
+}
 
     public void updateBystage(Stage stage){
         getstage(stage)+setstage(stage)+1
