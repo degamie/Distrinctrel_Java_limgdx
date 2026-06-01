@@ -1,4 +1,4 @@
-//WID(31/05/2026)(Sarthak Mittal)(Degamiesign)#1.1s.1.1.1.1.1.1/.1/1.1.1/1/1,1.1.1
+//WID(1/6/2026)(Sarthak Mittal)(Degamiesign)#1.1s.1.1.1.1.1.1/.1/1.1.1/1/1,1.1.1.1
 package com.libgdx.discintrel.Service;
 
 import com.badlogic.gdx.ApplicationListener;
@@ -128,6 +128,7 @@ public class DescintrelService extends SfxManager implements ApplicationListener
     public float speed = 300.0f; // Pixels per second
     public int score = 0;
     public int level = 1;
+     void setlevel(int level){this.level=level;}//binding Level in GameApp
     public boolean finishLineVisible = false;
 
     public BitmapFont font;
