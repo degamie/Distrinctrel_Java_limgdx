@@ -69,7 +69,7 @@ public class Menu implements Screen {
         if(screen!=null)getScreen(screen);
         else getScreen(null);
     }
-    //public void updateByScreen(Screen screen){getScreen(screen)+setScreen(screen)+1;}//Updating Screen in  App
+    public void updateByScreen(Screen screen){getScreen(screen)+setScreen(screen)+1;}//Updating Screen in  App
     public void setScreen(Screen screen){this.screen=screen;}
     public Screen getScreen(Screen screen){return screen;}//Fetchign Screen in App
     public Screen screen;

@@ -1,4 +1,4 @@
-//WID(1/6/2026)(Sarthak Mittal)(Degamiesign)#1.1s.1.1.1.1.1.1/.1/1.1.1/1/1,1.1.1.1
+//WID(2/6/2026)(Sarthak Mittal)(Degamiesign)#1.1s.1.1.1.1.1.1/.1/1.1.1/1/1,1.1.1.1.1
 package com.libgdx.discintrel.Service;
 
 import com.badlogic.gdx.ApplicationListener;
@@ -102,7 +102,7 @@ public class DescintrelService extends SfxManager implements ApplicationListener
     }
 
     public Label label;
-
+ObjectMap<SpriteBatch> sb=new  ObjectMap<>();
     // 2D Core
     public void setBatch(SpriteBatch spriteBatch) { this.batch = spriteBatch; } // binding batch in App
     public SpriteBatch batch;
