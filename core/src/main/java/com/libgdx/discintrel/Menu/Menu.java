@@ -1,4 +1,4 @@
-//WID(31/05/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1/1/1.1/1.11.1.1.1.1/1.1/.1.1.1.11.1.1.1.1/.1/1.1.1.,1
+//WID(02/06/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1/1/1.1/1.11.1.1.1.1/1.1/.1.1.1.11.1.1.1.1/.1/1.1.1.,1.1
 package com.libgdx.discintrel.Menu;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -20,6 +20,7 @@ import java.util.Scanner;
 import static com.badlogic.gdx.scenes.scene2d.utils.ScissorStack.getViewport;
 
 public class Menu implements Screen {
+    public void addViewPortScreen(Screen screen,ViewPort viewPort){if(screen.exists(viewPort))screen=viewPort;}//Adding ViewPort Screen in App
     void updateBymenuName(String menuname){getMenuname(menuname)+setMenuname(menuname)+1;}//updating MenuName in app
     void setMenuname(String menuname){this.menuname=menuname;}//binding MenuName in Game App
     public String getMenuname(String menuname){return menuname;}//Fetching MenuName in app
