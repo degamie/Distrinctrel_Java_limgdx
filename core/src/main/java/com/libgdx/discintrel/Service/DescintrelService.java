@@ -1,4 +1,4 @@
-//WID(4/6/2026)(Sarthak Mittal)(Degamiesign)#1.1s.1.1.1.1.1.1/.1/1.1.1/1/1,1.1.1.1.1.1
+//WID(5/6/2026)(Sarthak Mittal)(Degamiesign)#(DistricntrelService(logic(class))#1
 package com.libgdx.discintrel.Service;
 
 import com.badlogic.gdx.ApplicationListener;
@@ -37,6 +37,13 @@ class Label {
 }
 
 public class DescintrelService extends SfxManager implements ApplicationListener {
+    public int addscore(int score){
+    while (score!=0){
+        if(score>0)score++;
+        else  score=0;
+    }return score;
+}
+
     public DistrinctrelService service;
     public GridPoint2[] getDIRECTIONS() {
         return DIRECTIONS;
