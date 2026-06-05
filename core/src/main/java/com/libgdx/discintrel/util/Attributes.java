@@ -1,4 +1,4 @@
-//WID(04/06/2026)(Sarthak Mittal)(Degamiesign)(Distrinctrel)
+//WID(05/06/2026)(Sarthak Mittal)(Degamiesign)(Distrinctrel)(Attributes)
 package com.libgdx.discintrel.util;
 
 import com.badlogic.gdx.Gdx;
@@ -9,8 +9,19 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.libgdx.discintrel.Controller.DistrinctrelController;
+
+import java.awt.Font;
 
 public class Attributes {
+    public int x,y,z;
+    DistrinctrelService service;
+    public void addSpeed(service SquirelSprite,int Speed){
+        while(speed!=0){
+            if(speed>0)SquirelSprite.move(x,y,z)+=speed;
+
+        else SquirelSprite.move(x,y,z)=0;}
+    }
     public void setFont(Font font){this.font=font;}//binding Font in App
     public void updaateBylevel(int level){getLevel(level+1)+setLevel(level+1);}//Updating Game's level in App
     public void existsByGrid(GridPoint2[] grid){if(grid!==0)getGrid(grid);else getGrid(0);}//Checking Grid's Existence in App
