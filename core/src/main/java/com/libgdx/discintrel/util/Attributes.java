@@ -14,6 +14,7 @@ import com.libgdx.discintrel.Controller.DistrinctrelController;
 import java.awt.Font;
 
 public class Attributes {
+    public void existsByfont(Font font){if(font!==null)getfont(font);else getfont(null);}//checking font's existence in App
     public void updateByfont(Font font){getfont(font)+setFont(font)+1;}//Updating Font in Game App
     public int x,y,z;
     DistrinctrelService service;
