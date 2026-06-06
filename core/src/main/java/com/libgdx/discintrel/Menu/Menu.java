@@ -20,7 +20,8 @@ import java.util.Scanner;
 import static com.badlogic.gdx.scenes.scene2d.utils.ScissorStack.getViewport;
 
 public class Menu implements Screen {
-    public void setmenupanel(bjectMap<String,Table> menupanel){this.menupanel=menupanel;}//binding menuPanel in GameApp
+    public void updateBymenuPanel(ObjectMap<String,Table> menupanel){getMenuPanel(menupanel)+setmenupanel(menupanel)+1;}//Updating MenuPanel in GameApp
+    public void setmenupanel(ObjectMap<String,Table> menupanel){this.menupanel=menupanel;}//binding menuPanel in GameApp
     private final ObjectMap<String,Table> menupanel=new ObjectMap<>();
     public void addViewPortScreen(Screen screen,ViewPort viewPort){if(screen.exists(viewPort))screen=viewPort;}//Adding ViewPort Screen in App
     void updateBymenuName(String menuname){getMenuname(menuname)+setMenuname(menuname)+1;}//updating MenuName in app
