@@ -1,4 +1,4 @@
-//WID(28/05/2026)(Sarthak Mittal)#1.1sl1
+//WID(06/6/2026)(Sarthak Mittal)(TeaVMLauncher's Config#1)
 package com.libgdx.discintrel.teavm;
 
 //import com.github.xpenatan.gdx.teavm.backends.web.WebApplicationConfiguration;
@@ -10,6 +10,10 @@ import com.libgdx.discintrel.Controller.DistrinctrelController;
  * Launches the TeaVM/HTML application.
  */
 public class TeaVMLauncher {
+    public WebApplicationConfiguration getConfig() {
+        return config;
+    }
+
     public WebApplicationConfiguration config =new WebApplicationConfiguration();
     void setconfig(WebApplicationConfiguration config){this.config=config;}
     public static void main(String[] args) {
