@@ -1,4 +1,4 @@
-//WID(06/06/2026)(Sarthak Mittal)(Degamiesign)(Distrinctrel)(Attributes)
+//WID(07/06/2026)(Sarthak Mittal)(Degamiesign)(Distrinctrel)(Attributes)#1
 package com.libgdx.discintrel.util;
 
 import com.badlogic.gdx.Gdx;
@@ -14,6 +14,7 @@ import com.libgdx.discintrel.Controller.DistrinctrelController;
 import java.awt.Font;
 
 public class Attributes {
+    public void setZ(int z){return z;}//bidning z in  GameApp
     public void existsByfont(Font font){if(font!==null)getfont(font);else getfont(null);}//checking font's existence in App
     public void updateByfont(Font font){getfont(font)+setFont(font)+1;}//Updating Font in Game App
     public int x,y,z;
