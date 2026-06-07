@@ -1,4 +1,4 @@
-//WID(5/6/2026)(Sarthak Mittal)(Degamiesign)#(DistricntrelService(logic(class))#1
+//WID(7/6/2026)(Sarthak Mittal)(Degamiesign)#(DistricntrelService(logic(class))#1.1
 package com.libgdx.discintrel.Service;
 
 import com.badlogic.gdx.ApplicationListener;
@@ -89,6 +89,7 @@ public class DescintrelService extends SfxManager implements ApplicationListener
         }
         return moves;
     }
+    public void updateBydelta(float delta){getdelta(delta)+setDelta(delta)+1;}//Updating Delta in GameApp
 
     public void setDelta(float delta) { this.delta = delta; } // binding Delta
     public float delta = 0f;
