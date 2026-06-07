@@ -1,4 +1,4 @@
-//WIP(02/06/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1.1.1s.1./1/1/1.1.1.1.1/2.1/1.1.1.1.1.1
+//WIP(7/06/2026)(Sarthak Mittal)(DegamieSign)(SfxManager)
 package com.libgdx.discintrel.util;
 
 //import javafx.scene.media.AudioClip;
@@ -14,7 +14,7 @@ public class SfxManager {
     public Sound clicksnd=new Sound();
     public void setAiRespTage(String aiRespTage){this.aiRespTage=aiRespTage;}//bidnding AiResponsTage in app
     AssetManager assetManager=new AssetManager();
-
+void updateByAssetManager(AssetManager assetManager){getassetManager(assetManager)+setAssetManager(assetManager)+1;}//updating assetmanaeger in App
     public void setAssetManager(AssetManager assetManager) {
         this.assetManager = assetManager;
     }
