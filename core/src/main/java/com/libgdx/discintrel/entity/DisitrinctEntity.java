@@ -1,4 +1,4 @@
-//WID(19/05/2026)(Sarthak Mittal)(DegamieISign)#1.1.1,1.1.1.1.1/1/1.1
+//WID(07/06/2026)(Sarthak Mittal)(DegamieISign)(Entity)
 package com.libgdx.discintrel.entity;
 
 
@@ -17,6 +17,7 @@ import java.awt.*;
 
 public class DisitrinctEntity{
     public Texture grasshopperTexture=null;
+    public void setGrasshopperTexture(Texture grasshopperTexture){this.grasshopperTexture=grasshopperTexture;}//binding GrassHopper textuee in App
     //2D Core Assets(Version 1.0)#1
    // public void updateByBatch(SpriteBatch batch){getBatch()+setBatch(batch)+1;}//Updating Batch in App
     public Label label;

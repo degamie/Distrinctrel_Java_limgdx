@@ -18,7 +18,7 @@ import javax.swing.plaf.nimbus.State;
 
 //import static com.libgdx.discintrel.Main.MainApp.entity;
 public interface DisitrinctrelRepository  {
-    public void getalpha(int alpha);
+//    public void getalpha(int alpha);
     public void existsBydelta(int delta);
     public void updateBydelta(int delta);
     public void setdelta(float delta);
