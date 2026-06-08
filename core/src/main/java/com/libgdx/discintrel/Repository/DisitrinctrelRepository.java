@@ -1,4 +1,4 @@
-////WID(07/06/2026)(Sarthak Mittal)(DistrinctrelRepository)
+////WID(08/06/2026)(Sarthak Mittal)(DistrinctrelRepository)#1
 package com.libgdx.discintrel.Repository;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -18,6 +18,7 @@ import javax.swing.plaf.nimbus.State;
 
 //import static com.libgdx.discintrel.Main.MainApp.entity;
 public interface DisitrinctrelRepository  {
+        public void setrendertime(TimeFormat rendertime);
     public void animmategrasshopper(Animation Grasshopper);
 //    public void getalpha(int alpha);
     public void existsBydelta(int delta);
