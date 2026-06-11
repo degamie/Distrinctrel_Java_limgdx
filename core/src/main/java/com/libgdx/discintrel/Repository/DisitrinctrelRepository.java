@@ -1,4 +1,4 @@
-////WID(09/06/2026)(Sarthak Mittal)(DistrinctrelRepository)#1.1/1
+////WID(11/06/2026)(Sarthak Mittal)(DistrinctrelRepository)(rednertime's existence)
 package com.libgdx.discintrel.Repository;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -18,6 +18,7 @@ import javax.swing.plaf.nimbus.State;
 
 //import static com.libgdx.discintrel.Main.MainApp.entity;
 public interface DisitrinctrelRepository  {
+    public void existsByRenderTime(TimeFormat renderTime);
     public void updateByrenderTime(TimeFormat renderTime);
     public boolean update(){return assetManager.update();}//Updating AssetManeager's Sound In App
         public void setrendertime(TimeFormat rendertime);
