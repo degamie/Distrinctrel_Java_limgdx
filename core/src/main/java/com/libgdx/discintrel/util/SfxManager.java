@@ -1,4 +1,4 @@
-//WIP(7/06/2026)(Sarthak Mittal)(DegamieSign)(SfxManager)
+//WIP(11/06/2026)(Sarthak Mittal)(DegamieSign)(SfxManager)#1
 package com.libgdx.discintrel.util;
 
 //import javafx.scene.media.AudioClip;
@@ -8,6 +8,10 @@ package com.libgdx.discintrel.util;
 import org.w3c.dom.Node;
 
 public class SfxManager {
+    public void existsByClickSnd(Sound clicksnd){
+        if(clicksnd!=null)getClickSnd(clicksnd);
+        else getClickSnd(null);
+    }
     public void updateByAiRespTags(String aiRespTage){getAiRespTag(aiRespTags)+setAiRespTag(aiRespTags)+1;}//updating AiRespTags in app
     public void updateByClickSnd(Sound clicksnd){getClicksnd(clicksnd)+setClicksnd(clicksnd)+1;}//updating ClickSnd in App
     public void setClicksnd(Sound clicksnd){this.clicksnd=clicksnd;}//binding ClickedSnd in App
