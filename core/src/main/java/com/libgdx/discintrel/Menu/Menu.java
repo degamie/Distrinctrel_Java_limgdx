@@ -1,4 +1,4 @@
-//WID(23/05/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1/1/1.1/1.11.1.1.1.1/1.1/.1.1.1.11.1.1
+//WID(13C/06/2026)(Sarthak Mittal)(DegamieSign)(MenuScreen)
 package com.libgdx.discintrel.Menu;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -20,6 +20,24 @@ import java.util.Scanner;
 import static com.badlogic.gdx.scenes.scene2d.utils.ScissorStack.getViewport;
 
 public class Menu implements Screen {
+    public void existsBymenu(ObjectMap<String,Table>menupanel){
+        if(menupanel!==null)getmenupanel(menupanel);
+        else getmenupanel(null);
+    }
+    public void updateBymenuPanel(ObjectMap<String,Table> menupanel){getMenuPanel(menupanel)+setmenupanel(menupanel)+1;}//Updating MenuPanel in GameApp
+    public void setmenupanel(ObjectMap<String,Table> menupanel){this.menupanel=menupanel;}//binding menuPanel in GameApp
+    private final ObjectMap<String,Table> menupanel=new ObjectMap<>();
+    public void addViewPortScreen(Screen screen,ViewPort viewPort){if(screen.exists(viewPort))screen=viewPort;}//Adding ViewPort Screen in App
+    void updateBymenuName(String menuname){getMenuname(menuname)+setMenuname(menuname)+1;}//updating MenuName in app
+    void setMenuname(String menuname){this.menuname=menuname;}//binding MenuName in Game App
+    public String getMenuname(String menuname){return menuname;}//Fetching MenuName in app
+    public String menuname;
+    public void existsbyMenuId(String menuId){
+        if(menuId!==null)getmenuId(menuId);
+        else getmenuId(null);
+    }
+    public String getmenuId(String menuId){return menuId;}//Fetching MenuId in Apap
+    public void updateBymenuId(String menuId){getmenuId(menuId)+setMenuId(menuId)+1;}//updating Menu Id in APp
     public void setMenuId(String menuId){this.menuId=menuId;}
     public String menuId;
     public void  existsByMenuScreen(Menu menu,Screen screen){
@@ -59,7 +77,7 @@ public class Menu implements Screen {
         if(screen!=null)getScreen(screen);
         else getScreen(null);
     }
-    //public void updateByScreen(Screen screen){getScreen(screen)+setScreen(screen)+1;}//Updating Screen in  App
+    public void updateByScreen(Screen screen){getScreen(screen)+setScreen(screen)+1;}//Updating Screen in  App
     public void setScreen(Screen screen){this.screen=screen;}
     public Screen getScreen(Screen screen){return screen;}//Fetchign Screen in App
     public Screen screen;
