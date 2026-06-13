@@ -1,4 +1,4 @@
-//WID(6/06/2026)(Sarthak Mittal)(DegamieSign)(MenuScreen)
+//WID(13/06/2026)(Sarthak Mittal)(DegamieSign)(MenuScreen)
 package com.libgdx.discintrel.Menu;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -20,6 +20,10 @@ import java.util.Scanner;
 import static com.badlogic.gdx.scenes.scene2d.utils.ScissorStack.getViewport;
 
 public class Menu implements Screen {
+    public void existsBymenu(ObjectMap<String,Table>menupanel){
+        if(menupanel!==null)getmenupanel(menupanel);
+        else getmenupanel(null);
+    }
     public void updateBymenuPanel(ObjectMap<String,Table> menupanel){getMenuPanel(menupanel)+setmenupanel(menupanel)+1;}//Updating MenuPanel in GameApp
     public void setmenupanel(ObjectMap<String,Table> menupanel){this.menupanel=menupanel;}//binding menuPanel in GameApp
     private final ObjectMap<String,Table> menupanel=new ObjectMap<>();
