@@ -1,4 +1,4 @@
-////WID(13/05/2026)(Sarthak Mittal)#1.1.1.1.1.1.1,1.1/1,1.1C.1.1.2.1/1.1.1/1.1.1.1/1.1.1
+////WID(12/06/2026)(Sarthak Mittal)(DistrinctrelRepository)(rednertime's existence)
 package com.libgdx.discintrel.Repository;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g3d.Material;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.libgdx.discintrel.entity.DisitrinctEntity;
+//import com.libgdx.discintrel.entity.DisitrinctEntity;
 //import com.libgdx.discintrel.entity.DisitrinctEntity;
 
 //import javafx.scene.Group;
@@ -17,21 +17,20 @@ import javax.swing.*;
 import javax.swing.plaf.nimbus.State;
 
 //import static com.libgdx.discintrel.Main.MainApp.entity;
-
-
-//package Repository;
-//
-//
-//import entity.DisitrinctEntity;
-//import javafx.scene.input.KeyCode;
-//import javafx.scene.shape.Rectangle;
-//import javafx.scene.text.Text;
-//import javafx.stage.Stage;
-//
-//import java.net.URL;
-//import java.util.HashSet;
-//import java.util.Set;
 public interface DisitrinctrelRepository  {
+    public DisitrinctEntity entity;
+    public void existsByRenderTime(TimeFormat renderTime);
+    public void updateByrenderTime(TimeFormat renderTime);
+    public boolean update(){return assetManager.update();}//Updating AssetManeager's Sound In App
+        public void setrendertime(TimeFormat rendertime);
+    public void animmategrasshopper(Animation Grasshopper);
+//    public void getalpha(int alpha);
+    public void existsBydelta(int delta);
+    public void updateBydelta(int delta);
+    public void setdelta(float delta);
+    public float getdelta(float delta );
+    public DisitrinctrelEntity destrinctrelentity;
+    public void handleGrasshopperInput(float delta);
     public void exisysBySquirelMaterial(Material squirelMaterial);
     public void setSquirelmaterial(Material squirelmaterial);
     public void existsByanimateSquirel(SpriteBatch squirel);
