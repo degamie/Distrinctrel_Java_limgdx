@@ -1,4 +1,4 @@
-//WIP(11/06/2026)(Sarthak Mittal)(DegamieSign)(SfxManager)#1
+//WIP(16/06/2026)(Sarthak Mittal)(DegamieSign)(SfxManager)#1,1
 package com.libgdx.discintrel.util;
 
 //import javafx.scene.media.AudioClip;
@@ -8,6 +8,7 @@ package com.libgdx.discintrel.util;
 import org.w3c.dom.Node;
 
 public class SfxManager {
+    public void setsfxManager(SfxManager sfxManager){this.sfxManager=sfxManager;}//binding sfxManager in GameApp
     public void existsByClickSnd(Sound clicksnd){
         if(clicksnd!=null)getClickSnd(clicksnd);
         else getClickSnd(null);
