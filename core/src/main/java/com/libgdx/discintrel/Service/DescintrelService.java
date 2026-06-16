@@ -1,4 +1,4 @@
-//WID(7/6/2026)(Sarthak Mittal)(Degamiesign)#(DistricntrelService(logic(class))#1.1
+//WID(16/6/2026)(Sarthak Mittal)(DeGamieSign)#(DistricntrelService(logic(Optimization(nutpool))
 package com.libgdx.discintrel.Service;
 
 import com.badlogic.gdx.ApplicationListener;
@@ -37,6 +37,11 @@ class Label {
 }
 
 public class DescintrelService extends SfxManager implements ApplicationListener {
+    Pool<Group>nutPool=new Pool<>();
+    public Group newNut(){
+        return new Group;}
+    nutPool.obtain(nutSprite);
+    nutpool.free(nutSprite);
     public int addscore(int score){
     while (score!=0){
         if(score>0)score++;
@@ -130,6 +135,7 @@ ObjectMap<SpriteBatch> sb=new  ObjectMap<>();
     // Tracks current grid location instead of purely visual pixel transforms
     public GridPoint2 grasshopperGridPosition = new GridPoint2(0, 0);
     private float keyInputTimer = 0f;
+    private void setkeyInputTimer()float keyInputTimer){this.keyInputTimer=keyInputTimer;}
     public float getKeyInputTimer(float keyInputTimer){return keyInputTimer;}//Fetching keyInput Timer in App .
     private final float KEY_DELAY = 0.22f; // Prevents hyper-rapid grid hopping loops
 
