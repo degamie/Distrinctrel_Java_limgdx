@@ -1,4 +1,4 @@
-//WID(16/6/2026)(Sarthak Mittal)(DeGamieSign)#(DistricntrelService(logic(Optimization(nutpool))
+//WID(17/6/2026)(Sarthak Mittal)(DeGamieSign)#(DistricntrelService(logic(Optimization(nutpool))
 package com.libgdx.discintrel.Service;
 
 import com.badlogic.gdx.ApplicationListener;
@@ -192,7 +192,7 @@ ObjectMap<SpriteBatch> sb=new  ObjectMap<>();
     }
 
     public float getdelta(float delta) { return delta; }
-
+public final Vector2 tmppos=new Vector2();
     @Override
     public void render() {
         delta = Gdx.graphics.getDeltaTime();
@@ -223,6 +223,11 @@ ObjectMap<SpriteBatch> sb=new  ObjectMap<>();
         batch.end();
 
         font.getData().setScale(2.0f);
+
+        tmppos.set(squirrelSprite.getX(),squirrelSprite.getY());//Squirel's Vector Positioning on grid's Optimization
+        tmppos.set(nutSprite.getX(),nutSprite.getY());//nutSprite's Vector Positioning on grid's Optimization
+        tmppos.set(grasshopperSprite.getX(),grasshopperSprite.getY());//grasshopperSprite's Vector Positioning on grid's Optimization
+
     }
 
     /**
