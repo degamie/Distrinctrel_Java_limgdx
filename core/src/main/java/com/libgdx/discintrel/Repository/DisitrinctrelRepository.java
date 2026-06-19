@@ -1,4 +1,5 @@
 ////WID(18/06/2026)(Sarthak Mittal)(DistrinctrelRepository)(rednertime's existence)#1.1
+//WID(19/6/2026)(Sarthak Mittal(DegamieSign)(Distrinctrel Repsotiertogt))
 package com.libgdx.discintrel.Repository;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -18,6 +19,7 @@ import javax.swing.plaf.nimbus.State;
 
 //import static com.libgdx.discintrel.Main.MainApp.entity;
 public interface DisitrinctrelRepository  {
+    public void existsBYEntity(DisitrinctEntity entity);
     public void updateByentity(DisitrinctEntity entity){getEntity(entity)+setEntity(entity)+1;}//updating Entity in GameApp
     public Entity getEntity(DisitrinctEntity entity){return entity;}//Fetching Entity in GameApp
     public void setDestrinctrelentity(DisitrinctEntity entity){this.entity=entity;}//binding Entity in GameApp
