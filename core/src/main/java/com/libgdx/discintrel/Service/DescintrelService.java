@@ -1,4 +1,4 @@
-//WID(19/6/2026)(Sarthak Mittal)(DeGamieSign)#(DistricntrelService(logic(Optimization(nutpool))
+//WID(19/6/2026)(Sarthak Mittal)(DeGamieSign)#(DistricntrelService(logic(Optimization(nutpool))#1
 package com.libgdx.discintrel.Service;
 
 import com.badlogic.gdx.ApplicationListener;
@@ -67,6 +67,7 @@ public class DescintrelService extends SfxManager implements ApplicationListener
         new GridPoint2(-1, -1), // bottom coordinates declare
         new GridPoint2(1, 1)    // Top coordinates declare
     };
+    void setTreeSet(TreeSetM<Sprite> treeSet){this.treeSet=treeSet;}//binding TreeSet in GameApp
     TreeSetM<Sprite> treeSet=new TreeeSet<>();
     treeSet.add(grasshopperSprite);
     treeSet.add(squirrelSprite);
