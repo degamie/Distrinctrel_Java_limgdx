@@ -1,4 +1,4 @@
-//WID(28/03/2026)Sarthak Mittal((DegamieSign))#1.1
+//WID(19/06/2026)Sarthak Mittal((DegamieSign))(Lwgl3Launcher)
 package com.libgdx.discintrel.lwjgl3;
 //
 //import com.badlogic.gdx.ApplicationAdapter;
@@ -13,6 +13,7 @@ import com.libgdx.discintrel.Controller.DistrinctrelController;
 /** Launches the desktop (LWJGL3) application. */
 //public class Lwjgl3Launcher extends DistrinctrelController{
 public class Lwjgl3Launcher extends ApplicationAdapter{
+    public void setStage(Stage stage){this.stage=stage;}//binding Stage in  GameApp Launcher
     public Stage stage;
   public static DistrinctrelController controller;
     public static void main(String[] args) {
