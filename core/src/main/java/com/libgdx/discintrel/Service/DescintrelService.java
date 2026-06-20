@@ -1,4 +1,4 @@
-//WID(20/6/2026)(Sarthak Mittal)(DeGamieSign)#(DistricntrelService(logic(Optimization(nutpool))#1
+//WID(20/6/2026)(Sarthak Mittal)(DeGamieSign)#(DistricntrelService(logic(Optimization(nutpool))#1.1
 package com.libgdx.discintrel.Service;
 
 import com.badlogic.gdx.ApplicationListener;
@@ -196,6 +196,7 @@ ObjectMap<SpriteBatch> sb=new  ObjectMap<>();
     }
 
     public float getdelta(float delta) { return delta; }
+    void setTmppos(Vector2 tmppos){this.tmppos=tmppos;}//Binding TmpPos in Game App
 public final Vector2 tmppos=new Vector2();
     @Override
     public void render() {
