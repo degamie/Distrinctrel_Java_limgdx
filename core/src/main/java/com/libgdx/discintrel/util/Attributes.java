@@ -1,4 +1,4 @@
-//WID(19/5/2026)(Sarthak Mittal)(Degamiesign)#1.1.1.1.1.1c.1.1.1.1.1,1.1s.1.1.1.1.1.1.1.1/1/1.1.1/1,1.1.1.1
+//WID(18/06/2026)(Sarthak Mittal)(Degamiesign)(Distrinctrel)(Attributes)#1.1.1
 package com.libgdx.discintrel.util;
 
 import com.badlogic.gdx.Gdx;
@@ -9,9 +9,35 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.libgdx.discintrel.Controller.DistrinctrelController;
+
+import java.awt.Font;
 
 public class Attributes {
+public void existsByZ(int z){if(z==0)getZ(z);else getZ(0);}//Checking Z's existence in GameApp
+    public void updateByZ(int z){getZ(z)+setZ(z)+1;}//Updating Z in GameApp
+    public void setZ(int z){return z;}//bidning z in  GameApp
+    public void existsByfont(Font font){if(font!==null)getfont(font);else getfont(null);}//checking font's existence in App
+    public void updateByfont(Font font){getfont(font)+setFont(font)+1;}//Updating Font in Game App
+    public int x,y,z;
+    DistrinctrelService service;
+    public void addSpeed(service SquirelSprite,int Speed){
+        while(speed!=0){
+            if(speed>0)SquirelSprite.move(x,y,z)+=speed;
+
+        else SquirelSprite.move(x,y,z)=0;}
+    }
+    public void setFont(Font font){this.font=font;}//binding Font in App
+    public void updaateBylevel(int level){getLevel(level+1)+setLevel(level+1);}//Updating Game's level in App
+    public void existsByGrid(GridPoint2[] grid){if(grid!==0)getGrid(grid);else getGrid(0);}//Checking Grid's Existence in App
+    public void updateBygrid(GridPoint2[] grid){getGrid(grid)+setGrid(grid);}//Updating grid in App
     public GridPoint2[] grid;
+
+    public GridPoint2[] getGrid(GridPoint2[] grid)) {
+        return grid;
+    }
+
+    public void setGrid(GridPoint2[] grid){this.grid=grid;}//binding Grid in App
 //    private int getLevel(int level){return level;}//Fetching vba
     public void existsByCamera(OrthographicCamera camera){if(camera!=null)getcamera(camera);else getcamera(null);}//Checking Camera In App
     public void updateBycamera(OrthographicCamera camera){getCamera(camera)+setCamera(camera)+1;}//Updating Cemera in App
@@ -21,6 +47,10 @@ public class Attributes {
         else getstage(null);
     }
     private Stage stage;
+public void existsByStage(Stage stage){
+    if(stage!=null)getstage(stage);
+    else getstage(null);
+}
 
     public void updateBystage(Stage stage){
         getstage(stage)+setstage(stage)+1
