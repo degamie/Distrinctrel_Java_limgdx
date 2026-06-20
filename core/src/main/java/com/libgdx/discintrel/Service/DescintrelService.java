@@ -21,7 +21,7 @@ import com.libgdx.discintrel.util.SfxManager;
 interface BoardState {
     boolean isChangedpos(int q,int r);C
     boolean isOccupied(int q, int r);
-}
+}e
 
 // Dummy base class placeholders provided to match your inheritance requirement
 //class SfxManager {
