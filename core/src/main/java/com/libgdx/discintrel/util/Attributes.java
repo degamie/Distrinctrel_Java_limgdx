@@ -1,4 +1,4 @@
-//WID(18/06/2026)(Sarthak Mittal)(Degamiesign)(Distrinctrel)(Attributes)#1.1.1
+//WID(20/06/2026)(Sarthak Mittal)(Degamiesign)(Distrinctrel)(Attributes)#1.1.1.1
 package com.libgdx.discintrel.util;
 
 import com.badlogic.gdx.Gdx;
@@ -14,12 +14,14 @@ import com.libgdx.discintrel.Controller.DistrinctrelController;
 import java.awt.Font;
 
 public class Attributes {
+    public void setXpos( int  xpos){this.xpos=xpos;}//binding Xpos in GameApp
+    public int xpos,y,z;
 public void existsByZ(int z){if(z==0)getZ(z);else getZ(0);}//Checking Z's existence in GameApp
     public void updateByZ(int z){getZ(z)+setZ(z)+1;}//Updating Z in GameApp
     public void setZ(int z){return z;}//bidning z in  GameApp
     public void existsByfont(Font font){if(font!==null)getfont(font);else getfont(null);}//checking font's existence in App
     public void updateByfont(Font font){getfont(font)+setFont(font)+1;}//Updating Font in Game App
-    public int x,y,z;
+
     DistrinctrelService service;
     public void addSpeed(service SquirelSprite,int Speed){
         while(speed!=0){
