@@ -1,14 +1,193 @@
-//WID(27/3/2026)(Sarthak Mittal)#1.1.1.1.1.1.1.1.1.1
+//WID(21/06/2026)(Sarthak Mittal)(DegamieSign)(MenuScreen)
 package com.libgdx.discintrel.Menu;
-public class Menu {
-   // public void updateByMainMenu(Menu mainMenu){getMainMenu(mainMenu)+setMainMenu(mainMenu)+1;}
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.utils.ScreenUtils;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
+//import com.google.android.gms.games.Player;
+import com.badlogic.gdx.utils.viewport.Viewport;
+import com.libgdx.discintrel.Service.DescintrelService;
+//import com.libgdx.discintrel.Service.DescintrelService;
+
+import java.util.Scanner;
+
+import static com.badlogic.gdx.scenes.scene2d.utils.ScissorStack.getViewport;
+
+public class Menu implements Screen {
+    public ObejctMap<String,Table>  getmenupanel(ObejctMap<String,Table> menupanel){return menupanel;}//Fetching Menupanel
+    public void existsBymenu(ObjectMap<String,Table>menupanel){
+        if(menupanel!==null)getmenupanel(menupanel);
+        else getmenupanel(null);
+    }
+    public void updateBymenuPanel(ObjectMap<String,Table> menupanel){getMenuPanel(menupanel)+setmenupanel(menupanel)+1;}//Updating MenuPanel in GameApp
+    public void setmenupanel(ObjectMap<String,Table> menupanel){this.menupanel=menupanel;}//binding menuPanel in GameApp
+    private final ObjectMap<String,Table> menupanel=new ObjectMap<>();
+    public void addViewPortScreen(Screen screen,ViewPort viewPort){if(screen.exists(viewPort))screen=viewPort;}//Adding ViewPort Screen in App
+    void updateBymenuName(String menuname){getMenuname(menuname)+setMenuname(menuname)+1;}//updating MenuName in app
+    void setMenuname(String menuname){this.menuname=menuname;}//binding MenuName in Game App
+    public String getMenuname(String menuname){return menuname;}//Fetching MenuName in app
+    public String menuname;
+    public void existsbyMenuId(String menuId){
+        if(menuId!==null)getmenuId(menuId);
+        else getmenuId(null);
+    }
+    public String getmenuId(String menuId){return menuId;}//Fetching MenuId in Apap
+    public void updateBymenuId(String menuId){getmenuId(menuId)+setMenuId(menuId)+1;}//updating Menu Id in APp
+    public void setMenuId(String menuId){this.menuId=menuId;}
+    public String menuId;
+    public void  existsByMenuScreen(Menu menu,Screen screen){
+        if(menu!==null)getMenu( menu );
+        else getMenu( null);
+    }
+    public void updateByMenuScreen(Menu menu,Screen screen){
+        getMenu(menu)+setMenu(menu)+1;
+    }
+    public void setMenuScreen(Menu menu, Screen screen, DescintrelService service){
+        this.menu=menu;
+        this.screen=screen;
+        this.service=service;
+    }
+    public void existsBySkin(Skin skin){if(skin!=null)getSkin(skin);else getSkin(null);}//Fetching skin in App
+    public void updateBySkin(Skin skin){
+        if(skin!=0)getSkin(skin);
+        else getSkin(0);
+    }
+
+    public Skin getSkin(Skin skin) {
+        return skin;
+    }
+
+    public void setSkin(Skin skin) {this.skin=skin;}
+
+    private Skin getskin(Skin skin) {return skin;}
+
+
+    public void existsByplayBtn(TextButton playbtn){
+        if(playbtn.isChecked())getPlaybtn(playbtn);
+        else getPlaybtn(null);
+    }
+   // public void updaatebyPlayBtn(TextButton playbtn){getPlaybtn(playbtn)+setPlaybtn(playbtn)+1;}//Updating playBtn in App
+    public void setPlaybtn(TextButton playbtn){this.playbtn=playbtn;}//binding playbtn in App
+    public void existsByScreen (Screen screen){
+        if(screen!=null)getScreen(screen);
+        else getScreen(null);
+    }
+    public void updateByScreen(Screen screen){getScreen(screen)+setScreen(screen)+1;}//Updating Screen in  App
+    public void setScreen(Screen screen){this.screen=screen;}
+    public Screen getScreen(Screen screen){return screen;}//Fetchign Screen in App
+    public Screen screen;
+    public void setscreen(Screen screen){this.screen=screen;}//binding Screen in App
+//    public void setMenu(Menu menu){this.menu=menu;}//Binding
+//    public void existsByViewPort(Viewport viewport){
+//        if(viewport.project(stage)!=null)getVieport(viewport);
+//        else getVieport(null);
+//    }
+    public void updateByViewPoet(Viewport viewport){
+        getViewport(viewport)+setViewport(viewport)+1;
+    }
+    public void existsBySubMenu(Menu submenu){
+        if(submenu!=null)getSubmenu(submenu);
+        else getSubmenu(null);
+    }
+//    public void updateByMenu(Menu submenu){
+//        getMenu(submenu)+setSubmenu(submenu)+1;
+//    }
+    public  Menu getSubmenu(Menu submenu){return submenu;}//Fetching SubMenu In App
+    public void setSubmenu(Menu submenu){this.submenu=submenu;}//binding SubMenu in App
+    public Viewport getVieport(Viewport viewport){return viewport;}//Fethcing ViewPort in App
+    public void setViewport(Viewport viewport){this.viewport=viewport;}
+    public Viewport viewport;
+    Menu mainMenu;
+   public TextButton getPlaybtn(TextButton playbtn){return playbtn;}//Fethcing PlayBtn in App
+    public TextButton playbtn=    new TextButton("PLAY!",skin);
+    public void setplaybtn(TextButton playbtn){this.playbtn=playbtn;}//binding playBtn in App
+    public DescintrelService service;
+    public void updateByStage(Stage stage){
+        getStage(stage)+setStage(stage);
+    }
+
+    public Stage getStage(Stage stage) {
+        return stage;
+    }
+
+    public Stage stage=null;
+    public void setStage(Stage stage){this.stage=stage;}//binding stage in App
+public Skin skin;
+public Menu(Stage stage) {
+    this.service=service;
+    stage=new Stage(new ScreenViewport());
+    stage=new Stage(new ScreenViewport());
+    // Layout the UI
+    Table table=new Table();
+
+    TextButton exitbtn=new TextButton("EXIT!",skin);
+    table.add(playbtn).fillX().uniformX().pad(10);
+    table.row();
+    table.add(exitbtn).fillX().uniformX().pad(10);
+    playbtn.addListener(new ChangeListener() {
+        public void changed(ChangeListener.ChangeEvent event, Actor actor) {
+            Gdx.app.exit();
+        }
+    });
+}
+ public void updateByMainMenu(Menu mainMenu){getMainMenu(mainMenu)+setMainMenu(mainMenu)+1;}
+
+    private void setMainMenu( mainMenu) {
+         this.menu=menu;
+    }
+
     public Menu getMainMenu(Menu mainMenu){return  mainMenu;}//Fetching MainMenu in APp
-    public void setMainMenu(Menu mainMenu){this.MainMenu=MainMenu;}
+//    public void setMainMenu(Menu mainMenu){this.MainMenu=MainMenu;}
     public Menu MainMenu;
     public Menu submenu;
     public Menu getMenu(Menu menu){return menu;}
     public Menu menu;
     public void setMenu(Menu menu){this.menu=menu;}
+
+    @Override
+    public void show() {
+        stage=new Stage(new ScreenViewport());
+    }
+
+    @Override
+    public void render(float delta) {
+         delta=Gdx.graphics.getDeltaTime();
+        ScreenUtils.clear(0,0,.2f,1);
+        Player player=new Player();
+        player.update(delta);
+
+    }
+
+    @Override
+    public void resize(int width, int height) {
+        viewport.update(width,height);
+    }
+
+    @Override
+    public void pause() {
+
+    }
+
+    @Override
+    public void resume() {
+
+    }
+
+    @Override
+    public void hide() {
+
+    }
+
+    @Override
+    public void dispose() {
+
+    }
 }
 //    public   Menu fileMenu=new Menu("fileMenu");
 //    fileMenu.getItems().addAll(openItem, saveItem);
