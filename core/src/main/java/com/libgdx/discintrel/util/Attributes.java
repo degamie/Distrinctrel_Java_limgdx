@@ -1,4 +1,4 @@
-//WID(20/06/2026)(Sarthak Mittal)(Degamiesign)(Distrinctrel)(Attributes)#1.1.1.1
+//WID(21/06/2026)(Sarthak Mittal)(Degamiesign)(Distrinctrel)(Attributes)#1.1.1.1.1
 package com.libgdx.discintrel.util;
 
 import com.badlogic.gdx.Gdx;
@@ -14,6 +14,7 @@ import com.libgdx.discintrel.Controller.DistrinctrelController;
 import java.awt.Font;
 
 public class Attributes {
+    public int getZ(int Z){return Z;}//Fethcing ZthPos in GameApp
     public void setXpos( int  xpos){this.xpos=xpos;}//binding Xpos in GameApp
     public int xpos,y,z;
 public void existsByZ(int z){if(z==0)getZ(z);else getZ(0);}//Checking Z's existence in GameApp
