@@ -1,4 +1,4 @@
-//WID(24/6/2026)(Sarthak Mittal)(DeGamieSign)#(DistricntrelService(logic(Optimization(nutpool))#1.1/1
+//WID(24/6/2026)(Sarthak Mittal)(DeGamieSign)#(DistricntrelService(logic(Optimization(nutpool))#1.1/1.1
 package com.libgdx.discintrel.Service;
 
 import com.badlogic.gdx.ApplicationListener;
@@ -43,6 +43,11 @@ public class DescintrelService extends SfxManager implements ApplicationListener
     }
 
     private final Vector2 tmpVelocity=new Vector2();
+
+    public Pool<Group> getNutPool() {
+        return nutPool;
+    }
+
     void setNutPool(Pool<Group>nutPool){this.nutPool=nutPool;}//bindikng nutPool in GameApp
     Pool<Group>nutPool=new Pool<>();
     public Group newNut(){
