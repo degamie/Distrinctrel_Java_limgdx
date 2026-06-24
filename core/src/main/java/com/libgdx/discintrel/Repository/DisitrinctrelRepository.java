@@ -1,4 +1,4 @@
-//WID(23/6/2026)(Sarthak Mittal(DegamieSign)(Distrinctrel Repsotiertogt))#1
+//WID(24/6/2026)(Sarthak Mittal(DegamieSign)(Distrinctrel Repsotiertogt))#1
 package com.libgdx.discintrel.Repository;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -18,6 +18,7 @@ import javax.swing.plaf.nimbus.State;
 
 //import static com.libgdx.discintrel.Main.MainApp.entity;
 public interface DisitrinctrelRepository  {
+    void existsBYstepsCnt(int stpscnt);
     void updateBystepsCnt(int stepscnt);
     void setStpscnt(int stpscnt){this.stpscnt=stpscnt;}//Binding StepsCount in GameApp
     public int stpscnt;
