@@ -1,4 +1,4 @@
-//WID(23/6/2026)(Sarthak Mittal)(DeGamieSign)#(DistricntrelService(logic(Optimization(nutpool))#1.1
+//WID(24/6/2026)(Sarthak Mittal)(DeGamieSign)#(DistricntrelService(logic(Optimization(nutpool))#1.1/1
 package com.libgdx.discintrel.Service;
 
 import com.badlogic.gdx.ApplicationListener;
@@ -37,6 +37,7 @@ class Label {
 }
 
 public class DescintrelService extends SfxManager implements ApplicationListener {
+    public void setTmpVelocity(){this.tmpVelocity=tmpVelocity;}
     public Vector2 getTmpVelocity() {
         return tmpVelocity;
     }
