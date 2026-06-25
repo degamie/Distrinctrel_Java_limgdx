@@ -1,4 +1,4 @@
-//WIP(24/06/2026)(Sarthak Mittal)(DegamieSign)(SfxManager)#1,1.1
+//WIP(25/06/2026)(Sarthak Mittal)(DegamieSign)(SfxManager)#1,1.1.1
 package com.libgdx.discintrel.util;
 
 //import javafx.scene.media.AudioClip;
@@ -8,6 +8,7 @@ package com.libgdx.discintrel.util;
 import org.w3c.dom.Node;
 
 public class SfxManager {
+    ObejctMap<Music>getMusicObejctMap(ObejctMap<Music> musicObejctMap){return musicObejctMap;}//Fetching MusicObjectMap in Game Scene
     void setClickedSnd(Sound clicksnd){this.clicksnd=clicksnd;}//binidng CleickSnd IN GameApp
     void setMusicObejctMap(ObjectMap<Music>musicObejctMap){this.musicObejctMap=musicObejctMap;}//binding MusicObjectMap in Game App
     ObejctMap<Music>musicObejctMap=new ObjectMap<>();
