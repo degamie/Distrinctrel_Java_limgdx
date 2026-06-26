@@ -1,4 +1,4 @@
-//WID(21/6/2026)(Sarthak Mittal)(DeGamieSign)#(DistricntrelService(logic(Optimization(nutpool))#1.1
+//WID(24/6/2026)(Sarthak Mittal)(DeGamieSign)#(DistricntrelService(logic(Optimization(nutpool))#1.1/1.1
 package com.libgdx.discintrel.Service;
 
 import com.badlogic.gdx.ApplicationListener;
@@ -37,11 +37,17 @@ class Label {
 }
 
 public class DescintrelService extends SfxManager implements ApplicationListener {
+    public void setTmpVelocity(){this.tmpVelocity=tmpVelocity;}
     public Vector2 getTmpVelocity() {
         return tmpVelocity;
     }
 
     private final Vector2 tmpVelocity=new Vector2();
+
+    public Pool<Group> getNutPool() {
+        return nutPool;
+    }
+
     void setNutPool(Pool<Group>nutPool){this.nutPool=nutPool;}//bindikng nutPool in GameApp
     Pool<Group>nutPool=new Pool<>();
     public Group newNut(){
@@ -56,6 +62,9 @@ public class DescintrelService extends SfxManager implements ApplicationListener
 }
 
     public DistrinctrelService service;
+    public  void setgridxposangles(IntArray gridxposangles){
+        this.gridxposangles=gridxposangles;
+    }
     public IntArray gridxposangles=new IntArray();
     public GridPoint2[] getDIRECTIONS() {
         return DIRECTIONS;
