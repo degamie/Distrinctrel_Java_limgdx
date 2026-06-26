@@ -1,4 +1,4 @@
-//WID(25/06/2026)(Sarthak Mittal)(Degamiesign)(Distrinctrel)(Attributes)#1.1.1.1.1.1..1
+//WID(26/06/2026)(Sarthak Mittal)(Degamiesign)(Distrinctrel)(Attributes)#1.1.1.1.1.1..1
 package com.libgdx.discintrel.util;
 
 import com.badlogic.gdx.Gdx;
@@ -14,6 +14,10 @@ import com.libgdx.discintrel.Controller.DistrinctrelController;
 import java.awt.Font;
 
 public class Attributes {
+    public void existsByxpos(int xpos){
+        if(xpos!=0)getXpos(xpos);
+        else getXpos(0);
+    }
     public void updteByxpos(int xpos){
         getXpos(xpos)+setXpos(xpos)+1;
     }
