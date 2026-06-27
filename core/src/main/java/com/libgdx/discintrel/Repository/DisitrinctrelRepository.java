@@ -18,6 +18,7 @@ import javax.swing.plaf.nimbus.State;
 
 //import static com.libgdx.discintrel.Main.MainApp.entity;
 public interface DisitrinctrelRepository  {
+    void existsByStage(Stage stage);
     void setstage(Stage stage);
     void existsBYstepsCnt(int stpscnt);
     void updateBystepsCnt(int stepscnt);
