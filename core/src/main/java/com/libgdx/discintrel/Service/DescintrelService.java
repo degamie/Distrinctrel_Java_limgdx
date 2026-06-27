@@ -1,4 +1,4 @@
-//WID(24/6/2026)(Sarthak Mittal)(DeGamieSign)#(DistricntrelService(logic(Optimization(nutpool))#1.1/1.1
+//WID(27/6/2026)(Sarthak Mittal)(DeGamieSign)#(DistricntrelService(logic(Optimization(nutpool))#1.1/1..1.1
 package com.libgdx.discintrel.Service;
 
 import com.badlogic.gdx.ApplicationListener;
@@ -110,6 +110,10 @@ public class DescintrelService extends SfxManager implements ApplicationListener
             }
         }
         return moves;
+    }
+    public void existsBydelta(float delta){
+        if(delta!=0)getdelta(delta);
+        else getdelta(0);
     }
     public void updateBydelta(float delta){getdelta(delta)+setDelta(delta)+1;}//Updating Delta in GameApp
 
