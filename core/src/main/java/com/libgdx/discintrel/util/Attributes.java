@@ -1,4 +1,4 @@
-//WID(27/06/2026)(Sarthak Mittal)(Degamiesign)(Distrinctrel)(Attributes)#1.1.1.1.1.1..1
+//WID(28/06/2026)(Sarthak Mittal)(Degamiesign)(Distrinctrel)(Attributes)#1.1.1.1.1.1..1/1
 package com.libgdx.discintrel.util;
 
 import com.badlogic.gdx.Gdx;
@@ -42,6 +42,10 @@ public void existsByZ(int z){if(z==0)getZ(z);else getZ(0);}//Checking Z's existe
             if(speed>0)SquirelSprite.move(x,y,z)+=speed;
 
         else SquirelSprite.move(x,y,z)=0;}
+    }
+    public void existsBylevel(int level){
+        if(level!=0)getLevel(level);
+        else getLevel(0);
     }
     public void setFont(Font font){this.font=font;}//binding Font in App
     public void updaateBylevel(int level){getLevel(level+1)+setLevel(level+1);}//Updating Game's level in App
