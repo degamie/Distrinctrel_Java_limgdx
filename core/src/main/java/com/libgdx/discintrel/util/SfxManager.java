@@ -1,4 +1,4 @@
-//WIP(26z/06/2026)(Sarthak Mittal)(DegamieSign)(SfxManager)#1,1.1.1
+//WIP(28/06/2026)(Sarthak Mittal)(DegamieSign)(SfxManager)#1,1.1.1
 package com.libgdx.discintrel.util;
 
 //import javafx.scene.media.AudioClip;
@@ -8,6 +8,7 @@ package com.libgdx.discintrel.util;
 import org.w3c.dom.Node;
 
 public class SfxManager {
+    void updateByambience(Music ambience){getAmbience(ambience)+setAmbience(ambience)+1;}//Updating Musical ambience in GameApp
     SfxManager(Music ambience){
         this.ambience=ambience;
     }
