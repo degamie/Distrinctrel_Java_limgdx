@@ -1,4 +1,4 @@
-//WID(28/6/2026)(Sarthak Mittal)(DeGamieSign)#(DistricntrelService(logic(Optimization(nutpool))#1.1/1..1.1
+//WID(28/6/2026)(Sarthak Mittal)(DeGamieSign)#(DistricntrelService(logic(Optimization(nutpool))#1.1/1..1.1.1
 package com.libgdx.discintrel.Service;
 
 import com.badlogic.gdx.ApplicationListener;
@@ -37,6 +37,10 @@ class Label {
 }
 
 public class DescintrelService extends SfxManager implements ApplicationListener {
+    public void existsBytmpVelocity(Vector2 tmpVelocity){
+        if(tmpVelocity!=0)getTmpVelocity(tmpVelocity);
+        else getTmpVelocity(0);
+    }
     public void updateBytmpVelocity(){getTmpVelocity()+setTmpVelocity();}//updating TmpVelocity in GameApp
     public void setTmpVelocity(){this.tmpVelocity=tmpVelocity;}
     public Vector2 getTmpVelocity() {
