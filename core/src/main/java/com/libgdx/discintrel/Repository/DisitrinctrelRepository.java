@@ -1,4 +1,4 @@
-//WID(29/6/2026)(Sarthak Mittal(DegamieSign)(Distrinctrel Repsotiertogt))#1,1.1
+//WID(30/6/2026)(Sarthak Mittal(DegamieSign)(Distrinctrel Repsotiertogt))#1,1.1.1
 package com.libgdx.discintrel.Repository;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -18,6 +18,7 @@ import javax.swing.plaf.nimbus.State;
 
 //import static com.libgdx.discintrel.Main.MainApp.entity;
 public interface DisitrinctrelRepository  {
+    void existsByloadModel(Stage stage);
     void updateByloadModel(Stage stage);
     public void setloadModel(Stage stage);
     void existsByStage(Stage stage);
