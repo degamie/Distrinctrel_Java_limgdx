@@ -16,5 +16,6 @@ public class AsyncWorkerManager {
             outputPath=outpool.obtain();
         }
         outpool.playerId=playerId;
+        output.
     }
 }
