@@ -1,4 +1,4 @@
-//WID(1/7/2026(Sartthak Mittal(DegamieSign(AsyncWorkerManager))#1.1
+//WID(1/7/2026(Sartthak Mittal(DegamieSign(AsyncWorkerManager))#1.1.1
 package util;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
@@ -15,5 +15,6 @@ public class AsyncWorkerManager {
         synchronized (outpool){
             outputPath=outpool.obtain();
         }
+        outpool.playerId=playerId;
     }
 }
