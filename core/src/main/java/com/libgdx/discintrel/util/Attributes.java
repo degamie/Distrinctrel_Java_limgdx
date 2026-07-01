@@ -1,4 +1,4 @@
-//WID(28/06/2026)(Sarthak Mittal)(Degamiesign)(Distrinctrel)(Attributes)#1.1.1.1.1.1..1/1
+//WID(01/07/2026)(Sarthak Mittal)(Degamiesign)(Distrinctrel)(Attributes)#1
 package com.libgdx.discintrel.util;
 
 import com.badlogic.gdx.Gdx;
@@ -14,6 +14,7 @@ import com.libgdx.discintrel.Controller.DistrinctrelController;
 import java.awt.Font;
 
 public class Attributes {
+    public AsyncWorkerManager asyncWorkerManager;
     public void existsByattributes(Attributes attributes){
         if(attributes!=0)getByAttributes(attributes);
         else getByAttributes(0);
