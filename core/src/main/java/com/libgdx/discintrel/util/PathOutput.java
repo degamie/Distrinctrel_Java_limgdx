@@ -5,6 +5,7 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Pool.Poolable;
 import com.badlogic.gdx.math.Vector2;
 public class PathOutput extends Poolable{
+    public void setWaypts(Array<Vector2>waypts){this.waypts=waypts;}//binding Waypts in GameApp
     public void setPlayerId() {
          this.playerId=playerId;
     }
