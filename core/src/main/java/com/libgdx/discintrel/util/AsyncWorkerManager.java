@@ -18,4 +18,5 @@ public class AsyncWorkerManager {
         outpool.playerId=playerId;
         output.addAll(calcultatedpath);
     }
+    public void setputput(){this.PathOutput=PathOutput;}
 }
