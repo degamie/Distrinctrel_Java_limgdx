@@ -1,4 +1,4 @@
-//WID(01/07/2026)(Sarthak Mittal)(DeGamieSign)#(DistricntrelService(logic(Optimization(nutpool))#1.1/1..1.1.1.1.1.1
+//WID(02/07/2026)(Sarthak Mittal)(DeGamieSign)#(DistricntrelService(logic(Optimization(nutpool))#1.1/1..1.1.1.1.1.1
 package com.libgdx.discintrel.Service;
 
 import com.badlogic.gdx.ApplicationListener;
@@ -182,6 +182,7 @@ ObjectMap<SpriteBatch> sb=new  ObjectMap<>();
 
     @Override
     public void create() {
+        int cores=Runtime.getRuntime().availableProcessors();
         int availableProcessors=Runtime.getRuntime().availableProcessors();
         service.setSpeed(speed);
         sfxManager.create();
