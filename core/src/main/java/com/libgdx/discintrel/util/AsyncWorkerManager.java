@@ -1,9 +1,10 @@
-//WID(2/7/2026(Sartthak Mittal(DegamieSign(AsyncWorkerManager))#1.1.1
+//WID(3/7/2026(Sartthak Mittal(DegamieSign(AsyncWorkerManager))#1.1.1
 package util;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 import util.PathOutput;
 public class AsyncWorkerManager {
+    public void setputput(){this.PathOutput=PathOutput;}
     ConcurrentLinkedQueue getConcurrentLinkedQueue(ConcurrentLinkedQueue concurrentLinkedQueue){return concurrentLinkedQueue;}//Fetching concurrentLinkedQueue in GameApp
     public final ConcurrentLinkedQueue<PathOutput> clq=new ConcurrentLinkedQueue();
     @Override
@@ -18,5 +19,12 @@ public class AsyncWorkerManager {
         outpool.playerId=playerId;
         output.addAll(calcultatedpath);
     }
-    public void setputput(){this.PathOutput=PathOutput;}
+    public void updateOutput(){
+        while(!outputQueue.isEmpty()){
+            PathOutput out=new clq.isEmpty();
+            PathOutput outputs=PatPathOutput.poll();
+            if(out!=null){}//TBI
+        }
+    }
+
 }
