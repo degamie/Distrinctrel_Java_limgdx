@@ -1,4 +1,4 @@
-//WID(03/07/2026)(Sarthak Mittal)(DeGamieSign)#(DistricntrelService(logic(Optimization(nutpool))#1.1/1..1.1.1.1.1.1
+//WID(03/07/2026)(Sarthak Mittal)(DeGamieSign)#(DistricntrelService(logic(Optimization(nutpool))#Impl
 package com.libgdx.discintrel.Service;
 
 import com.badlogic.gdx.ApplicationListener;
@@ -19,9 +19,9 @@ import com.libgdx.discintrel.util.SfxManager;
 
 // Placeholder interface to represent your structural layout/hex board mapping
 interface BoardState {
-    boolean isChangedpos(int q,int r);C
+    boolean isChangedpos(int q,int r);
     boolean isOccupied(int q, int r);
-}e
+}
 
 // Dummy base class placeholders provided to match your inheritance requirement
 //class SfxManager {
@@ -38,6 +38,9 @@ class Label {
 
 public class DescintrelService extends SfxManager implements ApplicationListener {
     public static Pool<PathCalculationTask>calculationTaskPool;
+    public void requestAsyncpath(String playerId,final Vector2 start,final Vector2  end){
+        //TBI
+    }
     public ExecutorService executorService;
     public void existsBytmpVelocity(Vector2 tmpVelocity){
         if(tmpVelocity!=0)getTmpVelocity(tmpVelocity);
