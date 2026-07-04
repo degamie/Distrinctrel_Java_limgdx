@@ -1,7 +1,8 @@
-//WID(2/7/2026(Sarthak Mittal(VectorCache_Impl)s
+//WID(4/7/2026(Sarthak Mittal(VectorCache_Impl)s
 public class VectorCache{
+    public void setindx(int indx){this.indx=indx;}
     public void setV2pool(Vector2 v2pool){this.v2pool=v2pool;}
     public final Vector2 v2pool=new Vector2[4];
-    public final static indx=0;
+    public final static int indx=0;
 
 }
