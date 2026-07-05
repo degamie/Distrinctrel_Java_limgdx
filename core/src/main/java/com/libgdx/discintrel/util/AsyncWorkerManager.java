@@ -1,4 +1,4 @@
-//WID(4/7/2026(Sartthak Mittal(DegamieSign(AsyncWorkerManager))#1.1.1
+//WID(5/7/2026(Sartthak Mittal(DegamieSign(AsyncWorkerManager))#1.1.1
 package util;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
@@ -21,10 +21,13 @@ public class AsyncWorkerManager {
         output.addAll(calcultatedpath);
     }
     public void updateOutput(){
+        String playerId=new String();
         while(!outputQueue.isEmpty()){
             PathOutput out=new clq.isEmpty();
             PathOutput outputs=PatPathOutput.poll();
-            if(out!=null){}//TBI
+            if(out!=null){
+                 DistrinctEntity player=EntityManager.getPlayerId(playerId);
+            }//Safely Applying Data on OpenGL Thread
         }
     }
 
