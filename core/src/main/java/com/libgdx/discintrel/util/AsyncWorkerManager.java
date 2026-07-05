@@ -4,6 +4,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 
 import util.PathOutput;
 public class AsyncWorkerManager {
+    public void setoutputPool(PathOutput outpool){this.outputPool=outpool;}
     public voif setclq(ConcurrentLinkedQueue<PathOutput> clq){this.clq=clq;}//bInidng CLQ in GameApp
     public void setputput(){this.PathOutput=PathOutput;}
     ConcurrentLinkedQueue getConcurrentLinkedQueue(ConcurrentLinkedQueue concurrentLinkedQueue){return concurrentLinkedQueue;}//Fetching concurrentLinkedQueue in GameApp
