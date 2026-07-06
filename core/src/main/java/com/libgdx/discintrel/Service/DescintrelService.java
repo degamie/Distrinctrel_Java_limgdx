@@ -1,4 +1,4 @@
-//WID(04/07/2026)(Sarthak Mittal)(DeGamieSign)#(DistricntrelService(logic(Optimization(nutpool))#Impl
+//WID(06/07/2026)(Sarthak Mittal)(DeGamieSign)#(DistricntrelService(logic(Optimization(nutpool))#Impl
 package com.libgdx.discintrel.Service;
 
 import com.badlogic.gdx.ApplicationListener;
@@ -37,6 +37,7 @@ class Label {
 }
 
 public class DescintrelService extends SfxManager implements ApplicationListener {
+    public void setCalculationTaskPool(Pool<PathCalculationTask>calculationTaskPool){this.calculationTaskPool=calculationTaskPool;}
     public static Pool<PathCalculationTask>calculationTaskPool;
     public void requestAsyncpath(String playerId,final Vector2 start,final Vector2  end){
       PathCalculationTask pathCalculationTask;
