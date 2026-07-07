@@ -1,5 +1,6 @@
-//WID(5/7/2026)(Sarthak Mittal(DegamieSign(PooledParticleSys)#Impl))(Interview_Related)
+//WID(7/7/2026)(Sarthak Mittal(DegamieSign(PooledParticleSys)#Impl))(Interview_Related)
 public class PooledParticleSys{
+    public void setParticle(Array<PooledParticleSys>particle){this.particle=particle;}//binidng particle in GameAoo
     public final Array<PooledParticle>particle=new Array<>();
     public void update(float delta){
         //Updating PooledParticle's arr's  elem's indx from left to right to Optimize in Main Game
