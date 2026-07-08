@@ -1,5 +1,8 @@
-//WID(7/7/2026)(Sarthak Mittal(DegamieSign(PooledParticleSys)#Impl))(Interview_Related)
+//WID(8/7/2026)(Sarthak Mittal(DegamieSign(PooledParticleSys)#Impl))(Interview_Related) /
 public class PooledParticleSys{
+    public void init(float x,float y){
+        this.position.set(x,y);
+    }
     public void setParticle(Array<PooledParticleSys>particle){this.particle=particle;}//binidng particle in GameAoo
     public final Array<PooledParticle>particle=new Array<>();
     public void update(float delta){
