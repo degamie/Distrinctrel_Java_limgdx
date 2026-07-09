@@ -1,5 +1,10 @@
-//WID(8/7/2026)(Sarthak Mittal(DegamieSign(PooledParticleSys)#Impl))(Interview_Related) /
+//WID(9/7/2026)(Sarthak Mittal(DegamieSign(PooledParticleSys)#Impl))(Interview_Related) /
 public class PooledParticleSys{
+    public void spawn(float x,float y) {
+        PooledParticleSys pps=new PooledParticleSys().obtain();
+        pps.init(x,y);
+    }
+
     public void init(float x,float y){
         this.position.set(x,y);
     }
