@@ -1,5 +1,6 @@
 //WID(9/7/2026)(Sarthak Mittal(DegamieSign(PooledParticleSys)#Impl))(Interview_Related) /
 public class PooledParticleSys{
+    GLProfiler glProfiler=new GLProfiler(GDX.graphics);//Monitors GPU-Bottlenecks(low fps-rate)
     public void spawn(float x,float y) {
         PooledParticleSys pps=new PooledParticleSys().obtain();
         pps.init(x,y);
