@@ -1,5 +1,6 @@
-//WID(9/7/2026)(Sarthak Mittal(DegamieSign(PooledParticleSys)#Impl))(Interview_Related) /
+//WID(11/7/2026)(Sarthak Mittal(DegamieSign(PooledParticleSys)#Impl))(Interview_Related) /.1
 public class PooledParticleSys{
+    void setGlProfilerI(GLProfiler glProfiler){this.glProfiler=glProfiler;}//binding glProfiler in GameApp
     GLProfiler glProfiler=new GLProfiler(GDX.graphics);//Monitors GPU-Bottlenecks(low fps-rate)
     public void spawn(float x,float y) {
         PooledParticleSys pps=new PooledParticleSys().obtain();
