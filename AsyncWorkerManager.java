@@ -1,0 +1,1 @@
+output.waypoints.addAll(calculatedPath);
