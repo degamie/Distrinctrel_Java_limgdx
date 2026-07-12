@@ -1,4 +1,4 @@
-//WID(5/7/2026(Sartthak Mittal(DegamieSign(AsyncWorkerManager))#1.1.1/1
+//WID(7/7/2026(Sartthak Mittal(DegamieSign(AsyncWorkerManager))#1.1.1/1
 package util;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
@@ -32,6 +32,7 @@ public class AsyncWorkerManager
                  DistrinctEntity player=EntityManager.getPlayerId(playerId);
             }//Safely Applying Data on OpenGL Thread
             particlepool.free(out);
+            synchronized(outpool){output.free(out);}//Free up Output pool's Memory Queues in Game App
         }
     }
 
