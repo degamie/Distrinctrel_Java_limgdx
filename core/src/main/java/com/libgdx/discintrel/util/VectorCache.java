@@ -1,8 +1,9 @@
-//WID(9/7/2026(Sarthak Mittal(VectorCache_Impl)
+//WID(14/7/2026(Sarthak Mittal(VectorCache_Impl)#1
 import androidx.xr.runtime.math.Vector2;
 
 
 public class VectorCache{
+    public void setVectorCache(VectorCache vectorCache){this.vectorCache=vectorCache;}
     VectorCache(Vector2 v2pool){this.v2pool=v2pool;}//Param Constructor
     public void setindx(int indx){this.indx=indx;}
     public void setV2pool(Vector2 v2pool){this.v2pool=v2pool;}
