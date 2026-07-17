@@ -1,10 +1,14 @@
-//WID(14/7/2026(Sartthak Mittal(DegamieSign(AsyncWorkerManager))#1.1.1/1#Impl
+//WID(17/7/2026(Sartthak Mittal(DegamieSign(AsyncWorkerManager))#1.1.1/1#Impl.1
 package util;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 import util.PathOutput;
 public class AsyncWorkerManager
 {
+    public void existsByworkerManaeger(AsyncWorkerManager asyncWorkerManager){
+        if(asyncWorkerManager.output()!==null)getasyncworkerManager(asyncWorkerManager);
+        else getasyncworkerManager(null);
+    }
     public void updateByouputPool(PathOutput outpool){
         getByoutputPool(outpool)+setoutputPool(outpool)+1;
     }
