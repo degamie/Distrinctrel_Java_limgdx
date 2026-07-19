@@ -1,4 +1,4 @@
-//WID(18/7/2026(Sarthak Mittal(DegamieSign(GameScene(optimization))#Impl#1.1.1
+//WID(19/7/2026(Sarthak Mittal(DegamieSign(GameScene(optimization))#Impl#1.1.1
 package util;
 
 import com.badlogic.gdx.utils.Array;
@@ -6,6 +6,12 @@ import com.badlogic.gdx.utils.Pool.Poolable;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 public class PathOutput extends Poolable{
+    @Override
+    public void reset(){
+        playerId-=1;
+        waypts.clear();
+
+    }
     public void init(float x,float y,float Velx,float VelY){}
     public void setPathOutput(PathOutput pathOutput){this.pathOutput=pathOutput;}
     public void requestpath(int playerId,Vector2 start,Vector2 end){
