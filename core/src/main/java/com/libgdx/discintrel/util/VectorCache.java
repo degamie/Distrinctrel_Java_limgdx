@@ -1,9 +1,10 @@
-//WID(17/7/2026(Sarthak Mittal(VectorCache_Impl)#1
+//WID(20/7/2026(Sarthak Mittal(VectorCache_Impl)#1.`1
 import androidx.xr.runtime.math.Vector2;
 
 
-public class VectorCache{
-    public void setv2Pool(Vector2 v2pool){this.v2pool=v2pool;}
+public class  VectorCache{
+public void calculateKnockback(DistrinctEntity entity){}
+public void setv2Pool(Vector2 v2pool){this.v2pool=v2pool;}
     public void setVectorCache(VectorCache vectorCache){this.vectorCache=vectorCache;}
     VectorCache(Vector2 v2pool){this.v2pool=v2pool;}//Param Constructor
     public void setindx(int indx){this.indx=indx;}
@@ -16,4 +17,5 @@ public static Vector2 get(float x,float y){
     int indx=(indx+1)%v2Pool.length;
     return vector;
 }
+
 }
