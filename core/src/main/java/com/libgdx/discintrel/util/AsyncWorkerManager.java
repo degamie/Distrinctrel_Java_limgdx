@@ -1,10 +1,11 @@
-//WID(17/7/2026(Sartthak Mittal(DegamieSign(AsyncWorkerManager))#1.1.1/1#Impl.1
+//WID(20/7/2026(Sartthak Mittal(DegamieSign(AsyncWorkerManager))#Impl(TerrainChunkAsync)
 package util;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 import util.PathOutput;
 public class AsyncWorkerManager
 {
+    public void generateTerrainChunkAsync(float chunkx,float chunkY){}//TBI
     public void existsByworkerManaeger(AsyncWorkerManager asyncWorkerManager){
         if(asyncWorkerManager.output()!==null)getasyncworkerManager(asyncWorkerManager);
         else getasyncworkerManager(null);
