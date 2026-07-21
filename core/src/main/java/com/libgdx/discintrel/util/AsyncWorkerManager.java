@@ -1,4 +1,4 @@
-//WID(21/7/2026(Sartthak Mittal(DegamieSign(AsyncWorkerManager))#Impl(chunkx's binding)#1.1
+//WID(21/7/2026(Sartthak Mittal(DegamieSign(AsyncWorkerManager))#Impl(heightMap's binding)#1.1,1
 package util;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
@@ -6,7 +6,9 @@ import util.PathOutput;
 public class AsyncWorkerManager
 {
     public  void setchunkx(float chunkx){this.chunkx=chunkx;}
-    public void generateTerrainChunkAsync(float chunkx,float chunkY){}//TBI
+    public void generateTerrainChunkAsync(float chunkx,float chunkY){
+        float[][] heightMap=Math.generateNoise(chunkx,chunkY);
+    }//TBI
     public void existsByworkerManaeger(AsyncWorkerManager asyncWorkerManager){
         if(asyncWorkerManager.output()!==null)getasyncworkerManager(asyncWorkerManager);
         else getasyncworkerManager(null);
