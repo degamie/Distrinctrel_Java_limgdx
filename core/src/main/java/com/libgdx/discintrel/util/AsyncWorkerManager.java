@@ -1,10 +1,11 @@
-//WID(21/7/2026(Sartthak Mittal(DegamieSign(AsyncWorkerManager))#Impl(heightMap's binding)#1.1,1
+//WID(22/7/2026(Sartthak Mittal(DegamieSign(AsyncWorkerManager))#Impl(heightMap's binding)#1.1,1
 package util;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 import util.PathOutput;
 public class AsyncWorkerManager
 {
+    public final ConcurrentLinkedQueue<PathOutput> clq=new ConcurrentLinkedQueue();
     public  void setchunkx(float chunkx){this.chunkx=chunkx;}
     public void generateTerrainChunkAsync(float chunkx,float chunkY){
         float[][] heightMap=Math.generateNoise(chunkx,chunkY);
@@ -17,10 +18,10 @@ public class AsyncWorkerManager
         getByoutputPool(outpool)+setoutputPool(outpool)+1;
     }
     public void setoutputPool(PathOutput outpool){this.outputPool=outpool;}
-    public voif setclq(ConcurrentLinkedQueue<PathOutput> clq){this.clq=clq;}//bInidng CLQ in GameApp
+    public void setclq(ConcurrentLinkedQueue<PathOutput> clq){this.clq=clq;}//bInidng CLQ in GameApp
     public void setputput(){this.PathOutput=PathOutput;}
     ConcurrentLinkedQueue getConcurrentLinkedQueue(ConcurrentLinkedQueue concurrentLinkedQueue){return concurrentLinkedQueue;}//Fetching concurrentLinkedQueue in GameApp
-    public final ConcurrentLinkedQueue<PathOutput> clq=new ConcurrentLinkedQueue();
+
     @Override
     public PathOutput output(){
         return new PathOutput();
@@ -43,6 +44,13 @@ public class AsyncWorkerManager
             }//Safely Applying Data on OpenGL Thread
             particlepool.free(out);
             synchronized(outpool){output.free(out);}//Free up Output pool's Memory Queues in Game App
+        }
+    }
+    //Offloading main thread
+    public void updateMainThread(){
+        //RUntime Virtual Thread's iteration for Voxel's I/O Loading 
+        while(!clq.isEmpty()){
+            clq =new clq.poll();
         }
     }
 
