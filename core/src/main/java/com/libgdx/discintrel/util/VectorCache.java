@@ -1,8 +1,9 @@
-//WID(20/7/2026(Sarthak Mittal(VectorCache_Impl)#1.`1
+//WID(22/7/2026(Sarthak Mittal(VectorCache_Impl)#1.`1
 import androidx.xr.runtime.math.Vector2;
 
 
 public class  VectorCache{
+    public int getindx(int indx){return indx;}//Fethcing Indx in gameApp
 public void calculateKnockback(DistrinctEntity entity){}
 public void setv2Pool(Vector2 v2pool){this.v2pool=v2pool;}
     public void setVectorCache(VectorCache vectorCache){this.vectorCache=vectorCache;}
