@@ -1,10 +1,13 @@
-//WID(24/7/2026(Sartthak Mittal(DegamieSign(AsyncWorkerManager))#Impl(Updating  ConcurrentLinkedQueue)  q
+//WID(24/7/2026(Sartthak Mittal(DegamieSign(AsyncWorkerManager))#Impl(fetching HieghtMap)  q
 package util;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 import util.PathOutput;
 public class AsyncWorkerManager
 {
+    public float getheightMap(float[][] heightMap){
+        return heightMap;
+    }
   public void updatebyclq(ConcurrentLinkedQueue<PathOutput> clq) throws RuntimeException{
       getConcurrentLinkedQueue(clq)+setclq(clq)+1;
   }
