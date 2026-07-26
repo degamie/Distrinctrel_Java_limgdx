@@ -48,7 +48,7 @@ gwt.extraSourceDirs.from(
   files(project(":core").file('src/main/java')),
   files(project(':core').sourceSets.main.allJava.srcDirs),
   files("../core/build/generated/sources/annotationProcessor/java/main"),
-  files(sourceSets.main.output.resourcesDir)
+  files(sourceSets.main.output.resourcesDir),
     files(project(':shared').sourceSets.main.allJava.srcDirs)
 )
 
