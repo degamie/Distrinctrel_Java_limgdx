@@ -5,6 +5,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import util.PathOutput;
 public class AsyncWorkerManager
 {
+
     public float getheightMap(float[][] heightMap){
         return heightMap;
     }
