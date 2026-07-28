@@ -1,4 +1,4 @@
-//WID(27/7/2026(Sarthak Mittal(DegamieSign(GameScene(optimization))#Impl#1.1.1/1
+//WID(28/7/2026(Sarthak Mittal(DegamieSign(GameScene(optimization))#Impl#1.1.1/1
 package util;
 
 import com.badlogic.gdx.utils.Array;
@@ -25,7 +25,9 @@ public class PathOutput extends Poolable{
         waypts.clear();
 
     }
-    public void init(float x,float y,float Velx,float VelY){}
+    public void init(float x,float y,float Velx,float VelY){
+        PathSpline<Vector2>pathSpline=new PathSpline<>();
+    }
     public void setPathOutput(PathOutput pathOutput){this.pathOutput=pathOutput;}
     public void requestpath(int playerId,Vector2 start,Vector2 end){
         PathCalculatedTask  task;
