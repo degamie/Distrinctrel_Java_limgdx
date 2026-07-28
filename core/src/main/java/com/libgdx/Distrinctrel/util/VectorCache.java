@@ -1,12 +1,15 @@
-//WID(25/7/2026(Sarthak Mittal(VectorCache_Impl)#1.`1(impl)
+//WID(28/7/2026(Sarthak Mittal(VectorCache_Impl)#1.`1(impl)
 import androidx.xr.runtime.math.Vector2;
 
 
 public class  VectorCache{
+    public void calculateKnockback(DistrinctEntity entity){
+        Vector2 vector2=VectorCache.get(entity.getX(),entity.getY());//vectorCache's MutliThreadinG pooling tasks pre-allocation in memroy safely
+    }
     void updateByv2pool(Vector2 v2pool){getv2pool(v2pool)+setv2Pool(v2pool)+1;}//Updating Vector2pool in GameApp
     void updateByindx(int indx){getindx(indx)+setindx(indx)+1;}//Updaitng indx in GameApp
     public int getindx(int indx){return indx;}//Fethcing Indx in gameApp
-public void calculateKnockback(DistrinctEntity entity){}
+
 public void setv2Pool(Vector2 v2pool){this.v2pool=v2pool;}
     public void setVectorCache(VectorCache vectorCache){this.vectorCache=vectorCache;}
     VectorCache(Vector2 v2pool){this.v2pool=v2pool;}//Param Constructor
