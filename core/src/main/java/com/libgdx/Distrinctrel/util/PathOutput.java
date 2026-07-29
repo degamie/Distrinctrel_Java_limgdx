@@ -1,4 +1,4 @@
-//WID(28/7/2026(Sarthak Mittal(DegamieSign(GameScene(optimization))#Impl#1.1.1,1
+//WID(29/7/2026(Sarthak Mittal(DegamieSign(GameScene(optimization))#Impl#1.1.1,1
 package util;
 
 import com.badlogic.gdx.utils.Array;
@@ -6,6 +6,7 @@ import com.badlogic.gdx.utils.Pool.Poolable;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 public class PathOutput extends Poolable{
+    public ConcurrentAllocFreeMap concurrentAllocFreeMap;
     public void setpathtaskexecute(ThreadTaskPoolExecutor threadTaskPoolExecutor){this.threadTaskPoolExecutor=threadTaskPoolExecutor;}///Binding ThreadtaskPoolExecutor In GameApp
     void setReqcnt(Vector2<Integer>reqcnt){
         this.reqcnt=reqcnt;
