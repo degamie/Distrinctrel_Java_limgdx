@@ -1,10 +1,13 @@
-//WID(24/7/2026(Sartthak Mittal(DegamieSign(AsyncWorkerManager))#Impl(fetching HieghtMap)  q
+//WID(29/7/2026(Sartthak Mittal(DegamieSign(AsyncWorkerManager))#Impl(fetching HieghtMap)  q
 package util;
 import util.PathOutput;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class AsyncWorkerManager {
 
+    void setpathOutput(ConcurrentLinkedQueue<PathOutput> pathOutputQueue){
+        this.pathOutputQueue=pathOutputQueue;
+    }
     private float[][] heightMap;
     private float chunkX;
     private float chunkY;
