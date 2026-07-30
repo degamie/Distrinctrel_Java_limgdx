@@ -1,9 +1,10 @@
-//WID(29/7/2026(Sartthak Mittal(DegamieSign(AsyncWorkerManager))#Impl(Binidng Task)#1
+//WID(30/7/2026(Sartthak Mittal(DegamieSign(AsyncWorkerManager))#Impl(Binidng Task)#1.1
 package util;
 import util.PathOutput;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class AsyncWorkerManager {
+    public ObjectSet objectSet;
     void setTask(PathOutput task){this.task=task;}
 
     void setpathOutput(ConcurrentLinkedQueue<PathOutput> pathOutputQueue){
