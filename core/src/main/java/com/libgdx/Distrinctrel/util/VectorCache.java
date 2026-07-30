@@ -1,8 +1,14 @@
-//WID(28/7/2026(Sarthak Mittal(VectorCache_Impl)#1.`1(impl)
+//WID(30/7/2026(Sarthak Mittal(VectorCache_Impl)#1.`1(impl)
 import androidx.xr.runtime.math.Vector2;
 
 
 public class  VectorCache{
+    public void existsByv2Pool(Vector2 v2pool){
+        if(v2pool.isEquals()!=0){
+            getv2Pool(v2pool);}
+            else getv2Pool(0);
+
+    }
     public void calculateKnockback(DistrinctEntity entity){
         Vector2 vector2=VectorCache.get(entity.getX(),entity.getY());//vectorCache's MutliThreadinG pooling tasks pre-allocation in memroy safely
     }
