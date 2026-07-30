@@ -1,4 +1,7 @@
-# Discintrel
+
+# Discintrel(2026)=>It is a free, open-source game where players control a squirrel gathering nuts in a sunlit forest. The more nuts collected, the higher the score, with progression to increasingly challenging levels. Built entirely with Java's LibGDX library, the project leverages Spring Boot architecture to ensure clean, maintainable, and scalable code. The game has been successfully released on itch.io and is available to players worldwide.
+
+
 
 A [libGDX](https://libgdx.com/) project generated with [gdx-liftoff](https://github.com/libgdx/gdx-liftoff).
 
@@ -43,3 +46,9 @@ Useful Gradle tasks and flags:
 
 Note that most tasks that are not specific to a single project can be run with `name:` prefix, where the `name` should be replaced with the ID of a specific project.
 For example, `core:clean` removes `build` folder only from the `core` project.
+ITS in WID(Work In Dev)
+
+
+https://github.com/user-attachments/assets/985ad94a-9e99-45db-a544-76c10c7eea24
+
+
