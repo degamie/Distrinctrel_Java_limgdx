@@ -1,6 +1,7 @@
-//WID(31/7/2026)(Sarthak Mittal(DegamieSign(EntityWorkerManeger))#Impl#1
+//WID(31/7/2026)(Sarthak Mittal(DegamieSign(EntityWorkerManeger))#Impl#1.1
 import com.badlogic.gdx.utils.Bits;
 public class EntityWorkerManager{
+    void setVelocityComp(int VELOCITY_COMP){this.VELOCITY_COMP=VELOCITY_COMP;}
     public final static int RENDER_COMP=2;
     private final static int VELOCITY_COMP=1;
     public void setPOSITION_COMP(String POSITION_COMP){this.POSITION_COMP=POSITION_COMP;}//binding Position Compoennt in  GameApp
