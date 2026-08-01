@@ -1,9 +1,10 @@
-//WID(31/7/2026(Sarthak Mittal(VectorCache_Impl)#1.`1(impl)
+//WID(01/8/2026(Sarthak Mittal(VectorCache_Impl)#1.`1(impl)
 import androidx.xr.runtime.math.Vector2;
 
 
 public class  VectorCache{
-    public VectorCache cache;
+     VectorCache getvectorCache(VectorCache vectorCache){return vectorCache;}
+    public VectorCache vectorCache;
     public void existsByv2Pool(Vector2 v2pool){
         if(v2pool.isEquals()!=0){
             getv2Pool(v2pool);}
