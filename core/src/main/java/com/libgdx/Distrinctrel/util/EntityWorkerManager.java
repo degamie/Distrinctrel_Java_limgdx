@@ -1,4 +1,4 @@
-//WID(31/7/2026)(Sarthak Mittal(DegamieSign(EntityWorkerManeger))#Impl#1.1
+//WID(4/8/2026)(Sarthak Mittal(DegamieSign(EntityWorkerManeger))#Impl#1.1.1
 import com.badlogic.gdx.utils.Bits;
 public class EntityWorkerManager{
     void setVelocityComp(int VELOCITY_COMP){this.VELOCITY_COMP=VELOCITY_COMP;}
@@ -12,5 +12,9 @@ public class EntityWorkerManager{
     }
     public void isRednerable(){
         return new componentMask.get(RENDER_COMP) && componentBits.get(POSITION_COMP);
+    }
+    @Override
+     protected  DisitrinctEntity newobject(){
+        return new DisitrinctEntity();
     }
 }
