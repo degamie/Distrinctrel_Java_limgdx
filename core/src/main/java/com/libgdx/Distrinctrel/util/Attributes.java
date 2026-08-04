@@ -1,4 +1,4 @@
-//WID(10s/07/2026)(Sarthak Mittal)(Degamiesign)(Distrinctrel)(Attributes)#1
+//WID(4/8/2026)(Sarthak Mittal)(Degamiesign)(Distrinctrel)(Attributes)#1
 package com.libgdx.discintrel.util;
 
 import com.badlogic.gdx.Gdx;
@@ -62,7 +62,9 @@ public void existsByZ(int z){if(z==0)getZ(z);else getZ(0);}//Checking Z's existe
     public GridPoint2[] getGrid(GridPoint2[] grid)) {
         return grid;
     }
-
+public void updateBygrid(GridPoint2[] grid){
+    setGrid(grid)+getGrid(grid);
+}
     public void setGrid(GridPoint2[] grid){this.grid=grid;}//binding Grid in App
 //    private int getLevel(int level){return level;}//Fetching vba
     public void existsByCamera(OrthographicCamera camera){if(camera!=null)getcamera(camera);else getcamera(null);}//Checking Camera In App
