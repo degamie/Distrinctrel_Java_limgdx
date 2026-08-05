@@ -1,4 +1,4 @@
-//WID(03/8/2026(Sartthak Mittal(DegamieSign(AsyncWorkerManager))#Impl(Binidng Task)#1.1
+//WID(05/8/2026(Sartthak Mittal(DegamieSign(AsyncWorkerManager))#Impl(Binidng Task)#1.1
 package util;
 import util.PathOutput;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -18,6 +18,7 @@ public class AsyncWorkerManager {
     private float chunkX;
     private float chunkY;
     private PathOutput outputPool;
+    void setoutputPool(PathOutput outputPool){this.outputPool=outputPool;}
 
     // Final thread-safe queue for async path outputs
     private final ConcurrentLinkedQueue<PathOutput> pathOutputQueue = new ConcurrentLinkedQueue<>();
