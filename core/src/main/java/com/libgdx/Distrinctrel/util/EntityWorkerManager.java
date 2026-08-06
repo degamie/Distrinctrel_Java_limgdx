@@ -1,6 +1,7 @@
-//WID(4/8/2026)(Sarthak Mittal(DegamieSign(EntityWorkerManeger))#Impl#1.1.1
+//WID(8/8/2026)(Sarthak Mittal(DegamieSign(EntityWorkerManeger))#Impl#1.1.1
 import com.badlogic.gdx.utils.Bits;
 public class EntityWorkerManager{
+    void setRenderComp(int RENDER_COMP){this.RENDER_COMP=RENDER_COMP;}//Binding RenderComp in GameApp
     void setVelocityComp(int VELOCITY_COMP){this.VELOCITY_COMP=VELOCITY_COMP;}
     public final static int RENDER_COMP=2;
     private final static int VELOCITY_COMP=1;
