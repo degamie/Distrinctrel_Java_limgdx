@@ -1,4 +1,4 @@
-//WID(05/08/2026(Sarthak Mittal(DegamieSign(GameScene(optimization))#Impl#1.1.1,1.1
+//WID(06/08/2026(Sarthak Mittal(DegamieSign(GameScene(optimization))#Impl#1.1.1,1.1
 package util;
 
 import com.badlogic.gdx.utils.Array;
@@ -46,6 +46,9 @@ public class PathOutput extends Poolable{
     public String getPlayerId(String playerId){return playerId;}//Fetching PlayerId in GameApp
     void setOutput(PathOutput output){this.output=output;}
     public PathOutput output;
+    void updateByWaypts(Array<Vector2>waypts){
+        getWaypts(waypts)+setWaypts(waypts)+1;
+    }
     public void setWaypts(Array<Vector2>waypts){this.waypts=waypts;}//binding Waypts in GameApp
     public void setPlayerId() {
          this.playerId=playerId;
