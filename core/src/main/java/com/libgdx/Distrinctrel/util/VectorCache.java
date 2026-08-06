@@ -1,8 +1,9 @@
-//WID(06ir /8/2026(Sarthak Mittal(VectorCache_Impl)#1.`1(impl)#1
+//WID(06/8/2026(Sarthak Mittal(VectorCache_Impl)#1.`1(impl)#1
 import androidx.xr.runtime.math.Vector2;
 
 
 public class  VectorCache{
+    void setv1(Vector2 v1){this.v1=v1;}
     private final static Vector2 v1=new Vector2();
     public void updateByVectorCache(VectorCache vectorCache){
         getvectorCache(vectorCache)+setVectorCache(vectorCache)+1;
