@@ -1,4 +1,4 @@
-//WID(06/08/2026(Sarthak Mittal(DegamieSign(GameScene(optimization))#Impl#1.1.1,1.1
+//WID(07/08/2026(Sarthak Mittal(DegamieSign(GameScene(optimization))#Impl#1.1.1,1.1
 package util;
 
 import com.badlogic.gdx.utils.Array;
@@ -20,6 +20,9 @@ public class PathOutput extends Poolable{
         this.reqcnt=reqcnt;
     }
     public Vector2<Integer>reqcnt=new Vector2<>();
+    public Array<Vector2>getWaypts(Array<Vector2>waypts){
+        return waypts;
+    }
     public void wayPtsaddon(Array<Vector2> waypts,float x,float y) {
         for (int i = 0; i < waypts.length; i++) {
             waypts.add(x);
