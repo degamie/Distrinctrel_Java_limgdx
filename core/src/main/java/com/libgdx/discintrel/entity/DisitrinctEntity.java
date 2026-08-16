@@ -1,4 +1,4 @@
-//WID(21/3/2026)(Sarthak Mittal)(DegamieISign)#1.1.1,1.1.1
+//WID(16/8/2026)(Sarthak Mittal)(DegamieISign)#1.1.1,1.1.1.1
 package com.libgdx.discintrel.entity;
 
 
@@ -28,6 +28,7 @@ public class DisitrinctEntity{
     public Stage getStage() {
         return stage;
     }
+    void setCamera(OrthographicCamera camera){this.camera=camera;}
 
     public void setStage(Stage stage) {
         this.stage = stage;
