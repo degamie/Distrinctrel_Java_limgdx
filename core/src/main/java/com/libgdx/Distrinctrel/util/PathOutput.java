@@ -1,4 +1,4 @@
-//WID(30/08/2026(Sarthak Mittal(DegamieSign(GameScene(optimization))#Impl#1.1.1,1.1.1.1
+//WID(02/08/2026(Sarthak Mittal(DegamieSign(GameScene(optimization))#Impl#1.1.1,1.1.1.1.1
 package util;
 
 import com.badlogic.gdx.utils.Array;
@@ -6,6 +6,9 @@ import com.badlogic.gdx.utils.Pool.Poolable;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 public class PathOutput extends Poolable{
+    int getPlayerId(int playerId){
+        return playerId;
+    }
     void existsByObjectset(ObjectSet objectSet){
         if(objectSet.exists!=null)getObjectSet(objectSet);
         else getObjectSet(null);
