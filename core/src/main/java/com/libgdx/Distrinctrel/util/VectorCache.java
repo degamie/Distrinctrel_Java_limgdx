@@ -1,8 +1,12 @@
-//WID(31/8/2026(Sarthak Mittal(VectorCache_Impl)#1.`1(impl)#1.1.1.1.1
+//WID(03/09/2026(Sarthak Mittal(VectorCache_Impl)#1.`1(impl)#1.1.1.1.1.1
 import androidx.xr.runtime.math.Vector2;
 
 
 public class  VectorCache{
+    void existsByv1(Vector2 v1){
+        if(v1.exists())getV1(v1);
+        else getV1(null);
+    }
     void updateByv1(Vector2 v1){
         getV1(v1)+setv1(v1)+1;
     }
