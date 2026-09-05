@@ -1,4 +1,4 @@
-//WID(03/09/2026(Sarthak Mittal(VectorCache_Impl)#1.`1(impl)#1.1.1.1.1.1
+//WID(05/09/2026(Sarthak Mittal(VectorCache_Impl)#1.`1(impl)#1.1.1.1.1.11
 import androidx.xr.runtime.math.Vector2;
 
 
@@ -58,6 +58,10 @@ public void setv2Pool(Vector2 v2pool){this.v2pool=v2pool;}
     public void setindx(int indx){this.indx=indx;}
     public void setV2pool(Vector2 v2pool){this.v2pool=v2pool;}
     public Vector2 v2pool=new Vector2[4];
+    void existsByv2pool(Vector2 v2pool){
+        if(v2pool.exists())getv2pool(v2pool);
+        else getv2pool(null);
+    }
     public final static int indx=0;
 public static Vector2 get(float x,float y){
     Vector2 vector=new v2Pool[indx];
