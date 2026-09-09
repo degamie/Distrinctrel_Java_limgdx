@@ -1,4 +1,4 @@
-//WID(06/07/2026)(Sarthak Mittal)(DeGamieSign)#(DistricntrelService(logic(Optimization(nutpool))#Impl
+//WID(09/09/2026)(Sarthak Mittal)(DeGamieSign)#(DistricntrelService(logic(Optimization(nutpool))#Impl/1
 package com.libgdx.discintrel.Service;
 
 import com.badlogic.gdx.ApplicationListener;
@@ -73,7 +73,7 @@ public class DescintrelService extends SfxManager implements ApplicationListener
 }
 
     public DistrinctrelService service;
-
+void setGridxposangles(IntArray gridxposangles){this.gridxposangles=gridxposangles;}
     public IntArray getGridxposangles() {
         return gridxposangles;
     }
